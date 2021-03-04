@@ -12,6 +12,45 @@
 </head>
 <body>
 
+    <div class="text-center text-uppercase mt-5">
+        <h1>Memory Minder</h1>
+        <p><strong>Test your Memory:</strong>Match the pairs as quickly as possible, in as few moves as possible</p>
+    </div>
+
+    <div id="gameboard" class="container">
+        
+        <div class="row">
+            <div class="col-3 gametile" id="tile1"></div>
+            <div class="col-3 gametile" id="tile2"></div>
+            <div class="col-3 gametile" id="tile3"></div>
+            <div class="col-3 gametile" id="tile4"></div>
+            <div class="col-3 gametile" id="tile5"></div>
+            <div class="col-3 gametile" id="tile6"></div>
+            <div class="col-3 gametile" id="tile7"></div>
+            <div class="col-3 gametile" id="tile8"></div>
+            <div class="col-3 gametile" id="tile9"></div>
+            <div class="col-3 gametile" id="tile10"></div>
+            <div class="col-3 gametile" id="tile11"></div>
+            <div class="col-3 gametile" id="tile12"></div>
+        </div>
+        <div class="row">
+            <div class="col-4 label"><h3>Timer</h3></div>
+            <div class="col-4 label"><h3>Moves</h3></div>
+            <div class="col-4 label"><h3>Score</h3></div>
+            <div class="col-4" id="timer"><div></div></div>
+            <div class="col-4" id="clicks"><div></div></div>
+            <div class="col-4" id="score"><div></div></div>
+        </div>
+        <div class="row">
+            <div class="col-6 mt-4 text-center">
+                <button id="startGame" class="btn btn-success w-100">Start Game</button>
+            </div>
+            <div class="col-6 mt-4 text-center">
+                <button id="endGame" class="btn btn-danger w-100"> End Game </button>
+            </div>
+        </div>
+    </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
