@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Finger+Paint&display=swap');
+
+body{
+    font-family: 'Finger paint', cursive;
+    background-color: #222;
+}
+
+h1{
+    color: white;
+}
