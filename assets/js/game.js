@@ -82,6 +82,9 @@ function displayTile(){
     } else {
         console.log("Error: too many tiles");
     }
+    // this counts number of clicks
+    clicks = [i];
+    document.getElementById("clicks").firstChild.innerHTML = clicks;
 };
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
