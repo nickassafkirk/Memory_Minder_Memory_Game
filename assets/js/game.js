@@ -1,3 +1,6 @@
+//global variables
+
+
 //on page load -> generate game board;
 
 //start button initiates game and starts counter
@@ -5,7 +8,7 @@
 document.getElementById("startGame").addEventListener("click", startGame);
 
 function startGame(){
-    setTiles();
+    setRandomTileOrder();
     startTimer();  
 }
 
@@ -20,11 +23,39 @@ function endGame(){
 }
 //createRandom number function
 //creates random number which will later be assigned an icon
+//creates an array of 12 random numbers
+function setRandomTileOrder(){  
+    while(array.length < 12){
+        let randomNum = Math.random();
+        randomNum = randomNum * 11;
+        randomNum = Math.round(randomNum)+1;
 
-//icon assign funtion -> replaces random numbers with icon pairs
+        if(array.includes(randomNum)){
+            continue;
+        } else {
+            array.push(randomNum);     
+        }
+    }
+    console.log(array);
+}
+//icon assign function -> replaces random numbers with icon pairs
 //when icon assigned, tile is also assigned an attribute
 
-//showTiles -> function which listens for click event and displays tile value on click
+//displayTile -> function which listens for click event and displays tile value on click
+let tiles = document.querySelectorAll(".gametile");
+tiles.forEach(tile => tile.addEventListener("click", displayTile));
+
+let array = [];
+let i = 0;
+
+function displayTile(){
+    //reveal tile by changing bg color and changing font-size from 0 to 3em;
+
+    this.style.fontSize = "3em"
+    this.style.backgroundColor = "red"/*generateRGBVal()*/;
+    this.innerHTML = array[i];
+    i++;
+};
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
 //if match icons remain displayed and correctly guessed tiles become disabled. 
