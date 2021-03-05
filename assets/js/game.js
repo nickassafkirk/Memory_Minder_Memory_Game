@@ -65,6 +65,23 @@ function displayTile(){
     this.style.backgroundColor = "red"/*generateRGBVal()*/;
     this.innerHTML = array[i];
     i++;
+
+    //replace numerical valkues with icon pairs
+    if(this.innerHTML < 3){
+        this.innerHTML = rocket;
+    } else if (this.innerHTML < 5){
+        this.innerHTML = bacteria;
+    } else if (this.innerHTML < 7){
+        this.innerHTML = cocktail;
+    } else if (this.innerHTML < 9){
+        this.innerHTML = football;
+    } else if(this.innerHTML < 11){
+        this.innerHTML = poop;
+    } else if(this.innerHTML < 13){
+        this.innerHTML = kiwi;
+    } else {
+        console.log("Error: too many tiles");
+    }
 };
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
