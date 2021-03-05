@@ -36,6 +36,20 @@ function endGame(){
 //countClicks -> calculates number of user clicks -> needed to calculate score
 
 //Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
+let count;
+
+function startTimer(){
+   count = 60, timer = setInterval(function() {
+       count = count--;
+       document.getElementById("timer").firstChild.innerText = count--;
+
+       //end timer when timer reaches -1, This displays 0.
+       if(count === -1) {
+           clearInterval(timer);
+           document.getElementById("timer").firstChild.innerText = "Game Over";
+       }
+    }, 1000);
+}
 
 //calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
 
