@@ -4,10 +4,20 @@
 //initiates game start on button press
 document.getElementById("startGame").addEventListener("click", startGame);
 
+function startGame(){
+    setTiles();
+    startTimer();  
+}
+
 //end button stops the game
 document.getElementById('endGame').addEventListener("click", endGame);
 
-
+function endGame(){
+    function endTimer(){
+        clearInterval(timer);
+    }
+    endTimer();  
+}
 //createRandom number function
 //creates random number which will later be assigned an icon
 
