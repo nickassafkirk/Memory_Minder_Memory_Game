@@ -1,6 +1,8 @@
 //on page load -> generate game board;
 
 //start button initiates game and starts counter
+//initiates game start on button press
+document.getElementById("startGame").addEventListener("click", startGame);
 
 //end button stops the game
 
