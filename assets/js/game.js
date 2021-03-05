@@ -58,6 +58,8 @@ tiles.forEach(tile => tile.addEventListener("click", displayTile));
 let array = [];
 let i = 0;
 
+let clicks;
+
 function displayTile(){
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
 
@@ -66,19 +68,28 @@ function displayTile(){
     this.innerHTML = array[i];
     i++;
 
+    let colorArray = ["rgb(237, 21, 222)", "rgb(22, 206, 34)", "rgb(249, 129, 49)", "rgb(234, 212, 14)", "rgb(34, 244, 220)", "rgb(0, 65, 247)"];
+    
+
     //replace numerical valkues with icon pairs
     if(this.innerHTML < 3){
         this.innerHTML = rocket;
+        this.style.backgroundColor = colorArray[0];
     } else if (this.innerHTML < 5){
         this.innerHTML = bacteria;
+        this.style.backgroundColor = colorArray[1];
     } else if (this.innerHTML < 7){
         this.innerHTML = cocktail;
+        this.style.backgroundColor = colorArray[2];
     } else if (this.innerHTML < 9){
         this.innerHTML = football;
+        this.style.backgroundColor = colorArray[3];
     } else if(this.innerHTML < 11){
         this.innerHTML = poop;
+        this.style.backgroundColor = colorArray[4];
     } else if(this.innerHTML < 13){
         this.innerHTML = kiwi;
+        this.style.backgroundColor = colorArray[5];
     } else {
         console.log("Error: too many tiles");
     }
