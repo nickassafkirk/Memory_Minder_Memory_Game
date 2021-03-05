@@ -53,6 +53,7 @@ let cocktail = `<i class="fas fa-cocktail"></i>`;
 
 //displayTile -> function which listens for click event and displays tile value on click
 let tiles = document.querySelectorAll(".gametile");
+
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
 let array = [];
@@ -62,16 +63,26 @@ let clicks;
 
 function displayTile(){
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
-
+    if(this.getAttribute("state") != "selected"){
     this.style.fontSize = "3em"
     this.style.backgroundColor = "red"/*generateRGBVal()*/;
     this.innerHTML = array[i];
     i++;
-
-    let colorArray = ["rgb(237, 21, 222)", "rgb(22, 206, 34)", "rgb(249, 129, 49)", "rgb(234, 212, 14)", "rgb(34, 244, 220)", "rgb(0, 65, 247)"];
+    
+    //adds custom attr of state: selected to clicked tile
+    this.setAttribute("state","selected");
+    console.log(this.getAttribute("state"));
+    } else {
+        console.log("heuston we have a problem");
+    }    
     
 
-    //replace numerical valkues with icon pairs
+    
+    //add unique bg color for each pair of tiles
+    let colorArray = ["rgb(237, 21, 222)", "rgb(22, 206, 34)", "rgb(249, 129, 49)", "rgb(234, 212, 14)", "rgb(34, 244, 220)", "rgb(0, 65, 247)"];
+    
+    //replace numerical values with icon pairs
+
     if(this.innerHTML < 3){
         this.innerHTML = rocket;
         this.style.backgroundColor = colorArray[0];
@@ -100,6 +111,7 @@ function displayTile(){
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
 //if match icons remain displayed and correctly guessed tiles become disabled. 
+
 
 //countCorrectAnswers -> count the number of tiles with value correct. each time a pair of tiles are matched, add 1 to the coundCorrectAnswers value;
 
