@@ -40,6 +40,16 @@ function setRandomTileOrder(){
 }
 //icon assign function -> replaces random numbers with icon pairs
 //when icon assigned, tile is also assigned an attribute
+//icon variables
+let football = `<i class="fas fa-football-ball"></i>`;
+let mask = `<i class="fas fa-ufo"></i>`;
+let poop = `<i class="fas fa-poop"></i>`;
+let lightning = `<i class="far fa-bolt"></i>`;
+let bulb = `<i class="fal fa-lightbulb"></i>`;
+let rocket =`<i class="fas fa-rocket"></i>`;
+let bacteria = `<i class="fas fa-bacterium"></i>`;
+let kiwi = `<i class="fas fa-kiwi-bird"></i>`;
+let cocktail = `<i class="fas fa-cocktail"></i>`;
 
 //displayTile -> function which listens for click event and displays tile value on click
 let tiles = document.querySelectorAll(".gametile");
