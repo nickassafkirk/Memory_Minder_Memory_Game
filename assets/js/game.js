@@ -5,6 +5,8 @@
 document.getElementById("startGame").addEventListener("click", startGame);
 
 //end button stops the game
+document.getElementById('endGame').addEventListener("click", endGame);
+
 
 //createRandom number function
 //creates random number which will later be assigned an icon
