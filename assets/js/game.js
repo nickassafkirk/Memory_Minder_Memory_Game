@@ -10,6 +10,7 @@ document.getElementById("startGame").addEventListener("click", startGame);
 
 function startGame() {
     setRandomTileOrder();
+    console.log(randomOrderArray);
     startTimer();
 }
 
@@ -19,6 +20,7 @@ document.getElementById('endGame').addEventListener("click", endGame);
 function endGame() {
     function endTimer() {
         clearInterval(timer);
+        randomOrderArray= [];
     }
     endTimer();
 }
@@ -26,16 +28,17 @@ function endGame() {
 //createRandom number function
 //creates random number which will later be assigned an icon
 //creates an array of 12 random numbers
+let randomOrderArray = [];
 function setRandomTileOrder() {
-    while (array.length < 12) {
+    while (randomOrderArray.length < 12) {
         let randomNum = Math.random();
         randomNum = randomNum * 11;
         randomNum = Math.round(randomNum) + 1;
 
-        if (array.includes(randomNum)) {
+        if (randomOrderArray.includes(randomNum)) {
             continue;
         } else {
-            array.push(randomNum);
+            randomOrderArray.push(randomNum);
         }
     }
 }
@@ -57,7 +60,7 @@ let tiles = document.querySelectorAll(".gametile");
 
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
-let array = [];
+
 let i = 0;
 
 let clicks;
@@ -78,7 +81,7 @@ function displayTile() {
     if (this.getAttribute("state") != "selected") {
         this.style.fontSize = "3em"
         this.style.backgroundColor = "red"/*generateRGBVal()*/;
-        this.innerHTML = array[i];
+        this.innerHTML = randomOrderArray[i];
         i++;
 
         //adds custom attr of state: selected to clicked tile
