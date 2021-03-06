@@ -5,10 +5,11 @@
 
 //start button initiates game and starts counter
 //initiates game start on button press
-
-document.getElementById("startGame").addEventListener("click", startGame);
+let startButton = document.getElementById("startGame")
+startButton.addEventListener("click", startGame);
 
 function startGame() {
+    startButton.disabled = true;
     setRandomTileOrder();
     console.log(randomOrderArray);
     startTimer();
@@ -21,6 +22,7 @@ function endGame() {
     function endTimer() {
         clearInterval(timer);
         randomOrderArray= [];
+        startButton.disabled = false;
     }
     endTimer();
 }
