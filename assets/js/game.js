@@ -5,38 +5,39 @@
 
 //start button initiates game and starts counter
 //initiates game start on button press
+
 document.getElementById("startGame").addEventListener("click", startGame);
 
-function startGame(){
+function startGame() {
     setRandomTileOrder();
-    startTimer();  
+    startTimer();
 }
 
 //end button stops the game
 document.getElementById('endGame').addEventListener("click", endGame);
 
-function endGame(){
-    function endTimer(){
+function endGame() {
+    function endTimer() {
         clearInterval(timer);
     }
-    endTimer();  
+    endTimer();
 }
+
 //createRandom number function
 //creates random number which will later be assigned an icon
 //creates an array of 12 random numbers
-function setRandomTileOrder(){  
-    while(array.length < 12){
+function setRandomTileOrder() {
+    while (array.length < 12) {
         let randomNum = Math.random();
         randomNum = randomNum * 11;
-        randomNum = Math.round(randomNum)+1;
+        randomNum = Math.round(randomNum) + 1;
 
-        if(array.includes(randomNum)){
+        if (array.includes(randomNum)) {
             continue;
         } else {
-            array.push(randomNum);     
+            array.push(randomNum);
         }
     }
-    console.log(array);
 }
 //icon assign function -> replaces random numbers with icon pairs
 //when icon assigned, tile is also assigned an attribute
@@ -46,7 +47,7 @@ let mask = `<i class="fas fa-ufo"></i>`;
 let poop = `<i class="fas fa-poop"></i>`;
 let lightning = `<i class="far fa-bolt"></i>`;
 let bulb = `<i class="fal fa-lightbulb"></i>`;
-let rocket =`<i class="fas fa-rocket"></i>`;
+let rocket = `<i class="fas fa-rocket"></i>`;
 let bacteria = `<i class="fas fa-bacterium"></i>`;
 let kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 let cocktail = `<i class="fas fa-cocktail"></i>`;
@@ -60,53 +61,78 @@ let array = [];
 let i = 0;
 
 let clicks;
+let allSelected = [];
+let currentSelection;
 
-function displayTile(){
-    //reveal tile by changing bg color and changing font-size from 0 to 3em;
-    if(this.getAttribute("state") != "selected"){
-    this.style.fontSize = "3em"
-    this.style.backgroundColor = "red"/*generateRGBVal()*/;
-    this.innerHTML = array[i];
-    i++;
-    
-    //adds custom attr of state: selected to clicked tile
-    this.setAttribute("state","selected");
-    console.log(this.getAttribute("state"));
+function checkMatch(num1, num2) {
+    if (num1.innerHTML === num2.innerHTML) {
     } else {
-        console.log("heuston we have a problem");
-    }    
-    
+        console.log("no match");
+    }
+};
 
-    
+
+function displayTile() {
+
+    //reveal tile by changing bg color and changing font-size from 0 to 3em;
+    if (this.getAttribute("state") != "selected") {
+        this.style.fontSize = "3em"
+        this.style.backgroundColor = "red"/*generateRGBVal()*/;
+        this.innerHTML = array[i];
+        i++;
+
+        //adds custom attr of state: selected to clicked tile
+        this.setAttribute("state", "selected");
+        console.log(this.getAttribute("state"));
+
+
+    }
+    else {
+        console.log("heuston we have a problem");
+    }
+
     //add unique bg color for each pair of tiles
     let colorArray = ["rgb(237, 21, 222)", "rgb(22, 206, 34)", "rgb(249, 129, 49)", "rgb(234, 212, 14)", "rgb(34, 244, 220)", "rgb(0, 65, 247)"];
-    
+
     //replace numerical values with icon pairs
 
-    if(this.innerHTML < 3){
+    if (this.innerHTML < 3) {
         this.innerHTML = rocket;
         this.style.backgroundColor = colorArray[0];
-    } else if (this.innerHTML < 5){
+    } else if (this.innerHTML < 5) {
         this.innerHTML = bacteria;
         this.style.backgroundColor = colorArray[1];
-    } else if (this.innerHTML < 7){
+    } else if (this.innerHTML < 7) {
         this.innerHTML = cocktail;
         this.style.backgroundColor = colorArray[2];
-    } else if (this.innerHTML < 9){
+    } else if (this.innerHTML < 9) {
         this.innerHTML = football;
         this.style.backgroundColor = colorArray[3];
-    } else if(this.innerHTML < 11){
+    } else if (this.innerHTML < 11) {
         this.innerHTML = poop;
         this.style.backgroundColor = colorArray[4];
-    } else if(this.innerHTML < 13){
+    } else if (this.innerHTML < 13) {
         this.innerHTML = kiwi;
         this.style.backgroundColor = colorArray[5];
     } else {
         console.log("Error: too many tiles");
     }
+
     // this counts number of clicks
-    clicks = [i];
+    clicks = i;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
+
+    // match sequence
+    currentId = this.getAttribute("id");
+    currentSelection = document.getElementById(currentId);
+    allSelected.push(currentSelection);
+    if (allSelected.length > 1) {
+        let matchResult = checkMatch(allSelected[0], allSelected[1]);
+        console.log(`Match result is ${matchResult}`)
+    } else {
+        console.log("too short")
+    }
+
 };
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
@@ -122,16 +148,18 @@ function displayTile(){
 //Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
 let count;
 
-function startTimer(){
-   count = 60, timer = setInterval(function() {
-       count = count--;
-       document.getElementById("timer").firstChild.innerText = count--;
+function startTimer() {
+    clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
+    count = 0, timer = setInterval(function () {
+        count = count++;
+        document.getElementById("timer").firstChild.innerText = count++;
 
-       //end timer when timer reaches -1, This displays 0.
-       if(count === -1) {
-           clearInterval(timer);
-           document.getElementById("timer").firstChild.innerText = "Game Over";
-       }
+
+        //end timer when timer reaches -1, This displays 0.
+        if (count === 60) {
+            clearInterval(timer);
+            document.getElementById("timer").firstChild.innerText = "Game Over";
+        }
     }, 1000);
 }
 
