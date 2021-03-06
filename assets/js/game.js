@@ -1,7 +1,7 @@
-//global variables
-
-
 //on page load -> generate game board;
+window.onload = function(){
+    console.log("Page Loaded")
+}
 
 //start button initiates game and starts counter
 //initiates game start on button press
@@ -22,7 +22,9 @@ function endGame() {
     function endTimer() {
         clearInterval(timer);
         randomOrderArray= [];
+        startButton.innerText = "New Game";
         startButton.disabled = false;
+        
     }
     endTimer();
 }
