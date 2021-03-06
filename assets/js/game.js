@@ -142,6 +142,13 @@ function displayTile() {
     }
 };
 
+//ClearTiles -> Clear tiles when new game is started;
+function clearTiles(){
+    for(let n = 0; n < tiles.length; n++){
+        tiles[n].style.fontSize = "0em";
+        tiles[n].style.backgroundColor = "#44445a";
+    }
+}
 
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
