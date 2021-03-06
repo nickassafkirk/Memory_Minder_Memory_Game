@@ -3,8 +3,8 @@ window.onload = function(){
     console.log("Page Loaded")
 }
 
-//start button initiates game and starts counter
-//initiates game start on button press
+/*start button initiates game and starts counter
+initiates game start on button press*/
 let startButton = document.getElementById("startGame")
 startButton.addEventListener("click", startGame);
 
@@ -29,9 +29,9 @@ function endGame() {
     endTimer();
 }
 
-//createRandom number function
-//creates random number which will later be assigned an icon
-//creates an array of 12 random numbers
+/* createRandom number function
+creates random number which will later be assigned an icon
+creates an array of 12 random numbers*/
 let randomOrderArray = [];
 function setRandomTileOrder() {
     while (randomOrderArray.length < 12) {
@@ -65,9 +65,8 @@ function startTimer() {
     }, 1000);
 }
 
-//icon assign function -> replaces random numbers with icon pairs
-//when icon assigned, tile is also assigned an attribute
-//icon variables
+/* icon assign function -> replaces random numbers with icon pairs
+when icon assigned, tile is also assigned an attribute icon variables */
 let football = `<i class="fas fa-football-ball"></i>`;
 let mask = `<i class="fas fa-ufo"></i>`;
 let poop = `<i class="fas fa-poop"></i>`;
@@ -151,8 +150,8 @@ function clearTiles(){
 }
 
 
-//match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
-//if match icons remain displayed and correctly guessed tiles become disabled. 
+/*match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
+if match icons remain displayed and correctly guessed tiles become disabled. */
 
 let i = 0;
 
@@ -182,6 +181,7 @@ function countMoves(){
 //refresh/reset -> click button, invokes endGame() the reset tiles values, and return their default styling.
 
 //additional levels of difficulty
+
 //1. generateRandomColor -> generates a random background color, to make matching harder as game progresses
 let newRGB;
 
