@@ -88,9 +88,11 @@ let cocktail = `<i class="fas fa-cocktail"></i>`;
 //displayTile -> function which listens for click event and displays tile value on click
 let tiles = document.querySelectorAll(".gametile");
 
+const selectedTile = ''
+
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
-function displayTile() {
+function displayTile(e) {
 
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     if (this.getAttribute("state") != "selected") {
@@ -114,27 +116,36 @@ function displayTile() {
 
     if (this.innerHTML < 3) {
         this.innerHTML = rocket;
+        this.setAttribute("icon", "rocket")
         this.style.backgroundColor = colorArray[0];
     } else if (this.innerHTML < 5) {
         this.innerHTML = bacteria;
+        this.setAttribute("icon", "bacteria")
         this.style.backgroundColor = colorArray[1];
     } else if (this.innerHTML < 7) {
         this.innerHTML = cocktail;
+        this.setAttribute("icon", "cocktail")
         this.style.backgroundColor = colorArray[2];
     } else if (this.innerHTML < 9) {
         this.innerHTML = football;
+        this.setAttribute("icon", "football")
         this.style.backgroundColor = colorArray[3];
     } else if (this.innerHTML < 11) {
         this.innerHTML = poop;
+        this.setAttribute("icon", "poop")
         this.style.backgroundColor = colorArray[4];
     } else if (this.innerHTML < 13) {
         this.innerHTML = kiwi;
+        this.setAttribute("icon", "kiwi")
         this.style.backgroundColor = colorArray[5];
     } else {
         console.log("Error: too many tiles");
     }
 
+    console.log(e.target.getAttribute("icon"));
+
     // this counts number of clicks
+    
     countMoves()
     
     // match sequence
@@ -144,10 +155,10 @@ function displayTile() {
     if (allSelected.length > 1) {
         let matchResult = checkMatch(allSelected[0], allSelected[1]);
         console.log(`Match result is ${matchResult}`)
-    } else {
-        console.log("too short")
-    }
+    } else {}
+        
 };
+
 
 //ClearTiles -> Clear tiles when new game is started;
 function clearTiles(){
