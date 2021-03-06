@@ -185,6 +185,7 @@ function calculateScore(){
     timeScore = parseInt(timeScore);
     let calculatedScore = (timeScore + clicks);
     console.log(calculatedScore);
+    document.querySelector("#score").firstChild.innerHTML = calculatedScore;
 }
 //refresh/reset -> click button, invokes endGame() the reset tiles values, and return their default styling.
 
