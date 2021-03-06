@@ -46,6 +46,25 @@ function setRandomTileOrder() {
         }
     }
 }
+
+//Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
+let count;
+
+function startTimer() {
+    clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
+    count = 0, timer = setInterval(function () {
+        count = count++;
+        document.getElementById("timer").firstChild.innerText = count++;
+
+
+        //end timer when timer reaches -1, This displays 0.
+        if (count === 60) {
+            clearInterval(timer);
+            document.getElementById("timer").firstChild.innerText = "Game Over";
+        }
+    }, 1000);
+}
+
 //icon assign function -> replaces random numbers with icon pairs
 //when icon assigned, tile is also assigned an attribute
 //icon variables
@@ -64,21 +83,6 @@ let tiles = document.querySelectorAll(".gametile");
 
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
-
-let i = 0;
-
-let clicks;
-let allSelected = [];
-let currentSelection;
-
-function checkMatch(num1, num2) {
-    if (num1.innerHTML === num2.innerHTML) {
-    } else {
-        console.log("no match");
-    }
-};
-
-
 function displayTile() {
 
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
@@ -91,8 +95,6 @@ function displayTile() {
         //adds custom attr of state: selected to clicked tile
         this.setAttribute("state", "selected");
         console.log(this.getAttribute("state"));
-
-
     }
     else {
         console.log("heuston we have a problem");
@@ -126,9 +128,8 @@ function displayTile() {
     }
 
     // this counts number of clicks
-    clicks = i;
-    document.getElementById("clicks").firstChild.innerHTML = clicks;
-
+    countMoves()
+    
     // match sequence
     currentId = this.getAttribute("id");
     currentSelection = document.getElementById(currentId);
@@ -139,35 +140,34 @@ function displayTile() {
     } else {
         console.log("too short")
     }
-
 };
+
+
 
 //match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
 //if match icons remain displayed and correctly guessed tiles become disabled. 
 
+let i = 0;
+
+let clicks;
+let allSelected = [];
+let currentSelection;
+
+function checkMatch(num1, num2) {
+    if (num1.innerHTML === num2.innerHTML) {
+    } else {
+        console.log("no match");
+    }
+};
 
 //countCorrectAnswers -> count the number of tiles with value correct. each time a pair of tiles are matched, add 1 to the coundCorrectAnswers value;
 
 //completeGAme -> When the number of correct answers == the number of cells the game can end.
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
-
-//Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
-let count;
-
-function startTimer() {
-    clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
-    count = 0, timer = setInterval(function () {
-        count = count++;
-        document.getElementById("timer").firstChild.innerText = count++;
-
-
-        //end timer when timer reaches -1, This displays 0.
-        if (count === 60) {
-            clearInterval(timer);
-            document.getElementById("timer").firstChild.innerText = "Game Over";
-        }
-    }, 1000);
+function countMoves(){
+    clicks = i;
+    document.getElementById("clicks").firstChild.innerHTML = clicks;
 }
 
 //calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
