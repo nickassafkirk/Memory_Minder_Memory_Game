@@ -3,6 +3,12 @@ window.onload = function(){
     console.log("Page Loaded")
 }
 
+//global variable
+
+let i = 0;
+let clicks;
+let timeScore;
+
 /*start button initiates game and starts counter
 initiates game start on button press*/
 let startButton = document.getElementById("startGame")
@@ -18,15 +24,18 @@ function startGame() {
 //end button stops the game
 document.getElementById('endGame').addEventListener("click", endGame);
 
+
 function endGame() {
     function endTimer() {
+        timeScore = document.getElementById("timer").innerText;
+        console.log(timeScore);
         clearInterval(timer);
-        randomOrderArray= [];
-        startButton.innerText = "New Game";
-        startButton.disabled = false;
-        
     }
+    randomOrderArray= [];
+    startButton.innerText = "New Game";
+    startButton.disabled = false;
     endTimer();
+    calculateScore();
 }
 
 /* createRandom number function
@@ -55,7 +64,6 @@ function startTimer() {
     count = 0, timer = setInterval(function () {
         count = count++;
         document.getElementById("timer").firstChild.innerText = count++;
-
 
         //end timer when timer reaches -1, This displays 0.
         if (count === 60) {
@@ -152,10 +160,6 @@ function clearTiles(){
 
 /*match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
 if match icons remain displayed and correctly guessed tiles become disabled. */
-
-let i = 0;
-
-let clicks;
 let allSelected = [];
 let currentSelection;
 
@@ -177,7 +181,11 @@ function countMoves(){
 }
 
 //calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
-
+function calculateScore(){
+    timeScore = parseInt(timeScore);
+    let calculatedScore = (timeScore + clicks);
+    console.log(calculatedScore);
+}
 //refresh/reset -> click button, invokes endGame() the reset tiles values, and return their default styling.
 
 //additional levels of difficulty
