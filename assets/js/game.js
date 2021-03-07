@@ -15,6 +15,7 @@ let startButton = document.getElementById("startGame")
 startButton.addEventListener("click", startGame);
 
 function startGame() {
+    resetTiles();
     startButton.disabled = true;
     setRandomTileOrder();
     console.log(randomOrderArray);
@@ -36,8 +37,6 @@ function endGame() {
     startButton.disabled = false;
     endTimer();
     calculateScore();
-    resetTiles();
-    
 }
 
 /* createRandom number function
