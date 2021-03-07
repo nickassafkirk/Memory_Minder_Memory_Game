@@ -86,7 +86,7 @@ let kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 let cocktail = `<i class="fas fa-cocktail"></i>`;
 
 //displayTile -> function which listens for click event and displays tile value on click
-let tiles = document.querySelectorAll(".gametile");
+const tiles = document.querySelectorAll(".gametile");
 
 const selectedTile = ''
 
@@ -97,13 +97,12 @@ function displayTile(e) {
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     if (this.getAttribute("state") != "selected") {
         this.style.fontSize = "3em"
-        this.style.backgroundColor = "red"/*generateRGBVal()*/;
         this.innerHTML = randomOrderArray[i];
         i++;
 
         //adds custom attr of state: selected to clicked tile
         this.setAttribute("state", "selected");
-        console.log(this.getAttribute("state"));
+        let thisTileState = this.getAttribute("state");
     }
     else {
         console.log("heuston we have a problem");
@@ -142,23 +141,22 @@ function displayTile(e) {
         console.log("Error: too many tiles");
     }
 
+    // logs the value of the tile's icon
     console.log(e.target.getAttribute("icon"));
 
     // this counts number of clicks
-    
     countMoves()
     
-    // match sequence
-    currentId = this.getAttribute("id");
-    currentSelection = document.getElementById(currentId);
-    allSelected.push(currentSelection);
-    if (allSelected.length > 1) {
-        let matchResult = checkMatch(allSelected[0], allSelected[1]);
-        console.log(`Match result is ${matchResult}`)
-    } else {}
-        
 };
+    
 
+    $(".gameTile").toggle();
+
+//countClicks -> calculates number of user clicks -> needed to calculate score
+function countMoves(){
+    clicks = i;
+    document.getElementById("clicks").firstChild.innerHTML = clicks;
+}
 
 //ClearTiles -> Clear tiles when new game is started;
 function clearTiles(){
@@ -168,28 +166,12 @@ function clearTiles(){
     }
 }
 
-
 /*match tiles -> when one tile is clicked and displayed, check if next tile clicked has the same attribute value
 if match icons remain displayed and correctly guessed tiles become disabled. */
-let allSelected = [];
-let currentSelection;
-
-function checkMatch(num1, num2) {
-    if (num1.innerHTML === num2.innerHTML) {
-    } else {
-        console.log("no match");
-    }
-};
 
 //countCorrectAnswers -> count the number of tiles with value correct. each time a pair of tiles are matched, add 1 to the coundCorrectAnswers value;
 
 //completeGAme -> When the number of correct answers == the number of cells the game can end.
-
-//countClicks -> calculates number of user clicks -> needed to calculate score
-function countMoves(){
-    clicks = i;
-    document.getElementById("clicks").firstChild.innerHTML = clicks;
-}
 
 //calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
 function calculateScore(){
