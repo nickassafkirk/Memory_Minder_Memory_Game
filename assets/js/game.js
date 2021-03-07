@@ -36,6 +36,8 @@ function endGame() {
     startButton.disabled = false;
     endTimer();
     calculateScore();
+    resetTiles();
+    
 }
 
 /* createRandom number function
@@ -93,10 +95,10 @@ const selectedTile = ''
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
 function displayTile(e) {
-
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     if (this.getAttribute("state") != "selected") {
-        this.style.fontSize = "3em"
+        this.classList.remove("hideTile");
+        this.classList.add("displayTile");
         this.innerHTML = randomOrderArray[i];
         i++;
 
@@ -209,5 +211,15 @@ function generateRGBVal() {
 //additional iterations/Future development
 // publish leaderboard;
 //use api to generate random icon or picture
+
+function resetTiles(){
+    for(tile of tiles){
+        tile.style.backgroundColor ="#44445a";
+        tile.removeAttribute("state");
+        tile.classList.remove("hideTile"); 
+        tile.classList.remove("displayTile"); 
+        
+    }
+}
 
 
