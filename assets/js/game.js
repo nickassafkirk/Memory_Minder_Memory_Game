@@ -150,8 +150,6 @@ function displayTile(e) {
 };
     
 
-    $(".gameTile").toggle();
-
 //countClicks -> calculates number of user clicks -> needed to calculate score
 function countMoves(){
     clicks = i;
