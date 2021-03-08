@@ -90,6 +90,8 @@ let cocktail = `<i class="fas fa-cocktail"></i>`;
 const tiles = document.querySelectorAll(".gametile");
 
 const selectedTile = ''
+let tileIcon;
+let tileIcons =[];
 
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
@@ -103,9 +105,8 @@ function displayTile(e) {
 
         //adds custom attr of state: selected to clicked tile
         this.setAttribute("state", "selected");
-        let thisTileState = this.getAttribute("state");
-    }
-    else {
+        let thisTileState = this.getAttribute("state")
+    } else {
         console.log("heuston we have a problem");
     }
 
@@ -143,13 +144,26 @@ function displayTile(e) {
     }
 
     // logs the value of the tile's icon
-    console.log(e.target.getAttribute("icon"));
+    tileIcon = e.target.getAttribute("icon");
+    tileIcons.push(tileIcon);
+    console.log(tileIcons);
+
+    if(tileIcons.length > 1){
+        if(tileIcons[0] === tileIcons[1]){
+            console.log("Match");
+        } else {
+            tileIcons.splice(0,2);
+            console.log(tileIcons);
+        }
+    } else {
+        console.log("click another tile");
+    }
 
     // this counts number of clicks
     countMoves()
     
 };
-    
+
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
 function countMoves(){
