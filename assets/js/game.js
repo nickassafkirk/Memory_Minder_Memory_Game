@@ -155,6 +155,8 @@ function displayTile(e) {
     if (tileIcons.length > 1) {
         for (i = 0; i < tileIcons.length; i++) {
             if (tileIcons[i] === tileIcons[i + 1]) {
+                document.getElementById(tileIds[i]).style.backgroundColor = "green";
+                document.getElementById(tileIds[i + 1]).style.backgroundColor = "green";
                 console.log("Match");
             } else {
                 tileIcons.splice(i, i+1);
