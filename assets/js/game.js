@@ -148,12 +148,16 @@ function displayTile(e) {
     tileIcons.push(tileIcon);
     console.log(tileIcons);
 
-    if(tileIcons.length > 1){
-        if(tileIcons[0] === tileIcons[1]){
-            console.log("Match");
-        } else {
-            tileIcons.splice(0,2);
-            console.log(tileIcons);
+    
+
+    if (tileIcons.length > 1) {
+        for (i = 0; i < tileIcons.length; i++) {
+            if (tileIcons[i] === tileIcons[i + 1]) {
+                console.log("Match");
+            } else {
+                tileIcons.splice(i, i+1);
+                console.log(tileIcons);
+            }
         }
     } else {
         console.log("click another tile");
