@@ -55,7 +55,7 @@ function setRandomTileOrder() {
         } else {
             randomOrderArray.push(randomNum);
         }
-    }
+    } 
 }
 
 //Set tiles variable for use throughout code
@@ -82,8 +82,8 @@ function setTiles(){
         tile.innerHTML = football;
         tile.setAttribute("icon", "football")
     } else if (tile.innerHTML < 11) {
-        tile.innerHTML = poop;
-        tile.setAttribute("icon", "poop")
+        tile.innerHTML = pizza;
+        tile.setAttribute("icon", "pizza")
     } else if (tile.innerHTML < 13) {
         tile.innerHTML = kiwi;
         tile.setAttribute("icon", "kiwi")
@@ -114,7 +114,7 @@ function startTimer() {
 when icon assigned, tile is also assigned an attribute icon variables */
 let football = `<i class="fas fa-football-ball"></i>`;
 let mask = `<i class="fas fa-ufo"></i>`;
-let poop = `<i class="fas fa-poop"></i>`;
+let pizza = `<i class="fas fa-pizza-slice"></i>`;
 let lightning = `<i class="far fa-bolt"></i>`;
 let bulb = `<i class="fal fa-lightbulb"></i>`;
 let rocket = `<i class="fas fa-rocket"></i>`;
@@ -149,19 +149,25 @@ function displayTile(e) {
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
+    console.log(tileIcons);
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
 
-    if (tileIcons.length > 1) {
+    if (tileIcons.length === 2) {
         for (i = 0; i < tileIcons.length; i++) {
             if (tileIcons[i] === tileIcons[i + 1]) {
-                document.getElementById(tileIds[i]).style.backgroundColor = "green";
-                document.getElementById(tileIds[i + 1]).style.backgroundColor = "green";
                 console.log("Match");
-            } else {
-                tileIcons.splice(i, i+1);
+                document.getElementById(tileIds[0]).style.backgroundColor = "green";
+                document.getElementById(tileIds[1]).style.backgroundColor = "green";
                 console.log(tileIcons);
+                tileIcons =[];
                 
+            } else {
+                setTimeout(function(){
+                    console.log("No match");
+                    document.getElementById(tileIds[0]).classList.remove("displayTile");
+                    document.getElementById(tileIds[1]).classList.remove("displayTile");
+                }, 1000);   
             }
         }
     } else {
