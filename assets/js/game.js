@@ -126,6 +126,7 @@ let cocktail = `<i class="fas fa-cocktail"></i>`;
 const selectedTile = ''
 let tileIcon;
 let tileIcons =[];
+let tileIds =[];
 
 
 //displayTile -> function which listens for click event and displays tile value on click
@@ -145,12 +146,11 @@ function displayTile(e) {
         console.log("heuston we have a problem");
     }
 
-    // logs the value of the tile's icon
+    // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
-    console.log(tileIcons);
-
-    
+    let tileId = e.target.getAttribute("id");
+    tileIds.push(tileId);
 
     if (tileIcons.length > 1) {
         for (i = 0; i < tileIcons.length; i++) {
@@ -159,6 +159,7 @@ function displayTile(e) {
             } else {
                 tileIcons.splice(i, i+1);
                 console.log(tileIcons);
+                
             }
         }
     } else {
