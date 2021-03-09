@@ -131,8 +131,10 @@ let tileIds =[];
 
 //displayTile -> function which listens for click event and displays tile value on click
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
+let n = 0;
 
 function displayTile(e) {
+    
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     if (this.getAttribute("state") != "selected") {
         this.classList.remove("hideTile");
@@ -152,8 +154,20 @@ function displayTile(e) {
     console.log(tileIcons);
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
+   
+    // this counts number of clicks
+    countMoves()
+    n++;
+    checkMatch(tileIcons, tileIds,n)
+    
+};
 
-    if (tileIcons.length === 2) {
+function checkMatch(tileIcons, tileIds,n){
+    console.log(tileIcons);
+    console.log(tileIds);
+    console.log(n-1);
+    /*
+     if (tileIcons.length === 2) {
         for (i = 0; i < tileIcons.length; i++) {
             if (tileIcons[i] === tileIcons[i + 1]) {
                 console.log("Match");
@@ -173,11 +187,9 @@ function displayTile(e) {
     } else {
         console.log("click another tile");
     }
+    */
 
-    // this counts number of clicks
-    countMoves()
-    
-};
+}
 
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
