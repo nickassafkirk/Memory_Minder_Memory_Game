@@ -1,6 +1,8 @@
 //on page load -> generate game board;
 window.onload = function(){
     console.log("Page Loaded")
+    setRandomTileOrder();
+    setTiles();
 }
 
 //global variable
@@ -17,7 +19,6 @@ startButton.addEventListener("click", startGame);
 function startGame() {
     resetTiles();
     startButton.disabled = true;
-    setRandomTileOrder();
     console.log(randomOrderArray);
     startTimer();
 }
@@ -57,6 +58,41 @@ function setRandomTileOrder() {
     }
 }
 
+//Set tiles variable for use throughout code
+const tiles = document.querySelectorAll(".gametile");
+
+function setTiles(){
+    for(tile of tiles){
+        tile.innerHTML = randomOrderArray[i];
+        i++;
+    
+
+    //replace numerical values with icon pairs
+
+    if (tile.innerText < 3) {
+        tile.innerHTML = rocket;
+        tile.setAttribute("icon", "rocket")
+    } else if (tile.innerHTML < 5) {
+        tile.innerHTML = bacteria;
+        tile.setAttribute("icon", "bacteria")
+    } else if (tile.innerHTML < 7) {
+        tile.innerHTML = cocktail;
+        tile.setAttribute("icon", "cocktail")
+    } else if (tile.innerHTML < 9) {
+        tile.innerHTML = football;
+        tile.setAttribute("icon", "football")
+    } else if (tile.innerHTML < 11) {
+        tile.innerHTML = poop;
+        tile.setAttribute("icon", "poop")
+    } else if (tile.innerHTML < 13) {
+        tile.innerHTML = kiwi;
+        tile.setAttribute("icon", "kiwi")
+    } else {
+        console.log("Error: too many tiles");
+    }
+}
+}
+
 //Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
 let count;
 
@@ -86,13 +122,13 @@ let bacteria = `<i class="fas fa-bacterium"></i>`;
 let kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 let cocktail = `<i class="fas fa-cocktail"></i>`;
 
-//displayTile -> function which listens for click event and displays tile value on click
-const tiles = document.querySelectorAll(".gametile");
 
 const selectedTile = ''
 let tileIcon;
 let tileIcons =[];
 
+
+//displayTile -> function which listens for click event and displays tile value on click
 tiles.forEach(tile => tile.addEventListener("click", displayTile));
 
 function displayTile(e) {
@@ -100,47 +136,13 @@ function displayTile(e) {
     if (this.getAttribute("state") != "selected") {
         this.classList.remove("hideTile");
         this.classList.add("displayTile");
-        this.innerHTML = randomOrderArray[i];
-        i++;
+        
 
         //adds custom attr of state: selected to clicked tile
         this.setAttribute("state", "selected");
         let thisTileState = this.getAttribute("state")
     } else {
         console.log("heuston we have a problem");
-    }
-
-    //add unique bg color for each pair of tiles
-    let colorArray = ["rgb(237, 21, 222)", "rgb(22, 206, 34)", "rgb(249, 129, 49)", "rgb(234, 212, 14)", "rgb(34, 244, 220)", "rgb(0, 65, 247)"];
-
-    //replace numerical values with icon pairs
-
-    if (this.innerHTML < 3) {
-        this.innerHTML = rocket;
-        this.setAttribute("icon", "rocket")
-        this.style.backgroundColor = colorArray[0];
-    } else if (this.innerHTML < 5) {
-        this.innerHTML = bacteria;
-        this.setAttribute("icon", "bacteria")
-        this.style.backgroundColor = colorArray[1];
-    } else if (this.innerHTML < 7) {
-        this.innerHTML = cocktail;
-        this.setAttribute("icon", "cocktail")
-        this.style.backgroundColor = colorArray[2];
-    } else if (this.innerHTML < 9) {
-        this.innerHTML = football;
-        this.setAttribute("icon", "football")
-        this.style.backgroundColor = colorArray[3];
-    } else if (this.innerHTML < 11) {
-        this.innerHTML = poop;
-        this.setAttribute("icon", "poop")
-        this.style.backgroundColor = colorArray[4];
-    } else if (this.innerHTML < 13) {
-        this.innerHTML = kiwi;
-        this.setAttribute("icon", "kiwi")
-        this.style.backgroundColor = colorArray[5];
-    } else {
-        console.log("Error: too many tiles");
     }
 
     // logs the value of the tile's icon
