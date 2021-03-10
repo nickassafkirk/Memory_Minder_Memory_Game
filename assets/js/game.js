@@ -106,7 +106,7 @@ function startTimer() {
         //end timer when timer reaches -1, This displays 0.
         if (count === 10) {
             clearInterval(timer);
-            document.getElementById("timer").firstChild.innerText = "Game Over";
+            document.getElementById("timer").firstChild.innerText = "Time Up";
             endGame();
         }
     }, 1000);
@@ -201,8 +201,20 @@ function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
     let calculatedScore = (timeScore + clicks);
-    document.querySelector("#score").firstChild.innerHTML = calculatedScore;
+    let resultType = isNaN(calculatedScore);
     
+    if(resultType){
+        console.log(calculatedScore);
+        document.querySelector("#score").firstChild.innerHTML = "Game Over";
+        document.querySelector("#score").firstChild.style.color = "red";
+    } else {
+        console.log(calculatedScore);
+        document.querySelector("#score").firstChild.innerHTML = calculatedScore;
+        document.querySelector("#score").firstChild.style.color = "green";
+    }
+        
+    
+    console.log(calculatedScore);
 }
 
 //additional levels of difficulty
