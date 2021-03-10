@@ -111,15 +111,17 @@ function startTimer() {
 
 /* icon assign function -> replaces random numbers with icon pairs
 when icon assigned, tile is also assigned an attribute icon variables */
-let football = `<i class="fas fa-football-ball"></i>`;
-let mask = `<i class="fas fa-ufo"></i>`;
-let pizza = `<i class="fas fa-pizza-slice"></i>`;
-let lightning = `<i class="far fa-bolt"></i>`;
-let bulb = `<i class="fal fa-lightbulb"></i>`;
-let rocket = `<i class="fas fa-rocket"></i>`;
-let bacteria = `<i class="fas fa-bacterium"></i>`;
-let kiwi = `<i class="fas fa-kiwi-bird"></i>`;
-let cocktail = `<i class="fas fa-cocktail"></i>`;
+const football = `<i class="fas fa-football-ball"></i>`;
+const mask = `<i class="fas fa-ufo"></i>`;
+const pizza = `<i class="fas fa-pizza-slice"></i>`;
+const lightning = `<i class="far fa-bolt"></i>`;
+const bulb = `<i class="fal fa-lightbulb"></i>`;
+const rocket = `<i class="fas fa-rocket"></i>`;
+const bacteria = `<i class="fas fa-bacterium"></i>`;
+const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
+const cocktail = `<i class="fas fa-cocktail"></i>`;
+const fire = `<i class="fas fa-fire-alt"></i>`;
+const anchor = `<i class="fas fa-anchor"></i>`;
 
 
 const selectedTile = ''
