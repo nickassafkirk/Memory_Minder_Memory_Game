@@ -23,6 +23,8 @@ function startGame() {
     startButton.disabled = true;
      console.log(randomOrderArray);
     startTimer();
+    //displayTile -> function which listens for click event and displays tile value on click
+tiles.forEach(tile => tile.addEventListener("click", displayTile));
 }
 
 //end button stops the game
@@ -138,8 +140,7 @@ let tileIcons =[];
 let tileIds =[];
 
 
-//displayTile -> function which listens for click event and displays tile value on click
-tiles.forEach(tile => tile.addEventListener("click", displayTile));
+
 let n = 0;
 
 function displayTile(e) {
