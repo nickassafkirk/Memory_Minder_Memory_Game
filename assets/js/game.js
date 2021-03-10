@@ -56,7 +56,7 @@ function setRandomTileOrder(numberOfTiles) {
         } else {
             randomOrderArray.push(randomNum);
         }
-    } 
+    }
 }
 
 //Set tiles variable for use throughout code
@@ -183,14 +183,16 @@ function checkMatch(tileIcons, tileIds,n){
             document.getElementById(tileIds[n+1]).setAttribute("guess","correct")   
             document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
             document.getElementById(tileIds[n+1]).removeEventListener("click", displayTile); 
-            correctAnswer();
+            correctAnswer()
         }
 }
 
 function correctAnswer(){
     correctMatches++;
     console.log(correctMatches);
-    return correctMatches;
+    if (correctMatches === 8){
+        endGame();
+    }
 }
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
