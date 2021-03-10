@@ -45,7 +45,7 @@ function endGame() {
 creates random number which will later be assigned an icon
 creates an array of 12 random numbers*/
 let randomOrderArray = [];
-function setRandomTileOrder() {
+function setRandomTileOrder(numberOfTiles) {
     while (randomOrderArray.length < numberOfTiles) {
         let randomNum = Math.random();
         randomNum = randomNum * (numberOfTiles -1);
