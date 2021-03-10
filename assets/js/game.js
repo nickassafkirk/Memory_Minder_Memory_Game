@@ -259,7 +259,7 @@ function resetTiles() {
     document.getElementById("timer").firstChild.innerText ="";
     document.getElementById("clicks").firstChild.innerText ="";
     document.getElementById("score").firstChild.innerText ="";
-    
+    setRandomTileOrder(16);
 }
 
 
