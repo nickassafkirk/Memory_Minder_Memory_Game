@@ -7,6 +7,7 @@ body{
 
 h1{
     color: white;
+    font-size: 2em;
 }
 
 #gameboard{ 
@@ -16,9 +17,9 @@ h1{
 }
 
 .gametile{
-    height: 12vw;
-    width: 10vw;
-    line-height: 12vw;
+    height: 60px;
+    width: 50px;
+    line-height: 60px;
     background-color: #44445a;
     color: white;
     text-align: center;
@@ -27,11 +28,13 @@ h1{
 }
 
 #timer, #score, #clicks{
-    height: 60px;
+    height: 50px;
+    margin-bottom: 5%;
+    padding: 2%;
 }
 
 #timer div, #score div, #clicks div{
-    margin: 10px auto 25px auto;
+    margin: 0 auto;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -58,7 +61,7 @@ h1{
     text-align: center;
     width: 100%;
     padding: 2%;
-    margin-bottom: 10%;
+    margin-top: 5%;
     font-weight: 600;
     font-size: 1.2em;
 }
@@ -81,13 +84,27 @@ h1{
 }
 
 @media screen and (min-width: 600px){
+
+  h1{
+      font-size: 3em;
+  }
+
+  .gametile{
+    height: 85px;
+    line-height: 85px;
+  }
+
   .label h3{
         font-size: 2em;
   }
 
   .btn{
-      font-size: 2.5em;
+      font-size: 2em;
   }
+
+  #timer, #score, #clicks{
+    height: 80px;
+}
 
   #timer div, #score div, #clicks div{
       height: 80px;
@@ -96,8 +113,23 @@ h1{
   }
 } 
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 800px){
     #gameboard{
         width: 75vw;
+    }
+
+    .btn{
+      font-size: 2.5em;
+  }
+
+  .gametile{
+    height: 100px;
+    line-height: 100px;
+  }
+}
+
+@media screen and (max-width: 376px){
+    #score, #score-label{
+        display: none;
     }
 }

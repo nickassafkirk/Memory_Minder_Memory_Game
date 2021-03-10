@@ -40,17 +40,17 @@
         <div class="row">
             <div class="col-6 col-sm-4 order-1 order-sm-1 label"><h3>Timer</h3></div>
             <div class="col-6 col-sm-4 order-2 order-sm-2 label"><h3>Moves</h3></div>
-            <div class="col-12 col-sm-4 order-5 order-sm-3 mt-0 label"><h3>Score</h3></div>
+            <div class="col-12 col-sm-4 order-5 order-sm-3 mt-0 mt-sm-4 label" id="score-label"><h3>Score</h3></div>
             <div class="col-6 col-sm-4 order-3 order-sm-4" id="timer"><div></div></div>
             <div class="col-6 col-sm-4 order-4 order-sm-5" id="clicks"><div></div></div>
             <div class="col-12 col-sm-4 order-6 order-sm-6" id="score"><div></div></div>
         </div>
-        <div class="row">
-            <div class="col-6 mt-0 mt-sm-2">
-                <button id="startGame" class="btn btn-success py-4">Start Game</button>
+        <div class="row" id="button-row">
+            <div class="col-6">
+                <button id="startGame" class="btn btn-success">Start<br class="d-sm-none"> Game</button>
             </div>
-            <div class="col-6 mt-0 mt-sm-2">
-                <button id="endGame" class="btn btn-danger py-4"> End Game </button>
+            <div class="col-6">
+                <button id="endGame" class="btn btn-danger"> End<br class="d-sm-none"> Game </button>
             </div>
             <!-- <div class="col-2 mx-auto">
                 <button id="reset" class="btn btn-warning"><i class="fas fa-redo"></i></button>
