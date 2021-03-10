@@ -67,7 +67,7 @@ h1{
 }
 
 .displayTile{
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .hideTile{
@@ -93,6 +93,10 @@ h1{
     height: 85px;
     line-height: 85px;
   }
+
+  .displayTile{
+    font-size: 2.5em;
+}
 
   .label h3{
         font-size: 2em;
@@ -126,6 +130,10 @@ h1{
     height: 100px;
     line-height: 100px;
   }
+
+  .displayTile{
+    font-size: 3em;
+}
 }
 
 @media screen and (max-width: 376px){
