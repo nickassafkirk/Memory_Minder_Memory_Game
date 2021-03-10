@@ -17,6 +17,7 @@ let startButton = document.getElementById("startGame")
 startButton.addEventListener("click", startGame);
 
 function startGame() {
+    endButton.disabled = false;
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
     resetTiles();
     startButton.disabled = true;
@@ -25,16 +26,17 @@ function startGame() {
 }
 
 //end button stops the game
-document.getElementById('endGame').addEventListener("click", endGame);
-
+const endButton = document.getElementById('endGame')
+endButton.addEventListener("click", endGame);
 
 function endGame() {
+    endButton.disabled = true;
     function endTimer() {
         timeScore = document.getElementById("timer").innerText;
         console.log(timeScore);
         clearInterval(timer);
     }
-    randomOrderArray= [];
+    randomOrderArray = [];
     startButton.innerText = "New Game";
     startButton.disabled = false;
     endTimer();
