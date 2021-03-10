@@ -11,8 +11,8 @@ h1{
 
 #gameboard{ 
     margin: 5vh auto;
-    height: 60vh;
-    width: 60vw;
+    height: 50vh;
+    width: 90vw;
 }
 
 .gametile{
@@ -28,14 +28,14 @@ h1{
 
 #timer div, #score div, #clicks div{
     margin: 10px auto 25px auto;
-    height: 80px;
-    line-height: 80px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     border: 3px solid #555;
     background-color: #f5f5f5;
     border-radius: 10px;
     font-weight: 600;
-    font-size: 2em;
+    font-size: 1em;
     text-transform: capitalize;
 }
 
@@ -46,13 +46,17 @@ h1{
     text-align: center;
 }
 
+.label h3{
+    font-size: 1.2em;
+}
+
 .btn{
     text-align: center;
     width: 100%;
     padding: 2%;
     margin-bottom: 10%;
     font-weight: 600;
-    font-size: 2.5em;
+    font-size: 1.2em;
 }
 
 .displayTile{
@@ -71,4 +75,20 @@ h1{
 .falseAnswer{
     background-color: red;
 }
+
+@media screen and (min-width: 600px){
+  .label h3{
+        font-size: 2em;
+  }
+
+  .btn{
+      font-size: 2.5em;
+  }
+
+  #timer div, #score div, #clicks div{
+      height: 80px;
+      line-height: 80px;
+      font-size: 2em;
+  }
+} 
 
