@@ -104,9 +104,10 @@ function startTimer() {
         document.getElementById("timer").firstChild.innerText = count++;
 
         //end timer when timer reaches -1, This displays 0.
-        if (count === 60) {
+        if (count === 10) {
             clearInterval(timer);
             document.getElementById("timer").firstChild.innerText = "Game Over";
+            endGame();
         }
     }, 1000);
 }
@@ -200,8 +201,8 @@ function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
     let calculatedScore = (timeScore + clicks);
-    console.log(calculatedScore);
     document.querySelector("#score").firstChild.innerHTML = calculatedScore;
+    
 }
 
 //additional levels of difficulty
