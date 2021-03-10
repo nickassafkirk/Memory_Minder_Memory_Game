@@ -16,9 +16,8 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
     endButton.disabled = false;
-    tiles.forEach(tile => tile.addEventListener("click", displayTile));
-    resetTiles();
     startButton.disabled = true;
+    resetTiles();
     startTimer();
     //displayTile -> function which listens for click event and displays tile value on click
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
@@ -69,8 +68,8 @@ function setTiles(randomOrderArray) {
     for (tile of tiles) {
         tile.innerHTML = randomOrderArray[i];
         i++;
+        
         //replace numerical values with icon pairs
-
         if (tile.innerText < 3) {
             tile.innerHTML = rocket;
             tile.setAttribute("icon", "rocket")
@@ -102,11 +101,10 @@ function setTiles(randomOrderArray) {
 }
 
 //Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
-let count;
 
 function startTimer() {
     clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
-    count = 0, timer = setInterval(function () {
+    count = 1, timer = setInterval(function () {
         count = count++;
         document.getElementById("timer").firstChild.innerText = count++;
 
