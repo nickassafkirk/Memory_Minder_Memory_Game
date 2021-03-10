@@ -151,44 +151,34 @@ function displayTile(e) {
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
-    console.log(tileIcons);
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
    
     // this counts number of clicks
     countMoves()
-    n++;
-    checkMatch(tileIcons, tileIds,n)
     
+    if(tileIcons.length % 2 == 0){
+    checkMatch(tileIcons, tileIds,n)
+    n = n+2;
+    }
 };
 
 function checkMatch(tileIcons, tileIds,n){
-    console.log(tileIcons);
-    console.log(tileIds);
-    console.log(n-1);
-    /*
-     if (tileIcons.length === 2) {
-        for (i = 0; i < tileIcons.length; i++) {
-            if (tileIcons[i] === tileIcons[i + 1]) {
-                console.log("Match");
-                document.getElementById(tileIds[0]).style.backgroundColor = "green";
-                document.getElementById(tileIds[1]).style.backgroundColor = "green";
-                console.log(tileIcons);
-                tileIcons =[];
-                
-            } else {
-                setTimeout(function(){
+    console.log(n);
+    console.log(n+1);
+        if(tileIcons[n] === tileIcons[n+1]){
+            console.log("match");
+            document.getElementById(tileIds[n]).style.backgroundColor = "green";
+                document.getElementById(tileIds[n+1]).style.backgroundColor = "green";
+        
+        } else {
+            console.log("no match");
+            setTimeout(function(){
                     console.log("No match");
-                    document.getElementById(tileIds[0]).classList.remove("displayTile");
-                    document.getElementById(tileIds[1]).classList.remove("displayTile");
-                }, 1000);   
-            }
+                    document.getElementById(tileIds[n+1]).classList.remove("displayTile");
+                    document.getElementById(tileIds[n]).classList.remove("displayTile");
+                }, 1000);  
         }
-    } else {
-        console.log("click another tile");
-    }
-    */
-
 }
 
 
