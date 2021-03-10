@@ -6,7 +6,7 @@ window.onload = function () {
 
 //global variable
 
-let clicks;
+let clicks = 0;
 let timeScore;
 
 /*start button initiates game and starts counter
@@ -130,14 +130,9 @@ const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
 
-
-const selectedTile = ''
 let tileIcon;
 let tileIcons = [];
 let tileIds = [];
-
-
-
 let n = 0;
 
 function displayTile(e) {
@@ -152,13 +147,11 @@ function displayTile(e) {
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
 
-    // this counts number of clicks
-
-    countMoves()
-
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
         n = n + 2;
+        // this counts number of clicks
+        countMoves()
     }
 };
 
@@ -197,7 +190,7 @@ function correctAnswer() {
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
 function countMoves() {
-    clicks = n;
+    clicks++;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
 }
 
