@@ -16,14 +16,18 @@ h1{
 }
 
 .gametile{
-    height: 15vh;
-    width: 15vw;
-    line-height: 15vh;
+    height: 12vw;
+    width: 10vw;
+    line-height: 12vw;
     background-color: #44445a;
     color: white;
     text-align: center;
     font-size: 0em;
     border: 2px solid #55555a
+}
+
+#timer, #score, #clicks{
+    height: 60px;
 }
 
 #timer div, #score div, #clicks div{
@@ -92,3 +96,8 @@ h1{
   }
 } 
 
+@media screen and (min-width: 600px){
+    #gameboard{
+        width: 75vw;
+    }
+}
