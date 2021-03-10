@@ -168,9 +168,15 @@ function checkMatch(tileIcons, tileIds,n){
             console.log("match");
             console.log(n);
             document.getElementById(tileIds[n]).style.backgroundColor = "green";
-            document.getElementById(tileIds[n+1]).style.backgroundColor = "green";   
+            document.getElementById(tileIds[n+1]).style.backgroundColor = "green";
+            document.getElementById(tileIds[n]).setAttribute("guess","correct")   
+            document.getElementById(tileIds[n+1]).setAttribute("guess","correct")   
+            document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
+            document.getElementById(tileIds[n+1]).removeEventListener("click", displayTile); 
         }
 }
+
+
 
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
