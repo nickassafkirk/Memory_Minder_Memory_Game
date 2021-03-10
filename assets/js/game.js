@@ -136,18 +136,9 @@ let n = 0;
 function displayTile(e) {
     
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
-    if (this.getAttribute("state") != "selected") {
-        this.classList.remove("hideTile");
-        this.classList.add("displayTile");
+    this.classList.remove("hideTile");
+    this.classList.add("displayTile");
         
-
-        //adds custom attr of state: selected to clicked tile
-        this.setAttribute("state", "selected");
-        let thisTileState = this.getAttribute("state")
-    } else {
-        console.log("heuston we have a problem");
-    }
-
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
@@ -169,7 +160,7 @@ function checkMatch(tileIcons, tileIds,n){
         if(tileIcons[n] === tileIcons[n+1]){
             console.log("match");
             document.getElementById(tileIds[n]).style.backgroundColor = "green";
-                document.getElementById(tileIds[n+1]).style.backgroundColor = "green";
+            document.getElementById(tileIds[n+1]).style.backgroundColor = "green";
         
         } else {
             console.log("no match");
