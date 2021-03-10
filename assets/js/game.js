@@ -103,8 +103,8 @@ function startTimer() {
         count = count++;
         document.getElementById("timer").firstChild.innerText = count++;
 
-        //end timer when timer reaches -1, This displays 0.
-        if (count === 10) {
+        //If time runs out, game is ended
+        if (count === 60) {
             clearInterval(timer);
             document.getElementById("timer").firstChild.innerText = "Time Up";
             endGame();
