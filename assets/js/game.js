@@ -162,9 +162,12 @@ function displayTile(e) {
     }
 };
 
+let correctMatches = 0;
+//checkMatch tests to see if first selection, matches second selection
 function checkMatch(tileIcons, tileIds,n){
     console.log(n);
     console.log(n+1);
+    
         if(tileIcons[n] !== tileIcons[n+1]){
             console.log("no match");
             setTimeout(function(){
@@ -180,11 +183,15 @@ function checkMatch(tileIcons, tileIds,n){
             document.getElementById(tileIds[n+1]).setAttribute("guess","correct")   
             document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
             document.getElementById(tileIds[n+1]).removeEventListener("click", displayTile); 
+            correctAnswer();
         }
 }
 
-
-
+function correctAnswer(){
+    correctMatches++;
+    console.log(correctMatches);
+    return correctMatches;
+}
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
 function countMoves(){
