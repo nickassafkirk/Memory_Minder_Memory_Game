@@ -160,9 +160,6 @@ function displayTile(e) {
 let correctMatches = 0;
 //checkMatch tests to see if first selection, matches second selection
 function checkMatch(tileIcons, tileIds, n) {
-    console.log(n);
-    console.log(n + 1);
-
     if (tileIcons[n] !== tileIcons[n + 1]) {
         console.log("no match");
         setTimeout(function () {
@@ -171,7 +168,6 @@ function checkMatch(tileIcons, tileIds, n) {
         }, 1000);
     } else {
         console.log("match");
-        console.log(n);
         document.getElementById(tileIds[n]).style.backgroundColor = "green";
         document.getElementById(tileIds[n + 1]).style.backgroundColor = "green";
         document.getElementById(tileIds[n]).setAttribute("guess", "correct")
@@ -204,17 +200,12 @@ function calculateScore() {
     let resultType = isNaN(calculatedScore);
     
     if(resultType){
-        console.log(calculatedScore);
         document.querySelector("#score").firstChild.innerHTML = "Game Over";
         document.querySelector("#score").firstChild.style.color = "red";
     } else {
-        console.log(calculatedScore);
         document.querySelector("#score").firstChild.innerHTML = calculatedScore;
         document.querySelector("#score").firstChild.style.color = "green";
     }
-        
-    
-    console.log(calculatedScore);
 }
 
 //additional levels of difficulty
