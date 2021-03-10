@@ -17,6 +17,7 @@ let startButton = document.getElementById("startGame")
 startButton.addEventListener("click", startGame);
 
 function startGame() {
+    tiles.forEach(tile => tile.addEventListener("click", displayTile));
     resetTiles();
     startButton.disabled = true;
     console.log(randomOrderArray);
