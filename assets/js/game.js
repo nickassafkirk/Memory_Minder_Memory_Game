@@ -146,6 +146,7 @@ function displayTile(e) {
     tileIds.push(tileId);
    
     // this counts number of clicks
+
     countMoves()
     
     if(tileIcons.length % 2 == 0){
@@ -157,25 +158,24 @@ function displayTile(e) {
 function checkMatch(tileIcons, tileIds,n){
     console.log(n);
     console.log(n+1);
-        if(tileIcons[n] === tileIcons[n+1]){
-            console.log("match");
-            document.getElementById(tileIds[n]).style.backgroundColor = "green";
-            document.getElementById(tileIds[n+1]).style.backgroundColor = "green";
-        
-        } else {
+        if(tileIcons[n] !== tileIcons[n+1]){
             console.log("no match");
             setTimeout(function(){
-                    console.log("No match");
                     document.getElementById(tileIds[n+1]).classList.remove("displayTile");
                     document.getElementById(tileIds[n]).classList.remove("displayTile");
-                }, 1000);  
+            }, 1000);  
+        } else {
+            console.log("match");
+            console.log(n);
+            document.getElementById(tileIds[n]).style.backgroundColor = "green";
+            document.getElementById(tileIds[n+1]).style.backgroundColor = "green";   
         }
 }
 
 
 //countClicks -> calculates number of user clicks -> needed to calculate score
 function countMoves(){
-    clicks = i;
+    clicks = n;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
 }
 
