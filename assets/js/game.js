@@ -52,7 +52,6 @@ function setRandomTileOrder(numberOfTiles) {
         }
     }
     setTiles(randomOrderArray);
-    return randomOrderArray
 }
 
 //Set tiles variable for use throughout code
@@ -148,10 +147,11 @@ function displayTile(e) {
     tileIcons.push(tileIcon);
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
+    
 
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
-        n = n + 2;
+        n = n + 2; 
         // this counts number of clicks
         countMoves()
     }
@@ -254,7 +254,12 @@ function resetTiles() {
         tile.classList.remove("hideTile");
         tile.classList.remove("displayTile");
     }
-    clicks = 1;
+    clicks = 0;
+    correctMatches = 0;
+    document.getElementById("timer").firstChild.innerText ="";
+    document.getElementById("clicks").firstChild.innerText ="";
+    document.getElementById("score").firstChild.innerText ="";
+    
 }
 
 
