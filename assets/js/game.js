@@ -1,7 +1,7 @@
 //on page load -> generate game board;
 window.onload = function(){
     console.log("Page Loaded")
-    setRandomTileOrder(12);
+    setRandomTileOrder(16);
     setTiles();
 }
 
@@ -86,6 +86,12 @@ function setTiles(){
     } else if (tile.innerHTML < 13) {
         tile.innerHTML = kiwi;
         tile.setAttribute("icon", "kiwi")
+    } else if (tile.innerHTML < 15) {
+        tile.innerHTML = fire;
+        tile.setAttribute("icon", "fire")
+    } else if (tile.innerHTML < 17) {
+        tile.innerHTML = anchor;
+        tile.setAttribute("icon", "anchor")
     } else {
         console.log("Error: too many tiles");
     }
