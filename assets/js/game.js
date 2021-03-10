@@ -7,7 +7,7 @@ window.onload = function () {
 //global variable
 
 let clicks = 0;
-let timeScore;
+
 
 /*start button initiates game and starts counter
 initiates game start on button press*/
@@ -29,13 +29,8 @@ endButton.addEventListener("click", endGame);
 
 function endGame() {
     endButton.disabled = true;
-    function endTimer() {
-        timeScore = document.getElementById("timer").innerText;
-        clearInterval(timer);
-    }
     startButton.innerText = "New Game";
     startButton.disabled = false;
-    endTimer();
     calculateScore();
 }
 
@@ -116,6 +111,12 @@ function startTimer() {
     }, 1000);
 }
 
+function endTimer() {
+        let timeScore = document.getElementById("timer").innerText;
+        clearInterval(timer);
+        return timeScore
+    }
+
 /* icon assign function -> replaces random numbers with icon pairs
 when icon assigned, tile is also assigned an attribute icon variables */
 const football = `<i class="fas fa-football-ball"></i>`;
@@ -194,17 +195,10 @@ function countMoves() {
     document.getElementById("clicks").firstChild.innerHTML = clicks;
 }
 
-//ClearTiles -> Clear tiles when new game is started;
-function clearTiles() {
-    for (let n = 0; n < tiles.length; n++) {
-        tiles[n].style.fontSize = "0em";
-        tiles[n].style.backgroundColor = "#44445a";
-    }
-}
-
 //calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
 function calculateScore() {
-    timeScore = parseInt(timeScore);
+    let timeAtEnd = endTimer();
+    timeScore = parseInt(timeAtEnd);
     let calculatedScore = (timeScore + clicks);
     console.log(calculatedScore);
     document.querySelector("#score").firstChild.innerHTML = calculatedScore;
@@ -247,6 +241,7 @@ function resetTiles() {
         tile.classList.remove("hideTile");
         tile.classList.remove("displayTile");
     }
+    clicks = 1;
 }
 
 
