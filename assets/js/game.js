@@ -1,7 +1,7 @@
 //on page load -> generate game board;
 window.onload = function(){
     console.log("Page Loaded")
-    setRandomTileOrder();
+    setRandomTileOrder(12);
     setTiles();
 }
 
@@ -20,7 +20,7 @@ function startGame() {
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
     resetTiles();
     startButton.disabled = true;
-    console.log(randomOrderArray);
+     console.log(randomOrderArray);
     startTimer();
 }
 
@@ -46,9 +46,9 @@ creates random number which will later be assigned an icon
 creates an array of 12 random numbers*/
 let randomOrderArray = [];
 function setRandomTileOrder() {
-    while (randomOrderArray.length < 12) {
+    while (randomOrderArray.length < numberOfTiles) {
         let randomNum = Math.random();
-        randomNum = randomNum * 11;
+        randomNum = randomNum * (numberOfTiles -1);
         randomNum = Math.round(randomNum) + 1;
 
         if (randomOrderArray.includes(randomNum)) {
@@ -66,8 +66,6 @@ function setTiles(){
     for(tile of tiles){
         tile.innerHTML = randomOrderArray[i];
         i++;
-    
-
     //replace numerical values with icon pairs
 
     if (tile.innerText < 3) {
