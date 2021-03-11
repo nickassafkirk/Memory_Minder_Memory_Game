@@ -211,25 +211,23 @@ function calculateScore() {
 //additional levels of difficulty
 
 //1. generateRandomColor -> generates a random background color, to make matching harder as game progresses
-let newRGB;
 
-function generateRGBVal() {
-
-    function generateRandomColor() {
-        let r = Math.random();
-        r = r * 255;
-        r = Math.round(r);
-        return r;
-    }
-
-    let rgbValue = [];
-    for (let i = 0; i <= 2; i++) {
-        let singleVal = generateRandomColor();
-        rgbValue.push(singleVal);
-    }
-    newRGB = `rgb(${rgbValue[0]},${rgbValue[1]},${rgbValue[2]})`;
-    return newRGB;
+function singleRGBValue() {
+    let oneValue = Math.random();
+    oneValue  = oneValue  * 255;
+    oneValue  = Math.round(oneValue);
+    return oneValue;
 }
+
+function generateRandomColor(){
+    r = singleRGBValue();
+    g = singleRGBValue();
+    b = singleRGBValue();
+    let randomColor = `rgb(${r},${g},${b})`;
+    return randomColor
+};
+    
+
 //2. addAdditional tiles -> 12, 16, 20, 24
 //3. Reduce time -> decrease amount of time available to complete the game. 
 //4. change icons to a math problem to be matched to the correct answer;
