@@ -62,7 +62,6 @@ function setTiles(randomOrderArray) {
     for (tile of tiles) {
         tile.innerHTML = randomOrderArray[i];
         i++;
-        
         //replace numerical values with icon pairs
         if (tile.innerText < 3) {
             tile.innerHTML = rocket;
@@ -147,10 +146,10 @@ function displayTile(e) {
     tileIcons.push(tileIcon);
     let tileId = e.target.getAttribute("id");
     tileIds.push(tileId);
-    
 
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
+        
         n = n + 2; 
         // this counts number of clicks
         countMoves()
@@ -162,9 +161,13 @@ let correctMatches = 0;
 function checkMatch(tileIcons, tileIds, n) {
     if (tileIcons[n] !== tileIcons[n + 1]) {
         console.log("no match");
+        document.getElementById(tileIds[n + 1]).style.backgroundColor = "red";
+        document.getElementById(tileIds[n]).style.backgroundColor = "red";
         setTimeout(function () {
             document.getElementById(tileIds[n + 1]).classList.remove("displayTile");
             document.getElementById(tileIds[n]).classList.remove("displayTile");
+            document.getElementById(tileIds[n + 1]).removeAttribute("style");
+            document.getElementById(tileIds[n]).removeAttribute("style");
         }, 1000);
     } else {
         console.log("match");
