@@ -193,6 +193,9 @@ function checkMatch(tileIcons, tileIds, n) {
         console.log("no match");
         document.getElementById(tileIds[n + 1]).style.backgroundColor = "red";
         document.getElementById(tileIds[n]).style.backgroundColor = "red";
+        //re-enable click event listener for tiles if match attempt is unsuccessful
+        document.getElementById(tileIds[n + 1]).addEventListener("click", displayTile);
+        document.getElementById(tileIds[n]).addEventListener("click", displayTile);
         setTimeout(function () {
             document.getElementById(tileIds[n + 1]).classList.remove("displayTile");
             document.getElementById(tileIds[n]).classList.remove("displayTile");
