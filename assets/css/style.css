@@ -11,12 +11,27 @@ body{
 }
 
 #nav-list{
+    width: 90vw;
     padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    border-top: 2px solid #fff;
 }
 
 #nav-list li{
     display: inline;
     padding: 2%;
+    width: 30vw;
+}
+
+#nav-list a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#nav-list li:hover{
+    border-bottom: 2px solid rgba(252, 252, 0, 0.87);
 }
 
 
@@ -24,6 +39,7 @@ h1{
     clear: both;
     color: white;
     margin-top: 1em;
+    margin-bottom: 0.5em;
     font-size: 2em;
 }
 
