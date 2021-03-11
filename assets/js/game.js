@@ -164,13 +164,19 @@ function displayTile(e) {
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     this.classList.remove("hideTile");
     this.classList.add("displayTile");
+    let selectedTile = this.getAttribute("id");
+    console.log(selectedTile);
+    selectedTile = document.querySelector(`#${selectedTile}`);
+    console.log(selectedTile);
 
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
     let tileId = e.target.getAttribute("id");
+    //disable each guess from being reclicked
+    document.getElementById(tileId).removeEventListener("click", displayTile);
     tileIds.push(tileId);
-
+    
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
         
