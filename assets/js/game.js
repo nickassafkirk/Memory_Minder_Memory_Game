@@ -1,7 +1,6 @@
 //on page load -> generate game board;
 window.onload = function () {
     console.log("Page Loaded")
-    setRandomTileOrder(16);
 }
 
 //global variable
@@ -57,7 +56,8 @@ function setRandomTileOrder(numberOfTiles) {
 //Set tiles variable for use throughout code
 const tiles = document.querySelectorAll(".gametile");
 
-function setTiles(randomOrderArray) {
+function setTiles(randomOrderArray, callback) {
+    let bgColors = buildColorSelection(generateRandomColor);
     let i = 0;
     for (tile of tiles) {
         tile.innerHTML = randomOrderArray[i];
@@ -66,27 +66,51 @@ function setTiles(randomOrderArray) {
         if (tile.innerText < 3) {
             tile.innerHTML = rocket;
             tile.setAttribute("icon", "rocket")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[0];
+            });
         } else if (tile.innerHTML < 5) {
             tile.innerHTML = bacteria;
             tile.setAttribute("icon", "bacteria")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[1];
+            });
         } else if (tile.innerHTML < 7) {
             tile.innerHTML = cocktail;
             tile.setAttribute("icon", "cocktail")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[2]
+            });
         } else if (tile.innerHTML < 9) {
             tile.innerHTML = football;
             tile.setAttribute("icon", "football")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[3];
+            });
         } else if (tile.innerHTML < 11) {
             tile.innerHTML = pizza;
             tile.setAttribute("icon", "pizza")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[4];
+            });
         } else if (tile.innerHTML < 13) {
             tile.innerHTML = kiwi;
             tile.setAttribute("icon", "kiwi")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[5];
+            });
         } else if (tile.innerHTML < 15) {
             tile.innerHTML = fire;
             tile.setAttribute("icon", "fire")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[6];
+            });
         } else if (tile.innerHTML < 17) {
             tile.innerHTML = anchor;
             tile.setAttribute("icon", "anchor")
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[7];
+            });
         } else {
             console.log("Error: too many tiles");
         }
