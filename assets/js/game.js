@@ -223,7 +223,7 @@ function countMoves() {
 function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
-    let calculatedScore = (timeScore + clicks);
+    let calculatedScore = (timeScore + (clicks +1));
     let resultType = isNaN(calculatedScore);
     
     if(resultType){
