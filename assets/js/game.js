@@ -229,6 +229,14 @@ function generateRandomColor(){
     let randomColor = `rgb(${r},${g},${b})`;
     return randomColor
 };
+
+function buildColorSelection(generateRandomColor){
+    let colorSelection = [];
+    for(let colors = 0; colors < 8; colors++){
+        colorSelection.push(generateRandomColor());
+    }
+    return colorSelection
+};
     
 
 //2. addAdditional tiles -> 12, 16, 20, 24
