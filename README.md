@@ -8,3 +8,12 @@ credit: solution was found at this [stack overflow post](https://stackoverflow.c
 
 Bug: User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
 Fix: The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
+
+credits: 
+
+Images:
+
+Logo brain image:
+from: https://icons8.com/icons/set/brain
+img: <img src="https://img.icons8.com/ios/50/000000/brainstorm.png"/>
+credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Icons8</a>
