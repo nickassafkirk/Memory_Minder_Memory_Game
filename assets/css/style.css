@@ -3,6 +3,8 @@
 body{
     font-family: 'Finger paint', cursive;
     background-color: #222;
+    color: #fff;
+    text-align: center;
 }
 
 #main-nav{
@@ -116,6 +118,22 @@ h1{
 .falseAnswer{
     background-color: red;
 }
+
+li{
+    line-height: 2em;
+}
+
+#rules-container h3{
+    margin: 1em auto;
+}
+
+#rules-container h3:last-of-type{
+    margin-top: 2em;
+}
+
+
+
+
 
 @media screen and (min-width: 600px){
 
