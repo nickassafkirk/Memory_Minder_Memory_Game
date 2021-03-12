@@ -56,7 +56,7 @@ function setRandomTileOrder(numberOfTiles) {
 //Set tiles variable for use throughout code
 const tiles = document.querySelectorAll(".gametile");
 
-function setTiles(randomOrderArray, callback) {
+function setTiles(randomOrderArray) {
     let bgColors = buildColorSelection(generateRandomColor);
     let i = 0;
     for (tile of tiles) {
