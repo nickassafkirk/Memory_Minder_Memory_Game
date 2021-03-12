@@ -207,6 +207,11 @@ function checkMatch(tileIcons, tileIds, n) {
         document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
         document.getElementById(tileIds[n + 1]).removeEventListener("click", displayTile);
         correctAnswer()
+        setTimeout(function () {
+            let correctBg = generateRandomColor();
+            document.getElementById(tileIds[n]).style.backgroundColor = correctBg;
+            document.getElementById(tileIds[n + 1]).style.backgroundColor = correctBg;
+        }, 1000);
     }
 }
 
