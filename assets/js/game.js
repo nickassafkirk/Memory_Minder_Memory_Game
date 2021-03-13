@@ -285,6 +285,11 @@ function showScoreOnCompletion(){
       <h4>Congratulations you Won!</h4>
       <p>Your score is <strong>${finalScore}</strong></p>
     `;
+    scoreAreaRef.addEventListener("click", function(){
+        gameplayAreaRef.classList.remove("d-none");
+        scoreAreaRef.classList.remove("show-flex");
+        scoreAreaRef.classList.add("d-none");
+    })
 }
     
 
