@@ -131,7 +131,13 @@ li{
     margin-top: 2em;
 }
 
+.show{
+    display: block;
+}
 
+.hide{
+    display: none;
+}
 
 
 
