@@ -8,6 +8,18 @@ let tileIcon;
 let tileIcons = [];
 let tileIds = [];
 let n = 0;
+const football = `<i class="fas fa-football-ball"></i>`;
+const mask = `<i class="fas fa-ufo"></i>`;
+const pizza = `<i class="fas fa-pizza-slice"></i>`;
+const lightning = `<i class="far fa-bolt"></i>`;
+const bulb = `<i class="fal fa-lightbulb"></i>`;
+const rocket = `<i class="fas fa-rocket"></i>`;
+const bacteria = `<i class="fas fa-bacterium"></i>`;
+const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
+const cocktail = `<i class="fas fa-cocktail"></i>`;
+const fire = `<i class="fas fa-fire-alt"></i>`;
+const anchor = `<i class="fas fa-anchor"></i>`;
+const iconsArray =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
 
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
@@ -49,7 +61,7 @@ function setRandomTileOrder(numberOfTiles) {
             randomOrderArray.push(randomNum);
         }
     }
-    setTiles(randomOrderArray);
+    setTiles(randomOrderArray, iconsArray);
 }
 
 /**
@@ -57,7 +69,7 @@ function setRandomTileOrder(numberOfTiles) {
  * it takes the parameter randomOrderArray which shuffles the tile order, creating a unique tile order
  * @param {array} randomOrderArray 
  */
-function setTiles(randomOrderArray) {
+function setTiles(randomOrderArray, tileThemeArray) {
     let bgColors = buildColorSelection(generateRandomColor);
     let i = 0;
     for (tile of tiles) {
@@ -65,50 +77,50 @@ function setTiles(randomOrderArray) {
         i++;
         //replace numerical values with icon pairs
         if (tile.innerText < 3) {
-            tile.innerHTML = rocket;
-            tile.setAttribute("icon", "rocket")
+            tile.innerHTML = tileThemeArray[0];
+            tile.setAttribute("icon", tileThemeArray[0])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[0];
             });
         } else if (tile.innerHTML < 5) {
-            tile.innerHTML = bacteria;
-            tile.setAttribute("icon", "bacteria")
+            tile.innerHTML = tileThemeArray[1];
+            tile.setAttribute("icon", tileThemeArray[1])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[1];
             });
         } else if (tile.innerHTML < 7) {
-            tile.innerHTML = cocktail;
-            tile.setAttribute("icon", "cocktail")
+            tile.innerHTML = tileThemeArray[2];
+            tile.setAttribute("icon", tileThemeArray[2])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[2]
             });
         } else if (tile.innerHTML < 9) {
-            tile.innerHTML = football;
-            tile.setAttribute("icon", "football")
+            tile.innerHTML = tileThemeArray[3];
+            tile.setAttribute("icon", tileThemeArray[3])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[3];
             });
         } else if (tile.innerHTML < 11) {
-            tile.innerHTML = pizza;
-            tile.setAttribute("icon", "pizza")
+            tile.innerHTML = tileThemeArray[4];
+            tile.setAttribute("icon", tileThemeArray[4])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[4];
             });
         } else if (tile.innerHTML < 13) {
-            tile.innerHTML = kiwi;
-            tile.setAttribute("icon", "kiwi")
+            tile.innerHTML = tileThemeArray[5];
+            tile.setAttribute("icon", tileThemeArray[5])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[5];
             });
         } else if (tile.innerHTML < 15) {
-            tile.innerHTML = fire;
-            tile.setAttribute("icon", "fire")
+            tile.innerHTML = tileThemeArray[6];
+            tile.setAttribute("icon", tileThemeArray[6])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[6];
             });
         } else if (tile.innerHTML < 17) {
-            tile.innerHTML = anchor;
-            tile.setAttribute("icon", "anchor")
+            tile.innerHTML = tileThemeArray[7];
+            tile.setAttribute("icon", tileThemeArray[7])
             tile.addEventListener("click", function(){
                 this.style.backgroundColor = bgColors[7];
             });
@@ -141,21 +153,6 @@ function endTimer() {
         clearInterval(timer);
         return timeScore
     }
-
-
-const football = `<i class="fas fa-football-ball"></i>`;
-const mask = `<i class="fas fa-ufo"></i>`;
-const pizza = `<i class="fas fa-pizza-slice"></i>`;
-const lightning = `<i class="far fa-bolt"></i>`;
-const bulb = `<i class="fal fa-lightbulb"></i>`;
-const rocket = `<i class="fas fa-rocket"></i>`;
-const bacteria = `<i class="fas fa-bacterium"></i>`;
-const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
-const cocktail = `<i class="fas fa-cocktail"></i>`;
-const fire = `<i class="fas fa-fire-alt"></i>`;
-const anchor = `<i class="fas fa-anchor"></i>`;
-
-const iconsArray =[football,mask,pizza,bulb,rocket,bacteria,kiwi,cocktail,fire,anchor];
 
 /** 
  * This function checks the tiles 
