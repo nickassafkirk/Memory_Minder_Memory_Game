@@ -131,24 +131,23 @@ li{
     margin-top: 2em;
 }
 
-.hide{
-    display: none;
-}
-
-.show{
-    display: block;
+.show-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
 #scoreboard{
+    
+    padding: 0 auto;
     height: 250px;
     width: 350px;
-    line-height: 250px;
     background-color: #fff;
     color: #222;
     border: 2px solid #ffd700;
     border-radius: 5px;
 }
-
 
 
 @media screen and (min-width: 600px){

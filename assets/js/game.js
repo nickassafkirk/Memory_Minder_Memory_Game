@@ -278,8 +278,8 @@ function buildColorSelection(generateRandomColor){
 function showScoreOnCompletion(){
     let finalScore = calculateScore();
     gameplayAreaRef.classList.add("d-none");
-    scoreAreaRef.classList.remove("hide");
-    scoreAreaRef.classList.add("show")
+    scoreAreaRef.classList.remove("d-none");
+    scoreAreaRef.classList.add("show-flex")
     scoreAreaRef.innerHTML = `
       <h4>Congratulations you Won!</h4>
       <p>your score is ${finalScore}</p>
