@@ -42,7 +42,7 @@ function startGame() {
 
 function endGame() {
     endButtonRef.disabled = true;
-    startButtonRef.innerText = "New Game";
+    startButtonRef.innerHTML = `New<br class="d-inline d-sm-none"> Game`;
     startButtonRef.disabled = false;
     calculateScore();
     showScoreOnCompletion()
