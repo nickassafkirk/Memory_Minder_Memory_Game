@@ -45,6 +45,7 @@ function endGame() {
     startButtonRef.innerText = "New Game";
     startButtonRef.disabled = false;
     calculateScore();
+    showScoreOnCompletion()
 }
 
 /**
@@ -282,7 +283,7 @@ function showScoreOnCompletion(){
     scoreAreaRef.classList.add("show-flex")
     scoreAreaRef.innerHTML = `
       <h4>Congratulations you Won!</h4>
-      <p>your score is ${finalScore}</p>
+      <p>Your score is <strong>${finalScore}</strong></p>
     `;
 }
     
