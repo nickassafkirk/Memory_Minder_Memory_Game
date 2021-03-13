@@ -44,8 +44,7 @@ function endGame() {
     endButtonRef.disabled = true;
     startButtonRef.innerHTML = `New<br class="d-inline d-sm-none"> Game`;
     startButtonRef.disabled = false;
-    calculateScore();
-    showScoreOnCompletion()
+    showScoreOnCompletion()  
 }
 
 /**
@@ -103,20 +102,19 @@ function setTiles(randomOrderArray, tileThemeArray) {
             console.log("Error: too many tiles");
         }
     }
-}
-
-/**
+    /**
  * Sets the inner values and custom attribute for each tile pair
  * @param {Array} tileThemeArray 
  * @param {Array} bgColors 
  * @param {Number} num 
  */
-function assignTileInner(tileThemeArray, bgColors, num){
-    tile.innerHTML = tileThemeArray[num];
-            tile.setAttribute("icon", tileThemeArray[num])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[num];
-            });
+    function assignTileInner(tileThemeArray, bgColors, num) {
+        tile.innerHTML = tileThemeArray[num];
+        tile.setAttribute("icon", tileThemeArray[num])
+        tile.addEventListener("click", function () {
+            this.style.backgroundColor = bgColors[num];
+        });
+    }
 }
 
 /** 
@@ -159,14 +157,14 @@ function displayTile(e) {
     //disable each guess from being reclicked
     document.getElementById(tileId).removeEventListener("click", displayTile);
     tileIds.push(tileId);
-    
+
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
         
         n = n + 2; 
         // this counts number of clicks
         countMoves()
-    }
+    } return
 };
 
 
@@ -178,7 +176,6 @@ function displayTile(e) {
  */
 function checkMatch(tileIcons, tileIds, n) {
     if (tileIcons[n] !== tileIcons[n + 1]) {
-        console.log("no match");
         document.getElementById(tileIds[n + 1]).style.backgroundColor = "red";
         document.getElementById(tileIds[n]).style.backgroundColor = "red";
         //re-enable click event listener for tiles if match attempt is unsuccessful
@@ -191,14 +188,13 @@ function checkMatch(tileIcons, tileIds, n) {
             document.getElementById(tileIds[n]).removeAttribute("style");
         }, 1000);
     } else {
-        console.log("match");
         document.getElementById(tileIds[n]).style.backgroundColor = "green";
         document.getElementById(tileIds[n + 1]).style.backgroundColor = "green";
         document.getElementById(tileIds[n]).setAttribute("guess", "correct")
         document.getElementById(tileIds[n + 1]).setAttribute("guess", "correct")
         document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
         document.getElementById(tileIds[n + 1]).removeEventListener("click", displayTile);
-        correctAnswer()
+        countCorrectAnswers()
         setTimeout(function () {
             let correctBg = generateRandomColor();
             document.getElementById(tileIds[n]).style.backgroundColor = correctBg;
@@ -207,12 +203,12 @@ function checkMatch(tileIcons, tileIds, n) {
     }
 }
 
-function correctAnswer() {
+function countCorrectAnswers() {
     correctMatches++;
     console.log(correctMatches);
     if (correctMatches === 8) {
         endGame();
-    }
+    } 
 }
 /**
  * calculates number of user clicks -> needed to calculate score
@@ -220,27 +216,10 @@ function correctAnswer() {
 function countMoves() {
     clicks++;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
+    return clicks
 }
 
-/**
- * adds number of clicks and elapsed time to calculate score & displays score upon game completion
- */
-function calculateScore() {
-    let timeAtEnd = endTimer();
-    timeScore = parseInt(timeAtEnd);
-    let calculatedScore = (timeScore + (clicks +1));
-    let resultType = isNaN(calculatedScore);
-    
-    if(resultType){
-        document.querySelector("#score").firstChild.innerHTML = "Game Over";
-        document.querySelector("#score").firstChild.style.color = "red";
-    } else {
-        document.querySelector("#score").firstChild.innerHTML = calculatedScore;
-        document.querySelector("#score").firstChild.style.color = "green";
-    }
 
-    return calculatedScore;
-}
 
 //additional levels of difficulty
 
@@ -276,16 +255,55 @@ function buildColorSelection(generateRandomColor){
     return colorSelection
 };
 
+/**
+   * adds number of clicks and elapsed time to calculate score & displays score upon game completion
+   */
+function calculateScore() {
+    let timeAtEnd = endTimer();
+    timeScore = parseInt(timeAtEnd);
+    clicksAtEnd = countMoves();
+    let calculatedScore = (timeScore + (clicksAtEnd + 1));
+    return calculatedScore;
+}
+
 function showScoreOnCompletion(){
-    let finalScore = calculateScore();
-    gameplayAreaRef.classList.add("d-none");
-    scoreAreaRef.classList.remove("d-none");
-    scoreAreaRef.classList.add("show-flex")
-    scoreAreaRef.innerHTML = `
-      <h4>Congratulations you Won!</h4>
-      <p>Your score is <strong>${finalScore}</strong></p>
-    `;
-    scoreAreaRef.addEventListener("click", showScoreboard);
+    let correctAnswersOnQuit = countCorrectAnswers();
+    console.log(correctAnswersOnQuit);
+    calculatedScore = calculateScore();
+    let resultType = isNaN(calculatedScore);
+    console.log(resultType)
+    
+    if(resultType){
+        document.querySelector("#score").firstChild.innerHTML = "Game Over";
+        document.querySelector("#score").firstChild.style.color = "red";
+        gameplayAreaRef.classList.add("d-none");
+        scoreAreaRef.classList.remove("d-none");
+        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.innerHTML = `
+        <h4>Game Over</h4>
+        <p>You ran out of time</p>
+        `;
+    } else if (correctAnswersOnQuit !== 8){
+        gameplayAreaRef.classList.add("d-none");
+        scoreAreaRef.classList.remove("d-none");
+        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.innerHTML = `
+        <h4>Game Over</h4>
+        <p>You quit before finishing</p>
+        `;
+
+    } else {
+        document.querySelector("#score").firstChild.innerHTML = calculatedScore;
+        document.querySelector("#score").firstChild.style.color = "green";
+        gameplayAreaRef.classList.add("d-none");
+        scoreAreaRef.classList.remove("d-none");
+        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.innerHTML = `
+        <h4>Congratulations you Won!</h4>
+        <p>Your score is <strong>${calculatedScore}</strong></p>
+        `;
+    }
+    scoreAreaRef.addEventListener("click", hideScoreboard);
 }
 
 function hideScoreboard(){
