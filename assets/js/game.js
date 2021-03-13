@@ -313,6 +313,7 @@ function resetTiles() {
         tile.classList.remove("hideTile");
         tile.classList.remove("displayTile");
     }
+    hideScoreboard();
     clicks = 0;
     correctMatches = 0;
     document.getElementById("timer").firstChild.innerText ="";
