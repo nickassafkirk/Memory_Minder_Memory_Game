@@ -133,6 +133,14 @@ function setTiles(randomOrderArray, tileThemeArray) {
     }
 }
 
+function assignTileInner(tile,num){
+    tile.innerHTML = tileThemeArray[num];
+            tile.setAttribute("icon", tileThemeArray[num])
+            tile.addEventListener("click", function(){
+                this.style.backgroundColor = bgColors[num];
+            });
+}
+
 /** 
  * starts timer when game is started end when game is complete or game is cancelled.
 */
