@@ -155,6 +155,8 @@ const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
 
+const iconsArray =[football,mask,pizza,bulb,rocket,bacteria,kiwi,cocktail,fire,anchor];
+
 /** 
  * This function checks the tiles 
 */
