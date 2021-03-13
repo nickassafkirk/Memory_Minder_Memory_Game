@@ -28,13 +28,18 @@ The ideal user for this site is:
 - A user wants to start the game at their own leisure.
 - A user wants to end the game when they wish.
 - A user wants to be able to start a new game when they choose.
-- A user expects a different board layoput with each new game.
+- A user expects a different board layout with each new game.
 - A user wants to be notified if they have made a correct or incorrect move.
 - A user wants to receive notification when they have completed a game.
 - A user wants to see their score when they have finished the game.
 - A user wants to see their best score in a session.
 
 ### User Stories
+
+- As a new user, I want to enjoy playing the game.
+- As a new user, I want to understand how to play the game without having to read the instructions.
+- As a new user, I want to be challenged by the game but not frustrated by it's level of difficulty.
+- As a return user, I want to see how my result compaers to my previous attempts.
 
 ---
 ## Scope 
