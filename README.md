@@ -1,31 +1,12 @@
-
-
-### Bugs 
-
-Bug: If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
-Fix: clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
-credit: solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
-
-Bug: User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
-Fix: The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
-
-credits: 
-
-Images:
-
-Logo brain image:
-from: https://icons8.com/icons/set/brain
-img: <img src="https://img.icons8.com/ios/50/000000/brainstorm.png"/>
-credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Icons8</a>
-
 # Memory Minder Memory Game
 ![Homepage screenshot](assets/images/)
 [Visit the Deployed Site on github pages](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/)
 
 ---
 ## Overview
-
-
+Memory minder is a fun, interactive brain training game designed for adults and children. Test your memory reaction speed and recall
+to complete the game in as few moves as possible and as quickly as you can. This game is a great excercise to challenge your short-term memory and reaction speeds and is the perfect activity for 
+coffee breaks, or killing some time on the way home from work. 
 
 ---
 ## UX
@@ -37,11 +18,21 @@ credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Ic
 
 ### Ideal User
 The ideal user for this site is: 
-
+- Any user 5 years or older
+- An ideal user will be a regular smart device user
+- An ideal user enjoys traditional games like card games, board games, sudoku, crosswords etc...
 
 ### User Goals
-
-### Business Goals
+- A user wishes to enjoy themselves while playing the game.
+- A user wishes to understand the game with minimal instruction.
+- A user wants to start the game at their own leisure.
+- A user wants to end the game when they wish.
+- A user wants to be able to start a new game when they choose.
+- A user expects a different board layoput with each new game.
+- A user wants to be notified if they have made a correct or incorrect move.
+- A user wants to receive notification when they have completed a game.
+- A user wants to see their score when they have finished the game.
+- A user wants to see their best score in a session.
 
 ### User Stories
 
@@ -49,22 +40,35 @@ The ideal user for this site is:
 ## Scope 
 
 ### Features to be included in initial iteration
-
+- A consistent page header and logo.
+- A means to navigate between pages.
+- A Game Board with up to 16 tiles.
+- A How to play page to detail game rules and instructions.
+- A leaderboard to display a users score and to encourage aspiration for victory and repeat play.
+- A child mode with easier game play and suitable tile icons.
+- A feedback form to provide feedback to the game owner.
 
 ### Features/Functionality to be added
-
+- Publish users scores to an online leaderboard.
+- Add a story mode where additional levels of difficulty are added based on win streaks.
 
 ---
 ## Structure
 
 ### Pages
-#### 1. [Homepage]() 
-The Primary landing page for the site which includes the key information on the business and links to additional pages where more detailed information relating to specific business services can be found.
+#### 1. [Homepage](https://nickassafkirk.github.io/Memory_Minder_Memory_G) 
+The Primary landing page for the site where the gameboard is located. 
+This page includes: 
+- a main navigation bar to allow user to navigate between site pages.
+- Game control buttons allowing users to start/Stop gameplay
 
-#### 2. [How To Play]()
-This page describes the cafe's food and drink menu, as this is the business primary function it is imperative to clearly display their menu items so that customers can order remotely or make the decision to dine in-store after seeing and liking the menus. 
+#### 2. [How To Play](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/rules.html)
+This page provides users with: 
+- An introductiuon to the game's goals and intention
+- A step by step guide on how to play the game.
+- An explanation of how the game is scored.
 
-#### 3. [Leaderboard]
+#### 3. [Leaderboard]()
 ---
 ### Detailed Features
 
@@ -128,14 +132,22 @@ for as many users as possible.
 
 The responsive functionality of the site has been tested to work on most common devices with a 320px screen-width and larger. 
 
-The full testing can be found in [the separate testing.md file](testing.md)
-
 ---
 
 ## Code 
 
 The code in this project was written by me ([Nick Kirk](https://github.com/nickassafkirk)) the project owner. Any code snippets written by other developers or found from online resources have been credited
 in the credits section below.
+
+### Bugs
+
+**Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
+**Fix:** clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
+credit: solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
+
+**Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
+**Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
+
 
 ### Frameworks
 **Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
@@ -199,6 +211,9 @@ Is used to create wireframes as visual mockups of the final site design
 All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
 ---
 ### Code Credits
+Images:
+
+
 
 - Inspiration for animation used in menu.html subnav was from [this stack overflow discussion](https://stackoverflow.com/questions/42745506/how-to-make-an-icon-spin-with-i-tag-in-html5-through-css3) and general animation info was found at [this page](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp)
     ```
@@ -283,6 +298,14 @@ All text is unique content written by me, ([Nick Kirk](https://github.com/nickas
 ---
 
 ### README Credits
+
+#### Images
+
+Logo brain image:
+from: https://icons8.com/icons/set/brain
+img: <img src="https://img.icons8.com/ios/50/000000/brainstorm.png"/>
+credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Icons8</a>
+
 HTML5 Logo: 
 Sourced from [W3.org](https://www.w3.org/html/logo/#downloads)
 
