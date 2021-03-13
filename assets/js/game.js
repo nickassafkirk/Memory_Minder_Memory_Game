@@ -8,6 +8,7 @@ let tileIcon;
 let tileIcons = [];
 let tileIds = [];
 let n = 0;
+
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -19,7 +20,9 @@ const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
-const iconsArray =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+
+let numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
 
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
@@ -61,7 +64,7 @@ function setRandomTileOrder(numberOfTiles) {
             randomOrderArray.push(randomNum);
         }
     }
-    setTiles(randomOrderArray, iconsArray);
+    setTiles(randomOrderArray, numbersTheme);
 }
 
 /**
