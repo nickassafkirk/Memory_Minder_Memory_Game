@@ -158,6 +158,12 @@ credit: solution was found at this [stack overflow post](https://stackoverflow.c
 **Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
 **Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
 
+**Bug:** When ***"End Game"*** button was clicked, the ***"New Game"*** button was not not displaying as equal height top the end button.   
+**Fix:** Template literal was used to insert a <br> element to be displayed on small screensizes. This <br> element was accidentally removed when the innerText
+of the button was changed on button click.
+
+![button sizing bug screenshot](assets/images/button-alignment-bug.png)
+
 
 ### Frameworks
 **Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
