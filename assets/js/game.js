@@ -1,43 +1,42 @@
-//on page load -> generate game board;
-window.onload = function () {
-    console.log("Page Loaded")
-}
-
-//global variable
-
+//global variables
+const endButtonRef = document.querySelector('#endGame')
+const startButtonRef = document.querySelector("#startGame")
+const tiles = document.querySelectorAll(".gametile");
 let clicks = 0;
+let correctMatches = 0;
+let tileIcon;
+let tileIcons = [];
+let tileIds = [];
+let n = 0;
 
-
-/*start button initiates game and starts counter
-initiates game start on button press*/
-let startButton = document.getElementById("startGame")
-startButton.addEventListener("click", startGame);
+//Event Listeners
+startButtonRef.addEventListener("click", startGame);
+endButtonRef.addEventListener("click", endGame);
 
 function startGame() {
-    endButton.disabled = false;
-    startButton.disabled = true;
+    endButtonRef.disabled = false;
+    startButtonRef.disabled = true;
     resetTiles();
     startTimer();
     //displayTile -> function which listens for click event and displays tile value on click
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
 }
 
-//end button stops the game
-const endButton = document.getElementById('endGame')
-endButton.addEventListener("click", endGame);
-
 function endGame() {
-    endButton.disabled = true;
-    startButton.innerText = "New Game";
-    startButton.disabled = false;
+    endButtonRef.disabled = true;
+    startButtonRef.innerText = "New Game";
+    startButtonRef.disabled = false;
     calculateScore();
 }
 
-/* createRandom number function
-creates random number which will later be assigned an icon
-creates an array of 12 random numbers*/
-
+/**
+ * createRandom number function
+ * creates random number which will later be assigned an icon
+ * creates an array of random numbers which has a length which equals the number of tiles in the game
+ */
 function setRandomTileOrder(numberOfTiles) {
+    if(isNaN(numberOfTiles)) return
+        
     let randomOrderArray = [];
     while (randomOrderArray.length < numberOfTiles) {
         let randomNum = Math.random();
@@ -53,9 +52,11 @@ function setRandomTileOrder(numberOfTiles) {
     setTiles(randomOrderArray);
 }
 
-//Set tiles variable for use throughout code
-const tiles = document.querySelectorAll(".gametile");
-
+/**
+ * This function assigns pairs of icons to the game tiles
+ * it takes the parameter randomOrderArray which shuffles the tile order, creating a unique tile order
+ * @param {array} randomOrderArray 
+ */
 function setTiles(randomOrderArray) {
     let bgColors = buildColorSelection(generateRandomColor);
     let i = 0;
@@ -117,8 +118,9 @@ function setTiles(randomOrderArray) {
     }
 }
 
-//Timer Function -> starts timer when game is started end when game is complete or game is cancelled.
-
+/** 
+ * starts timer when game is started end when game is complete or game is cancelled.
+*/
 function startTimer() {
     clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
     count = 1, timer = setInterval(function () {
@@ -140,8 +142,7 @@ function endTimer() {
         return timeScore
     }
 
-/* icon assign function -> replaces random numbers with icon pairs
-when icon assigned, tile is also assigned an attribute icon variables */
+
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -154,11 +155,9 @@ const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
 
-let tileIcon;
-let tileIcons = [];
-let tileIds = [];
-let n = 0;
-
+/** 
+ * This function checks the tiles 
+*/
 function displayTile(e) {
 
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
@@ -182,8 +181,13 @@ function displayTile(e) {
     }
 };
 
-let correctMatches = 0;
-//checkMatch tests to see if first selection, matches second selection
+
+/**
+ * checkMatch tests to see if first selection, matches second selection
+ * @param {Array} tileIcons 
+ * @param {Array} tileIds 
+ * @param {Number} n 
+ */
 function checkMatch(tileIcons, tileIds, n) {
     if (tileIcons[n] !== tileIcons[n + 1]) {
         console.log("no match");
@@ -222,14 +226,17 @@ function correctAnswer() {
         endGame();
     }
 }
-
-//countClicks -> calculates number of user clicks -> needed to calculate score
+/**
+ * calculates number of user clicks -> needed to calculate score
+ */
 function countMoves() {
     clicks++;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
 }
 
-//calculateScore -> adds number of clicks and elapsed time to calculate score & displays score upon game completion. 
+/**
+ * adds number of clicks and elapsed time to calculate score & displays score upon game completion
+ */
 function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
@@ -247,8 +254,9 @@ function calculateScore() {
 
 //additional levels of difficulty
 
-//1. generateRandomColor -> generates a random background color, to make matching harder as game progresses
-
+/** 
+ * generates a random background color, to make matching harder as game progresses
+ */
 function singleRGBValue() {
     let oneValue = Math.random();
     oneValue  = oneValue  * 255;
@@ -256,6 +264,9 @@ function singleRGBValue() {
     return oneValue;
 }
 
+/** 
+ * combines 3 single r,g,b values to make a random rgb color
+ */
 function generateRandomColor(){
     r = singleRGBValue();
     g = singleRGBValue();
@@ -264,6 +275,9 @@ function generateRandomColor(){
     return randomColor
 };
 
+/** 
+ * builds an array of random colors to be used to assign background colors to each tile pair
+ */
 function buildColorSelection(generateRandomColor){
     let colorSelection = [];
     for(let colors = 0; colors < 8; colors++){
@@ -281,6 +295,9 @@ function buildColorSelection(generateRandomColor){
 // publish leaderboard;
 //use api to generate random icon or picture
 
+/**
+ * rests the tiles to allow game to be replayed without refreshing the browser
+ */
 function resetTiles() {
     for (tile of tiles) {
         tile.removeAttribute("style");
