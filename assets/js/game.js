@@ -9,6 +9,9 @@ let tileIcons = [];
 let tileIds = [];
 let n = 0;
 
+const gameplayAreaRef = document.querySelector("#gameplay-area");
+const scoreAreaRef = document.querySelector("#scoreboard");
+
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -64,7 +67,7 @@ function setRandomTileOrder(numberOfTiles) {
             randomOrderArray.push(randomNum);
         }
     }
-    setTiles(randomOrderArray, numbersTheme);
+    setTiles(randomOrderArray, iconsTheme);
 }
 
 /**
@@ -234,6 +237,8 @@ function calculateScore() {
         document.querySelector("#score").firstChild.innerHTML = calculatedScore;
         document.querySelector("#score").firstChild.style.color = "green";
     }
+
+    return calculatedScore;
 }
 
 //additional levels of difficulty
@@ -269,6 +274,14 @@ function buildColorSelection(generateRandomColor){
     }
     return colorSelection
 };
+
+function showScoreOnCompletion(){
+    gameplayAreaRef.classList.add("d-none");
+    scoreAreaRef.innerText = calculateScore();
+    scoreAreaRef.classList.add("show");
+    console.log(calculateScore());
+
+}
     
 
 //2. addAdditional tiles -> 12, 16, 20, 24
