@@ -131,12 +131,22 @@ li{
     margin-top: 2em;
 }
 
+.hide{
+    display: none;
+}
+
 .show{
     display: block;
 }
 
-.hide{
-    display: none;
+#scoreboard{
+    height: 250px;
+    width: 350px;
+    line-height: 250px;
+    background-color: #fff;
+    color: #222;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
 }
 
 

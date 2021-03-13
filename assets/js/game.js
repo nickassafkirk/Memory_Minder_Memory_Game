@@ -276,10 +276,10 @@ function buildColorSelection(generateRandomColor){
 };
 
 function showScoreOnCompletion(){
+    let finalScore = calculateScore();
     gameplayAreaRef.classList.add("d-none");
-    scoreAreaRef.innerText = calculateScore();
-    scoreAreaRef.classList.add("show");
-    console.log(calculateScore());
+    scoreAreaRef.innerText = `your score is ${finalScore}`;
+    
 
 }
     
