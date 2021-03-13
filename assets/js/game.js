@@ -80,60 +80,34 @@ function setTiles(randomOrderArray, tileThemeArray) {
         i++;
         //replace numerical values with icon pairs
         if (tile.innerText < 3) {
-            tile.innerHTML = tileThemeArray[0];
-            tile.setAttribute("icon", tileThemeArray[0])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[0];
-            });
+            assignTileInner(tileThemeArray, bgColors, 0)
         } else if (tile.innerHTML < 5) {
-            tile.innerHTML = tileThemeArray[1];
-            tile.setAttribute("icon", tileThemeArray[1])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[1];
-            });
+            assignTileInner(tileThemeArray, bgColors, 1)
         } else if (tile.innerHTML < 7) {
-            tile.innerHTML = tileThemeArray[2];
-            tile.setAttribute("icon", tileThemeArray[2])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[2]
-            });
+            assignTileInner(tileThemeArray, bgColors, 2)
         } else if (tile.innerHTML < 9) {
-            tile.innerHTML = tileThemeArray[3];
-            tile.setAttribute("icon", tileThemeArray[3])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[3];
-            });
+            assignTileInner(tileThemeArray, bgColors, 3)
         } else if (tile.innerHTML < 11) {
-            tile.innerHTML = tileThemeArray[4];
-            tile.setAttribute("icon", tileThemeArray[4])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[4];
-            });
+            assignTileInner(tileThemeArray, bgColors, 4)
         } else if (tile.innerHTML < 13) {
-            tile.innerHTML = tileThemeArray[5];
-            tile.setAttribute("icon", tileThemeArray[5])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[5];
-            });
+            assignTileInner(tileThemeArray, bgColors, 5)
         } else if (tile.innerHTML < 15) {
-            tile.innerHTML = tileThemeArray[6];
-            tile.setAttribute("icon", tileThemeArray[6])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[6];
-            });
+            assignTileInner(tileThemeArray, bgColors, 6)
         } else if (tile.innerHTML < 17) {
-            tile.innerHTML = tileThemeArray[7];
-            tile.setAttribute("icon", tileThemeArray[7])
-            tile.addEventListener("click", function(){
-                this.style.backgroundColor = bgColors[7];
-            });
+            assignTileInner(tileThemeArray, bgColors, 7)
         } else {
             console.log("Error: too many tiles");
         }
     }
 }
 
-function assignTileInner(tile,num){
+/**
+ * Sets the inner values and custom attribute for each tile pair
+ * @param {Array} tileThemeArray 
+ * @param {Array} bgColors 
+ * @param {Number} num 
+ */
+function assignTileInner(tileThemeArray, bgColors, num){
     tile.innerHTML = tileThemeArray[num];
             tile.setAttribute("icon", tileThemeArray[num])
             tile.addEventListener("click", function(){
