@@ -17,3 +17,364 @@ Logo brain image:
 from: https://icons8.com/icons/set/brain
 img: <img src="https://img.icons8.com/ios/50/000000/brainstorm.png"/>
 credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Icons8</a>
+
+# Memory Minder Memory Game
+![Homepage screenshot](assets/images/)
+[Visit the Deployed Site on github pages](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/)
+
+---
+## Overview
+
+
+
+---
+## UX
+
+
+
+---
+## Strategy
+
+### Ideal User
+The ideal user for this site is: 
+
+
+### User Goals
+
+### Business Goals
+
+### User Stories
+
+---
+## Scope 
+
+### Features to be included in initial iteration
+
+
+### Features/Functionality to be added
+
+
+---
+## Structure
+
+### Pages
+#### 1. [Homepage]() 
+The Primary landing page for the site which includes the key information on the business and links to additional pages where more detailed information relating to specific business services can be found.
+
+#### 2. [How To Play]()
+This page describes the cafe's food and drink menu, as this is the business primary function it is imperative to clearly display their menu items so that customers can order remotely or make the decision to dine in-store after seeing and liking the menus. 
+
+#### 3. [Leaderboard]
+---
+### Detailed Features
+
+#### [Homepage]() 
+#### [How To Play]() 
+#### [Leaderboard]() 
+#### [404]() 
+
+
+---
+## Skeleton
+
+### Navigation
+
+1. **Main Navigation:** A consistent top nav bar menu is present at the top of each page to allow navigation to the key site pages from each individual webpage. 
+2. **Buttons:** 
+
+
+### Wireframes
+
+
+### Mockups
+![Homepage screenshot]()
+
+A responsive view of the site can be found at [this link](http://ami.responsivedesign.is/)
+
+---
+## Surface
+
+### Fonts
+**General**     
+
+---
+
+### Colors      
+Colors are used to increase contrast, visual impact and to improve readability across the site.Colors are used during game play to aciliatate matching of tile pairs.
+Root variables are used to allow quick stylisitic changes to be made and to facilitate future color changes if necessary. The main colors used on this project are as follows:
+
+---
+
+### Icons
+
+All icons utilised for this project were sourced from [fontawesome.com](https://fontawesome.com/).
+
+---
+
+### Images 
+
+---
+
+### Animations
+
+
+---
+
+## Testing
+
+The current deployed version of this project has been thoroughly tested to ensure a great user experience on most common device types.
+Testing has also confirmed compatibility with all common browsers to accommodate a great user experience and predictable functionality 
+for as many users as possible. 
+
+The responsive functionality of the site has been tested to work on most common devices with a 320px screen-width and larger. 
+
+The full testing can be found in [the separate testing.md file](testing.md)
+
+---
+
+## Code 
+
+The code in this project was written by me ([Nick Kirk](https://github.com/nickassafkirk)) the project owner. Any code snippets written by other developers or found from online resources have been credited
+in the credits section below.
+
+### Frameworks
+**Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
+Custom CSS was used to apply unique styling to bootstrap components.
+
+### Vendor Prefixes
+Vendor prefixes were added to the main stylesheet using [autoprefixer](https://autoprefixer.github.io/) to ensure styles are applied as consistently 
+as possible across different browsers.
+
+---
+
+## Technologies Used
+
+![HTML5 Logo](assets/images/technologies/html5.png)
+### HTML5 
+[https://www.w3.org/html/](https://www.w3.org/html/) 
+
+Is used to add content, structure and the ability to navigate to the website.
+
+
+![CSS Logo](assets/images/technologies/css3.png)
+### CSS3
+[https://www.w3.org/TR/CSS/](https://www.w3.org/TR/CSS/) 
+
+Is used to add styles, layout, design and interactivity to the page and to increase usability to users across various devices. 
+
+
+![Bootstrap logo](assets/images/technologies/bootstrap.png)
+### Bootstrap V4.5.3 
+[https://getbootstrap.com/](https://getbootstrap.com/) 
+
+Is used to add structure, layout and a mobile-first responsive design to the website. 
+
+Javascript, jQuery and Popper.js are also referenced by bootstrap for responsive components like the navbar, modals, collapse and accordian.
+
+![Gitpod Logo](assets/images/technologies/gitpod.png)
+### Gitpod
+[https://www.gitpod.io/](https://www.gitpod.io/) 
+
+Is used to write, edit and preview code.
+
+
+![Github](assets/images/technologies/github.png)
+### GitHub 
+[https://github.com/](https://github.com/)
+
+Is used to host, share and deploy the project.
+
+
+![Balsamiq Logo](assets/images/technologies/balsamiq.png)
+### Balsamiq
+[https://balsamiq.com/](https://balsamiq.com/)
+
+Is used to create wireframes as visual mockups of the final site design
+
+---
+
+## Credits
+
+### Content Credits
+All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
+---
+### Code Credits
+
+- Inspiration for animation used in menu.html subnav was from [this stack overflow discussion](https://stackoverflow.com/questions/42745506/how-to-make-an-icon-spin-with-i-tag-in-html5-through-css3) and general animation info was found at [this page](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp)
+    ```
+        $(document).ready(function() {
+            $('.js-spin').click(function() {
+            $(this).addClass('icn-spinner') //remove class to stop animation
+            });
+        });
+
+    i {
+    font-size: 40px;
+    }
+
+    .icn-spinner {
+        animation: spin-animation 0.5s infinite;
+        display: inline-block;
+    }
+
+    @keyframes spin-animation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(359deg);
+        }
+    }
+    ```
+
+ 
+- To apply favourable modal positioning I used a technique described in [this article](https://css-tricks.com/considerations-styling-modal/)
+    from which I utilised this snippet of code 
+    ```
+        .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    ```
+
+
+- To add a wiggle functionality to the menu pages call Icons/Images, I customised code found at [this codepen demo](https://codepen.io/theDeanH/pen/zBZXLN)
+  This animation was customised for use in this project to include properties that do not include vendor prefixes. The original code segment is as seen below: 
+
+    ```
+    p:hover {
+    -webkit-animation-name: wiggle;
+    -ms-animation-name: wiggle;
+    -ms-animation-duration: 1000ms;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: 1;
+    -ms-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    -ms-animation-timing-function: ease-in-out;
+    }
+
+    @-webkit-keyframes wiggle {
+    0% {-webkit-transform: rotate(10deg);}
+    25% {-webkit-transform: rotate(-10deg);}
+    50% {-webkit-transform: rotate(20deg);}
+    75% {-webkit-transform: rotate(-5deg);}
+    100% {-webkit-transform: rotate(0deg);}
+    }
+
+    @-ms-keyframes wiggle {
+    0% {-ms-transform: rotate(1deg);}
+    25% {-ms-transform: rotate(-1deg);}
+    50% {-ms-transform: rotate(1.5deg);}
+    75% {-ms-transform: rotate(-5deg);}
+    100% {-ms-transform: rotate(0deg);}
+    }
+
+    @keyframes wiggle {
+    0% {transform: rotate(10deg);}
+    25% {transform: rotate(-10deg);}
+    50% {transform: rotate(20deg);}
+    75% {transform: rotate(-5deg);}
+    100% {transform: rotate(0deg);}
+    }
+    ```
+
+---
+
+### README Credits
+HTML5 Logo: 
+Sourced from [W3.org](https://www.w3.org/html/logo/#downloads)
+
+CSS3 Logo:
+Sourced from [wikipedia commons](https://commons.wikimedia.org/wiki/File:CSS3_logo_and_wordmark.svg)
+
+Bootstrap Logo:
+Sourced from [Wikipedia](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework))
+
+Gitpod Logo:
+Sourced from [Gitpod](https://www.gitpod.io/media-kit/)
+
+Github Logo:
+Sourced from [Github](https://github.com/logos)
+
+Balsamiq Logo:
+Sourced from [Balsamiq](https://balsamiq.com/company/brandassets/)
+
+#### Icons:
+All icons used on this project were sourced from [Fontawesome](https://fontawesome.com/).
+
+---
+
+## Deployment
+
+This project was developed using the Gitpod IDE, committed to Git and pushed to GitHub using the terminal within Gitpod and the Gitpod extension for Chrome. 
+
+---
+
+### Deployment Instructions 
+To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+
+1. First log into [GitHub account](https://github.com/nickassafkirk).
+1. From the list of pinned repositories on the home screen, select "Cartel-Coffee".
+1. From the menu items which includes *Code, Issues, Pull request, Actions, Projects, Wiki, Security, Insights and settings* 
+select the **settings** tab.
+1. Within the settings section, scroll down to the **GitHub Pages** section.
+1. Under **Source** subheading click the drop-down menu labelled "None" and select "Master Branch"
+1. Leave the default /Root folder selected and click save.
+1. On selecting Master Branch and saving the page is automatically refreshed, the website is now deployed.
+1. Return to the settings section and scroll back down to the GitHub Pages section to retrieve the link to the deployed website.
+1. (Optional) Add the website link to the repository info box for ease of use. In the sidebar to the right click the cog icon to the right of the about subheading
+and paste the website url into the box labelled "website"
+
+---
+### Cloning instructions with Gitpod
+To clone this project using Gitpod you will need:
+
+A Github account. [Create a Github account here](https://github.com/join)
+Use the Chrome browser
+Then follow these steps:
+
+1. Install the [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki?hl=en)
+2. After installation, restart your browser
+3. Log into Gitpod with your github account.
+4. Navigate to the [Project GitHub repository](https://github.com/nickassafkirk/Memory_Minder_Memory_Game)
+5. Click the green "Gitpod" button in the top right corner of the repository
+6. This will open a new gitpod workspace with a clone of the repository
+
+---
+### Cloning instructions to a local editor
+To work on the project code within a local IDE such as VSCode, Pycharm, brackets etc:
+
+1. Go to the Github repository at [this link](https://github.com/nickassafkirk/Memory_Minder_Memory_Game)
+2. Under the repository name, click the code tab from the menu items
+3. In the submenu to the right which has the options: go to file, add file and code, select the code option. 
+4. In the Clone with HTTPs section, copy the clone URL for the repository.
+5. In your local IDE open the terminal.
+6. Change the current working directory to the location where you want the cloned directory to be made.
+7. In the terminal type git clone, and then paste the URL you copied in Step 3.
+   This should follow the format git clone https://github.com/github-username/repository-name.git
+8. Press Enter to successfully clone the repository to your local IDE
+9. For more information on cloning from github [see this page](https://docs.github.com/en/free-pro-team@latest/github/using-git/which-remote-url-should-i-use)
+
+---
+
+### Forking instructions
+To Fork this repository:
+
+1. Go to the [github homepage](https://github.com/).
+1. Sign into Github or sign up for a new account.
+1. Find the repository you wish to fork. 
+(*([For example this project](https://github.com/nickassafkirk/Memory_Minder_Memory_Game))*
+1. On the right hand side of the repository page you will see options to watch, star or fork. Click Fork.
+1. This will create a copy of the project in a new repository within your github account.
+1. Once the fork has been created in your github account, it can then be cloned to your prefered editor using one of the methods outlined above.
+1. After changes have been made locally they can be submitted via pull request for approval and inclusion in the original project.
+
+---
+
+## Acknowledgements
+
+I'd like to thank my mentor Nishant Kumar for his help and advice throughout this project. His encouragement and feedback we're invaluable in the completion of this project.
+
+
