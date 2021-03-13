@@ -89,6 +89,11 @@ This page provides users with:
 
 ### Wireframes
 
+#### Homepage: Desktop View
+![Homepage Wireframe Desktop](wireframes/Memory-Game-Homepage.png)
+
+#### How To Play Page: Desktop View
+![Homepage Wireframe Desktop](wireframes/Memory-Game-How-to-play.png)
 
 ### Mockups
 ![Homepage screenshot]()
