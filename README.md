@@ -164,6 +164,10 @@ of the button was changed on button click.
 
 ![button sizing bug screenshot](assets/images/button-alignment-bug.png)
 
+**Bug** An extra value was being added to the moves score output box upon game completion. 
+**Fix** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
+extra increment was being added to the moves counter when the game was completed. TYo fix this the calculation was changed to use the clicks value which is returned by the 
+countClicks() function so that the moves box does not display the incorrect answer on game completion
 
 ### Frameworks
 **Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
