@@ -207,9 +207,11 @@ function countCorrectAnswers() {
     correctMatches++;
     console.log(correctMatches);
     if (correctMatches === 8) {
-        endGame();
+        endGame(); 
     } 
+    return correctMatches
 }
+
 /**
  * calculates number of user clicks -> needed to calculate score
  */
@@ -218,7 +220,6 @@ function countMoves() {
     document.getElementById("clicks").firstChild.innerHTML = clicks;
     return clicks
 }
-
 
 
 //additional levels of difficulty
@@ -262,12 +263,12 @@ function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
     clicksAtEnd = countMoves();
-    let calculatedScore = (timeScore + (clicksAtEnd + 1));
+    let calculatedScore = (timeScore + (clicksAtEnd));
     return calculatedScore;
 }
 
 function showScoreOnCompletion(){
-    let correctAnswersOnQuit = countCorrectAnswers();
+    const correctAnswersOnQuit = countCorrectAnswers();
     console.log(correctAnswersOnQuit);
     calculatedScore = calculateScore();
     let resultType = isNaN(calculatedScore);
@@ -283,15 +284,14 @@ function showScoreOnCompletion(){
         <h4>Game Over</h4>
         <p>You ran out of time</p>
         `;
-    } else if (correctAnswersOnQuit !== 8){
+    } else if (correctAnswersOnQuit < 8){
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
         scoreAreaRef.innerHTML = `
         <h4>Game Over</h4>
         <p>You quit before finishing</p>
-        `;
-
+        `;  
     } else {
         document.querySelector("#score").firstChild.innerHTML = calculatedScore;
         document.querySelector("#score").firstChild.style.color = "green";
@@ -301,7 +301,7 @@ function showScoreOnCompletion(){
         scoreAreaRef.innerHTML = `
         <h4>Congratulations you Won!</h4>
         <p>Your score is <strong>${calculatedScore}</strong></p>
-        `;
+        `; 
     }
     scoreAreaRef.addEventListener("click", hideScoreboard);
 }
