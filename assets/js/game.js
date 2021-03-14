@@ -205,7 +205,6 @@ function checkMatch(tileIcons, tileIds, n) {
 
 function countCorrectAnswers() {
     correctMatches++;
-    console.log(correctMatches);
     if (correctMatches === 8) {
         endGame(); 
     } 
@@ -262,17 +261,15 @@ function buildColorSelection(generateRandomColor){
 function calculateScore() {
     let timeAtEnd = endTimer();
     timeScore = parseInt(timeAtEnd);
-    clicksAtEnd = countMoves();
-    let calculatedScore = (timeScore + (clicksAtEnd));
+    let calculatedScore = (timeScore + (clicks + 1));
     return calculatedScore;
 }
 
 function showScoreOnCompletion(){
-    const correctAnswersOnQuit = countCorrectAnswers();
-    console.log(correctAnswersOnQuit);
+    let correctAnswersOnQuit = countCorrectAnswers();
+    correctAnswersOnQuit = correctAnswersOnQuit - 1;
     calculatedScore = calculateScore();
     let resultType = isNaN(calculatedScore);
-    console.log(resultType)
     
     if(resultType){
         document.querySelector("#score").firstChild.innerHTML = "Game Over";
