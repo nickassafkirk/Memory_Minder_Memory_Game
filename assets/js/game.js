@@ -3,7 +3,6 @@ const endButtonRef = document.querySelector('#endGame')
 const startButtonRef = document.querySelector("#startGame")
 const tiles = document.querySelectorAll(".gametile");
 let clicks = 0;
-let correctMatches = 0;
 let tileIcon;
 let tileIcons = [];
 let tileIds = [];
@@ -175,31 +174,35 @@ function displayTile(e) {
  * @param {Number} n 
  */
 function checkMatch(tileIcons, tileIds, n) {
-    if (tileIcons[n] !== tileIcons[n + 1]) {
-        document.getElementById(tileIds[n + 1]).style.backgroundColor = "red";
-        document.getElementById(tileIds[n]).style.backgroundColor = "red";
+    let correctMatches = 0;
+
+    function resetIncorrectMatch(count){
+        document.getElementById(tileIds[count]).style.backgroundColor = "red";
         //re-enable click event listener for tiles if match attempt is unsuccessful
-        document.getElementById(tileIds[n + 1]).addEventListener("click", displayTile);
-        document.getElementById(tileIds[n]).addEventListener("click", displayTile);
+        document.getElementById(tileIds[count]).addEventListener("click", displayTile);
         setTimeout(function () {
-            document.getElementById(tileIds[n + 1]).classList.remove("displayTile");
-            document.getElementById(tileIds[n]).classList.remove("displayTile");
-            document.getElementById(tileIds[n + 1]).removeAttribute("style");
-            document.getElementById(tileIds[n]).removeAttribute("style");
+            document.getElementById(tileIds[count]).classList.remove("displayTile");
+            document.getElementById(tileIds[count]).removeAttribute("style");
         }, 1000);
-    } else {
-        document.getElementById(tileIds[n]).style.backgroundColor = "green";
-        document.getElementById(tileIds[n + 1]).style.backgroundColor = "green";
-        document.getElementById(tileIds[n]).setAttribute("guess", "correct")
-        document.getElementById(tileIds[n + 1]).setAttribute("guess", "correct")
-        document.getElementById(tileIds[n]).removeEventListener("click", displayTile);
-        document.getElementById(tileIds[n + 1]).removeEventListener("click", displayTile);
-        countCorrectAnswers()
+    }
+
+    function setCorrectMatch(count){
+        document.getElementById(tileIds[count]).style.backgroundColor = "green";
+        document.getElementById(tileIds[count]).setAttribute("guess", "correct")
+        document.getElementById(tileIds[count]).removeEventListener("click", displayTile);
         setTimeout(function () {
             let correctBg = generateRandomColor();
-            document.getElementById(tileIds[n]).style.backgroundColor = correctBg;
-            document.getElementById(tileIds[n + 1]).style.backgroundColor = correctBg;
+            document.getElementById(tileIds[count]).style.backgroundColor = correctBg;
         }, 1000);
+    }
+
+    if (tileIcons[n] !== tileIcons[n + 1]) {
+        resetIncorrectMatch(n+1)
+        resetIncorrectMatch(n)
+    } else {
+        setCorrectMatch(n+1)
+        setCorrectMatch(n)
+        countCorrectAnswers()
     }
 }
 
