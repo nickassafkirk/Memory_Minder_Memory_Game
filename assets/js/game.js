@@ -7,6 +7,7 @@ let tileIcon;
 let tileIcons = [];
 let tileIds = [];
 let n = 0;
+let correctMatches = 0;
 
 const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
@@ -174,8 +175,6 @@ function displayTile(e) {
  * @param {Number} n 
  */
 function checkMatch(tileIcons, tileIds, n) {
-    let correctMatches = 0;
-
     function resetIncorrectMatch(count){
         document.getElementById(tileIds[count]).style.backgroundColor = "red";
         //re-enable click event listener for tiles if match attempt is unsuccessful
