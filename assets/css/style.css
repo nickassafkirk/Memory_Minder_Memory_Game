@@ -141,13 +141,10 @@ li{
 
 #scoreboard{
     
-    padding: 0 auto;
-    height: 250px;
-    width: 350px;
-    background-color: #fff;
     color: #222;
-    border: 2px solid #ffd700;
-    border-radius: 5px;
+    background-color: #f5f5f5;
+    border: 3px solid #555;
+    border-radius: 10px;
 }
 
 
