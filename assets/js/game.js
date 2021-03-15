@@ -8,6 +8,7 @@ let tileIcons = [];
 let tileIds = [];
 let n = 0;
 let correctMatches = 0;
+let bgColors = buildColorSelection(generateRandomColor);
 
 
 const gameplayAreaRef = document.querySelector("#gameplay-area");
@@ -111,14 +112,10 @@ function setTiles(randomOrderArray, tileThemeArray) {
     function assignTileInner(tileThemeArray, bgColors, num) {
         tile.innerHTML = tileThemeArray[num];
         tile.setAttribute("icon", tileThemeArray[num])
-        tile.addEventListener("click", (e) => changeBackgroundColor(e))
+        tile.addEventListener("click", function(){
+            this.style.backgroundColor = bgColors[num];
+        })
     }
-}
-
-let bgColors = buildColorSelection(generateRandomColor);
-
-function changeBackgroundColor(e){
-    this.style.backgroundColor = bgColors[num];
 }
 
 /** 
@@ -189,10 +186,11 @@ function checkMatch(tileIcons, tileIds, n) {
         }, 1000);
     }
 
-    function setCorrectMatch(count){
+    function setCorrectMatch(count, correctBg){
         document.getElementById(tileIds[count]).style.backgroundColor = "green";
         document.getElementById(tileIds[count]).setAttribute("guess", "correct")
         document.getElementById(tileIds[count]).removeEventListener("click", displayTile);
+        document.getElementById(tileIds[count]).style.pointerEvents = "none";
         setTimeout(function () {
             document.getElementById(tileIds[count]).style.backgroundColor = correctBg;
         }, 1000);
@@ -203,8 +201,8 @@ function checkMatch(tileIcons, tileIds, n) {
         resetIncorrectMatch(n)
     } else {
         let correctBg = generateRandomColor();
-        setCorrectMatch(n+1)
-        setCorrectMatch(n)
+        setCorrectMatch(n+1, correctBg)
+        setCorrectMatch(n, correctBg)
         countCorrectAnswers()
     }
 }
