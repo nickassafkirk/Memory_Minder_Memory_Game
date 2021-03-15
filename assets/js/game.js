@@ -360,3 +360,8 @@ difficultySelectionRef.addEventListener("change", function(){
     console.log(this.value)
 })
 
+let themeSelectionRef = document.querySelector("#theme");
+console.log(themeSelectionRef)
+themeSelectionRef.addEventListener("change", function(){
+    console.log(this.value)
+})
