@@ -150,7 +150,7 @@ function displayTile(e) {
     //reveal tile by changing bg color and changing font-size from 0 to 3em;
     this.classList.remove("hideTile");
     this.classList.add("displayTile");
-
+    
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
     tileIcons.push(tileIcon);
@@ -339,4 +339,14 @@ function resetTiles() {
     document.getElementById("score").firstChild.innerText ="";
     setRandomTileOrder(16);
 }
+
+let nav = document.querySelector("#nav-list").children;
+
+for(navItem of nav){
+    navItem.addEventListener("mouseover",function(e){
+        e.target.classList.add("wiggle")
+    });
+}
+    
+  
 
