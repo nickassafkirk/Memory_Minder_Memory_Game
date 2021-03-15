@@ -255,6 +255,8 @@ Is used to create wireframes as visual mockups of the final site design
 
 ### Content Credits
 All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
+
+**CSS Checkmark Icon** The correct css code used to add a checkmark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
 ---
 ### Code Credits
 Images:
