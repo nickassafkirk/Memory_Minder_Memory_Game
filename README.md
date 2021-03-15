@@ -169,6 +169,32 @@ of the button was changed on button click.
 extra increment was being added to the moves counter when the game was completed. TYo fix this the calculation was changed to use the clicks value which is returned by the 
 countClicks() function so that the moves box does not display the incorrect answer on game completion
 
+**Bug** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
+it was deemed confusing, as user may interpret a change of color as a sign that this tile is still available for use. 
+**Desired behaviour** Correctly matched tile pairs should have matching background colors and should have all event listeners removed to prevent any further involvement in the game or
+additional style changes.
+**Source of Bug** The issue was found to be due to a click event listener that is was applied within the setTiles function (shown below), This click event listener calls an anonymous function which assigns a matching background color to each pair of tiles, to be revealed  when each tile is clicked and revealed. 
+As the event listener calls an anonymous function, it was not possible to then remove this event listener when the tile was matched correctly. Extracting this functionality out to a function declared at global scope was not possible because the function requires a parameter to be passed that would then be uinnacessible at global scope.
+Using the e.target method was also not suitable because again the necessary parameter could not be passed to the function.         
+    
+    `function assignTileInner(tileThemeArray, bgColors, num) {
+        tile.innerHTML = tileThemeArray[num];
+        tile.setAttribute("icon", tileThemeArray[num])
+        tile.addEventListener("click", function(){
+            this.style.backgroundColor = bgColors[num];
+        })**
+      }`
+
+**Fix** The pointer-events css property was applied to each correctly matched tile pairs in the setCorrectMatch function.
+
+`document.getElementById(tileIds[count]).style.pointerEvents = "none";`
+
+While this is not an ideal fix and ideally unneccessary event listeners should be removed, it works as intended and has not been shown 
+to cause any issues in testing. An alternative method would be to clone the element to which the event listener is applied and then replace the cloned element with the clone.
+This would also remove all event listeners and is documented in [this stackoverflow post](https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element)
+
+**Credit** 
+information about pointer-events was found at these links: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events), [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
 ### Frameworks
 **Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
 Custom CSS was used to apply unique styling to bootstrap components.
