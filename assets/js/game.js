@@ -186,7 +186,7 @@ function checkMatch(tileIcons, tileIds, n) {
         }, 1000);
     }
 
-    function setCorrectMatch(count, correctBg){
+    function setCorrectMatch(count){
         document.getElementById(tileIds[count]).classList.add("gametile-overlay");
         document.getElementById(tileIds[count]).setAttribute("guess", "correct")
         document.getElementById(tileIds[count]).removeEventListener("click", displayTile);
@@ -353,6 +353,10 @@ for(navItem of navRef){
         e.target.classList.remove("wiggle")
     });
 }
-    
-  
+
+let difficultySelectionRef = document.querySelector("#difficulty");
+console.log(difficultySelectionRef)
+difficultySelectionRef.addEventListener("change", function(){
+    console.log(this.value)
+})
 
