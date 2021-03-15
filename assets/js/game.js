@@ -346,6 +346,9 @@ for(navItem of nav){
     navItem.addEventListener("mouseover",function(e){
         e.target.classList.add("wiggle")
     });
+    navItem.addEventListener("mouseout",function(e){
+        e.target.classList.remove("wiggle")
+    });
 }
     
   
