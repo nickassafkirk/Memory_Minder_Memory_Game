@@ -65,7 +65,7 @@ h1{
 }
 
 .gametile-overlay::after{
-    content: "";
+    content: "\2713";
     position: absolute;
     z-index: 1000;
     height: 100%;
