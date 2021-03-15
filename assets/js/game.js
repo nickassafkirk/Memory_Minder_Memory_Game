@@ -187,12 +187,12 @@ function checkMatch(tileIcons, tileIds, n) {
     }
 
     function setCorrectMatch(count, correctBg){
-        document.getElementById(tileIds[count]).style.backgroundColor = "green";
+        document.getElementById(tileIds[count]).classList.add("gametile-overlay");
         document.getElementById(tileIds[count]).setAttribute("guess", "correct")
         document.getElementById(tileIds[count]).removeEventListener("click", displayTile);
         document.getElementById(tileIds[count]).style.pointerEvents = "none";
         setTimeout(function () {
-            document.getElementById(tileIds[count]).style.backgroundColor = correctBg;
+            document.getElementById(tileIds[count]).classList.remove("gametile-overlay");
         }, 1000);
     }
 
@@ -200,9 +200,8 @@ function checkMatch(tileIcons, tileIds, n) {
         resetIncorrectMatch(n+1)
         resetIncorrectMatch(n)
     } else {
-        let correctBg = generateRandomColor();
-        setCorrectMatch(n+1, correctBg)
-        setCorrectMatch(n, correctBg)
+        setCorrectMatch(n+1)
+        setCorrectMatch(n)
         countCorrectAnswers()
     }
 }
