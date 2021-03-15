@@ -340,9 +340,12 @@ function resetTiles() {
     setRandomTileOrder(16);
 }
 
-let nav = document.querySelector("#nav-list").children;
+/**
+ * adds wiggle effect to main navigation items
+ */
+let navRef = document.querySelector("#nav-list").children;
 
-for(navItem of nav){
+for(navItem of navRef){
     navItem.addEventListener("mouseover",function(e){
         e.target.classList.add("wiggle")
     });
