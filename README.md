@@ -256,6 +256,8 @@ Is used to create wireframes as visual mockups of the final site design
 ### Content Credits
 All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
 
+**CSS vmin** To create a responsive gameboard, which has square game tiles across all screen sizes I used vmin values. I found information on vmin and vmax values in [this article](https://www.sitepoint.com/css-viewport-units-quick-)
+
 **CSS Checkmark Icon** The correct css code used to add a checkmark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
 ---
 ### Code Credits
