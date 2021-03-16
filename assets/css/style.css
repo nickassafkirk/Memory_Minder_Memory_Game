@@ -26,10 +26,11 @@ a:hover{
 }
 
 #main-nav{
+    
     margin: 1% auto;
     text-align: center;
     border-top: 2px solid #fff;
-    width: 100vw;
+    width: 100vw;  
 }
 
 #main-nav button{
@@ -58,7 +59,7 @@ a:hover{
 }
 
 #gameboard{ 
-    margin: 5vh auto;
+    margin: 1vh auto;
     height: 50vh;
     width: 90vw;
 }
