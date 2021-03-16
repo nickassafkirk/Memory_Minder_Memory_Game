@@ -9,11 +9,10 @@ let tileIds = [];
 let n = 0;
 let correctMatches = 0;
 let bgColors = buildColorSelection(generateRandomColor);
-
-
 const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
-
+let difficultySelectionRef = document.querySelector("#difficulty");
+let gameplayTime = 60;
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -32,12 +31,32 @@ let numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRG
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
 endButtonRef.addEventListener("click", endGame);
+difficultySelectionRef.addEventListener("change", setDifficulty);
+
+/**
+ * sets gamePlayTime
+ */
+function setDifficulty(){
+    
+    console.log(this.value)
+    gameDifficulty = this.value;
+
+    if(gameDifficulty === "hard"){
+        gameplayTime = 40;
+    } else if(gameDifficulty === "easy"){
+        gameplayTime = 120;
+    } else {
+        gameplayTime = 60;
+    }
+    console.log(gameplayTime);
+    return gameplayTime;
+}
 
 function startGame() {
     endButtonRef.disabled = false;
     startButtonRef.disabled = true;
     resetTiles();
-    startTimer();
+    startTimer(setDifficulty);
     //displayTile -> function which listens for click event and displays tile value on click
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
 }
@@ -122,13 +141,13 @@ function setTiles(randomOrderArray, tileThemeArray) {
  * starts timer when game is started end when game is complete or game is cancelled.
 */
 function startTimer() {
+    console.log(gameplayTime)
     clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
     count = 1, timer = setInterval(function () {
-        count = count++;
         document.getElementById("timer").firstChild.innerText = count++;
 
         //If time runs out, game is ended
-        if (count === 60) {
+        if (count === (gameplayTime + 2)) {
             clearInterval(timer);
             document.getElementById("timer").firstChild.innerText = "Time Up";
             endGame();
@@ -275,7 +294,7 @@ function showScoreOnCompletion(){
     let resultType = isNaN(calculatedScore);
     
     if(resultType){
-        document.querySelector("#score").firstChild.innerHTML = "Game Over";
+        document.querySelector("#score").firstChild.innerHTML = "0";
         document.querySelector("#score").firstChild.style.color = "red";
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
@@ -354,14 +373,10 @@ for(navItem of navRef){
     });
 }
 
-let difficultySelectionRef = document.querySelector("#difficulty");
-console.log(difficultySelectionRef)
-difficultySelectionRef.addEventListener("change", function(){
-    console.log(this.value)
-})
-
 let themeSelectionRef = document.querySelector("#theme");
-console.log(themeSelectionRef)
+
 themeSelectionRef.addEventListener("change", function(){
     console.log(this.value)
 })
+
+
