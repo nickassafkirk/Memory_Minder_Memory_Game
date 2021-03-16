@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Finger+Paint&display=swap');
 
 body{
+    font-size: 16px;
     font-family: 'Finger paint', cursive;
     background-color: #222;
     color: #fff;
@@ -10,9 +11,9 @@ body{
 h1{
     clear: both;
     color: #fff;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-size: 2em;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
 }
 
 a{
@@ -66,9 +67,9 @@ a:hover{
 
 .gametile{
     position: relative;
-    height: 60px;
-    width: 50px;
-    line-height: 60px;
+    height: 3.75rem;
+    width: 3.75rem;
+    line-height: 3.75rem;
     background-color: #44445a;
     color: white;
     text-align: center;
@@ -109,15 +110,15 @@ a:hover{
 }
 
 #timer, #score, #clicks{
-    height: 50px;
+    height: 3.125rem;
     margin-bottom: 5%;
     padding: 2%;
 }
 
 #timer div, #score div, #clicks div{
     margin: 0 auto;
-    height: 40px;
-    line-height: 40px;
+    height: 2.5rem;
+    line-height: 2.5rem;
     text-align: center;
     color: #222;
     background-color: #f5f5f5;
@@ -129,14 +130,14 @@ a:hover{
 }
 
 .label{
-    margin-top: 20px;
+    margin-top: 1.25rem;
     text-transform: uppercase;
     color: white;
     text-align: center;
 }
 
 .label h3{
-    font-size: 1.2em;
+    font-size: 1.25rem;
 }
 
 .btn{
@@ -145,36 +146,36 @@ a:hover{
     padding: 2%;
     margin-top: 5%;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1.25rem;
 }
 
 .displayTile{
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 .hideTile{
-    font-size: 0em;
+    font-size: 0rem;
     background-color: #44445a;
 }
 
 .correctAnswer{
-    background-color: green;
+    background-color: #008000;
 }
 
 .falseAnswer{
-    background-color: red;
+    background-color: #ff0000;
 }
 
 li{
-    line-height: 2em;
+    line-height: 2rem;
 }
 
 #rules-container h3{
-    margin: 1em auto;
+    margin: 1rem auto;
 }
 
 #rules-container h3:last-of-type{
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 .show-flex{
@@ -219,34 +220,34 @@ li{
 @media screen and (min-width: 600px){
 
   h1{
-      font-size: 3em;
+      font-size: 3rem;
   }
 
   .gametile{
-    height: 85px;
-    line-height: 85px;
+    height: 5.3rem;
+    line-height: 5.3rem;
   }
 
   .displayTile{
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
   .label h3{
-        font-size: 2em;
+        font-size: 2rem;
   }
 
   .btn{
-      font-size: 2em;
+      font-size: 2rem;
   }
 
   #timer, #score, #clicks{
-    height: 80px;
+    height: 5rem;
 }
 
   #timer div, #score div, #clicks div{
-      height: 80px;
-      line-height: 80px;
-      font-size: 2em;
+      height: 5rem;
+      line-height: 5rem;
+      font-size: 2rem;
   }
 } 
 
@@ -256,16 +257,16 @@ li{
     }
 
     .btn{
-      font-size: 2.5em;
+      font-size: 2.5rem;
   }
 
   .gametile{
-    height: 100px;
-    line-height: 100px;
+    height: 6.25rem;
+    line-height: 6.25rem;
   }
 
   .displayTile{
-    font-size: 3em;
+    font-size: 3rem;
 }
 }
 
