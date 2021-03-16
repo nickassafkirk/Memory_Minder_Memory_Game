@@ -40,11 +40,16 @@ a:hover{
     text-decoration: none;
 }
 
+#nav-break-bar{
+    margin: 0 auto;
+    padding: 0;
+    border-top: 3px solid #fff;
+    width: 80vw;  
+}
+
 #main-nav{
-    
     margin: 1% auto;
     text-align: center;
-    border-top: 2px solid #fff;
     width: 100vw;  
 }
 
