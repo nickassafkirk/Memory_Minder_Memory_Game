@@ -10,6 +10,13 @@ body{
 #main-nav{
     margin: 1% auto;
     text-align: center;
+    border-top: 2px solid #fff;
+    width: 90vw;
+}
+
+#main-nav button{
+    color: white;
+    margin: 0 auto;
 }
 
 #nav-list{
@@ -19,7 +26,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;;
-    border-top: 2px solid #fff;
+    
 }
 
 #nav-list li{
