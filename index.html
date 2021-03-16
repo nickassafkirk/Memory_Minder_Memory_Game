@@ -27,35 +27,6 @@
             </div>
         </nav>
     </header>
-    <section>
-        <a data-toggle="collapse" href="#game-settings" role="button" aria-expanded="false" aria-controls="game-settings">
-            Game Settings
-        </a>
-        <div class="collapse" id="game-settings">
-            <div class="card card-body">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                            <label for="theme">Choose Theme</label>
-                            <select name="theme" id="theme">
-                                <option value="random">Random</option>
-                                <option value="numbers">Numbers</option>
-                                <option value="cards">Cards</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="difficulty">Choose Difficulty</label>
-                            <select name="difficulty" id="difficulty">
-                                <option value="easy">Easy</option>
-                                <option value="moderate">Moderate</option>
-                                <option value="hard">Hard</option>
-                            </select>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
     
     <div id="gameboard" class="container">
         <div class="row" id="gameplay-area">
@@ -75,6 +46,38 @@
             <div class="col-3 gametile" id="tile14"></div>
             <div class="col-3 gametile" id="tile15"></div>
             <div class="col-3 gametile" id="tile16"></div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="game-settings-label">
+                <a data-toggle="collapse" href="#game-settings" role="button" aria-expanded="false"
+                    aria-controls="game-settings">
+                    Game Settings <i class="fas fa-caret-down"></i>
+                </a>
+            </div>
+            <div class="collapse col-12" id="game-settings">
+                <div class="card card-body">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="theme">Choose Theme</label>
+                                <select name="theme" id="theme">
+                                    <option value="random">Random</option>
+                                    <option value="numbers">Numbers</option>
+                                    <option value="cards">Cards</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="difficulty">Choose Difficulty</label>
+                                <select name="difficulty" id="difficulty">
+                                    <option value="easy">Easy</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-12 d-none" id="scoreboard">Placeholder</div>
