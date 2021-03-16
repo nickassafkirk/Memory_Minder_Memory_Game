@@ -7,15 +7,33 @@ body{
     text-align: center;
 }
 
+h1{
+    clear: both;
+    color: #fff;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgba(252, 252, 0, 0.87);
+    text-decoration: none;
+}
+
 #main-nav{
     margin: 1% auto;
     text-align: center;
     border-top: 2px solid #fff;
-    width: 90vw;
+    width: 100vw;
 }
 
 #main-nav button{
-    color: white;
+    color: #fff;
     margin: 0 auto;
 }
 
@@ -35,22 +53,14 @@ body{
     width: 30vw;
 }
 
-#nav-list a{
-    text-decoration: none;
-    color: #fff;
-}
-
 #nav-list li:hover{
     border-bottom: 2px solid rgba(252, 252, 0, 0.87);
 }
 
-
-h1{
-    clear: both;
-    color: white;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-size: 2em;
+.card-body{
+    background-color: #222;
+    color: #fff;
+    border: none;
 }
 
 #gameboard{ 
