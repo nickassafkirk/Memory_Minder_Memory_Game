@@ -2,6 +2,11 @@
 const endButtonRef = document.querySelector('#endGame')
 const startButtonRef = document.querySelector("#startGame")
 const tiles = document.querySelectorAll(".gametile");
+const gameplayAreaRef = document.querySelector("#gameplay-area");
+const scoreAreaRef = document.querySelector("#scoreboard");
+const difficultySelectionRef = document.querySelector("#difficulty");
+const gameSettingsref = document.querySelector("#game-settings-label");
+
 let clicks = 0;
 let tileIcon;
 let tileIcons = [];
@@ -9,10 +14,8 @@ let tileIds = [];
 let n = 0;
 let correctMatches = 0;
 let bgColors = buildColorSelection(generateRandomColor);
-const gameplayAreaRef = document.querySelector("#gameplay-area");
-const scoreAreaRef = document.querySelector("#scoreboard");
-let difficultySelectionRef = document.querySelector("#difficulty");
 let gameplayTime = 60;
+
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -24,9 +27,12 @@ const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
-const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
 
-let numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
+/**
+ * Game Themes
+ */
+const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
 
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
@@ -56,6 +62,7 @@ function startGame() {
     endButtonRef.disabled = false;
     startButtonRef.disabled = true;
     resetTiles();
+    disableGameSettings();
     startTimer(setDifficulty);
     //displayTile -> function which listens for click event and displays tile value on click
     tiles.forEach(tile => tile.addEventListener("click", displayTile));
@@ -65,6 +72,7 @@ function endGame() {
     endButtonRef.disabled = true;
     startButtonRef.innerHTML = `New<br class="d-inline d-sm-none"> Game`;
     startButtonRef.disabled = false;
+    enableGameSettings();
     showScoreOnCompletion()  
 }
 
@@ -329,6 +337,20 @@ function hideScoreboard(){
     gameplayAreaRef.classList.remove("d-none");
     scoreAreaRef.classList.remove("show-flex");
     scoreAreaRef.classList.add("d-none");
+}
+
+/**
+ * hides game settings menu when game is in play to prevent user error
+ */
+function disableGameSettings(){
+    gameSettingsref.style.display = "none";
+}
+
+/**
+ * shows game settings menu when game is ended, to allow game settings to be changed between gameplay
+ */
+function enableGameSettings(){
+    gameSettingsref.style.display = "block";
 }
     
 
