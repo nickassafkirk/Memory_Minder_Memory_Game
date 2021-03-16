@@ -92,6 +92,11 @@ a:hover{
     padding: 1%;
 }
 
+#game-settings,.show{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .card-body{
     color: #fff;
     background-color: rgba(109, 19, 109, 0.5);
