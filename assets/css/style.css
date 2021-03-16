@@ -67,9 +67,9 @@ a:hover{
 
 .gametile{
     position: relative;
-    height: 3.75rem;
-    width: 3.75rem;
-    line-height: 3.75rem;
+    height: 20vmin;
+    width: 20vmin;
+    line-height: 20vmin;
     background-color: #44445a;
     color: white;
     text-align: center;
@@ -223,11 +223,6 @@ li{
       font-size: 3rem;
   }
 
-  .gametile{
-    height: 5.3rem;
-    line-height: 5.3rem;
-  }
-
   .displayTile{
     font-size: 2.5rem;
 }
@@ -253,16 +248,12 @@ li{
 
 @media screen and (min-width: 800px){
     #gameboard{
-        width: 75vw;
+        width: calc(20vmin * 4);
+        height: calc(20vmin * 4);
     }
 
     .btn{
       font-size: 2.5rem;
-  }
-
-  .gametile{
-    height: 6.25rem;
-    line-height: 6.25rem;
   }
 
   .displayTile{
