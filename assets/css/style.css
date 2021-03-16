@@ -8,12 +8,26 @@ body{
     text-align: center;
 }
 
-h1{
+#logo{
+    margin: 2vh auto;
+}
+
+#logo img{
+    height: 20vmin;
+    width: auto;
+    margin: 0;
+}
+
+#logo h1{
     clear: both;
     color: #fff;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.7rem;
+}
+
+h3{
+    font-size: 1.25rem;
 }
 
 a{
@@ -227,7 +241,7 @@ li{
     font-size: 2.5rem;
 }
 
-  .label h3{
+  .h3{
         font-size: 2rem;
   }
 
@@ -247,6 +261,24 @@ li{
 } 
 
 @media screen and (min-width: 800px){
+
+    #logo img{
+        height: 6rem;
+        width: auto;
+    }
+
+    #logo h1{
+        font-size: 2.6rem;
+    }
+
+    h3{
+        font-size: 2.2rem;
+    }
+
+    a{
+        font-size: 1.8rem;
+    }
+
     #gameboard{
         width: calc(20vmin * 4);
         height: calc(20vmin * 4);
