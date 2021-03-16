@@ -27,7 +27,12 @@
             </div>
         </nav>
     </header>
-    <form>
+    <a data-toggle="collapse" href="#game-settings" role="button" aria-expanded="false" aria-controls="game-settings">
+    Game Settings
+    </a>
+    <div class="collapse" id="game-settings">
+      <div class="card card-body">
+        <form>
         <div class="form-row">
             <div class="form-group col-6">
                 <label for="theme">Choose Theme</label>
@@ -47,6 +52,9 @@
             </div>
         </div>
     </form>
+      </div>
+    </div>  
+    
 
     <div id="gameboard" class="container">
         <div class="row" id="gameplay-area">
