@@ -57,12 +57,6 @@ a:hover{
     border-bottom: 2px solid rgba(252, 252, 0, 0.87);
 }
 
-.card-body{
-    background-color: #222;
-    color: #fff;
-    border: none;
-}
-
 #gameboard{ 
     margin: 5vh auto;
     height: 50vh;
@@ -90,6 +84,22 @@ a:hover{
     top: 0;
     left: 0;
     background-color: rgba(0, 128, 0, 0.8)
+}
+
+#game-settings-label{
+    margin: 0 auto;
+    background-color: #6d136d;
+    padding: 1%;
+}
+
+.card-body{
+    color: #fff;
+    background-color: rgba(109, 19, 109, 0.5);
+    border: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #timer, #score, #clicks{
