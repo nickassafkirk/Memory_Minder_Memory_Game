@@ -6,6 +6,7 @@ const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
 const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsref = document.querySelector("#game-settings-label");
+const gameSettingsBodyRef = document.querySelector("#game-settings")
 
 let clicks = 0;
 let tileIcon;
@@ -348,6 +349,7 @@ function hideScoreboard(){
  */
 function disableGameSettings(){
     gameSettingsref.style.display = "none";
+    gameSettingsBodyRef.classList.remove("show"); 
 }
 
 /**
@@ -355,6 +357,7 @@ function disableGameSettings(){
  */
 function enableGameSettings(){
     gameSettingsref.style.display = "block";
+    
 }
     
 
