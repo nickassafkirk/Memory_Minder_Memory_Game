@@ -417,6 +417,11 @@ function buildNumbersArray(){
     return randomNumbersTheme;
 }
 
+/**
+ * Stores the calculated score in localStorage
+ * Used to populate leaderboard
+ * @param {num} calculatedScore 
+ */
 function sendScoreToLocalStorage(calculatedScore){
 
     //credit: isNumber function sourced from https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
@@ -425,11 +430,16 @@ function sendScoreToLocalStorage(calculatedScore){
         return typeof(value) === "number" && isFinite(value)
     }
 
+    let topScore = window.localStorage.getItem("score");
+    console.log(topScore);
+
     if(!isNumber(calculatedScore)){
         return;
-    } else {
+    } else if (calculatedScore < topScore){
         window.localStorage.setItem("score", calculatedScore);
-    } 
+    } else {
+        console.log("check best score")
+    }
 }
 
 
