@@ -295,6 +295,7 @@ function showScoreOnCompletion(){
         <p>You quit before finishing</p>
         `;  
     } else {
+        let topScore = sendScoreToLocalStorage(calculatedScore);
         document.querySelector("#score").firstChild.innerHTML = calculatedScore;
         document.querySelector("#score").firstChild.style.color = "green";
         gameplayAreaRef.classList.add("d-none");
@@ -302,10 +303,12 @@ function showScoreOnCompletion(){
         scoreAreaRef.classList.add("show-flex")
         scoreAreaRef.innerHTML = `
         <h4>Congratulations you Won!</h4>
-        <p>Your score is <strong>${calculatedScore}</strong></p>
+        <br>
+        <p>You scored <strong>${calculatedScore}</strong></p>
+        <br>
+        <p>Your top score is ${topScore}</p>
         `; 
     }
-    sendScoreToLocalStorage(calculatedScore);
     scoreAreaRef.addEventListener("click", hideScoreboard);
 }
 
@@ -463,12 +466,15 @@ function sendScoreToLocalStorage(calculatedScore){
     let topScore = window.localStorage.getItem("score");
     console.log(topScore);
 
-    if(!isNumber(calculatedScore)){
-        return;
+    if(!isNumber(calculatedScore || calculatedScore < 10)){
+        return topScore;
     } else if (calculatedScore < topScore){
         window.localStorage.setItem("score", calculatedScore);
+        topScore = calculatedScore;
+        return topScore;
     } else {
         console.log("check best score")
+        return topScore;
     }
 }
 
