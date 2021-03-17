@@ -2,13 +2,24 @@
 
 :root{
     --mainBg: #222;
+    --hoverGold: rgba(252, 252, 0, 0.87);
+    --tileBg: #44445a;
+    --tileBorder: #55555a;
+    --secondaryBorder: #555;
+    --successGreen: rgba(0, 128, 0, 0.8);
+    --settingsLabel: #6d136d;
+    --settingsBody: rgba(109, 19, 109, 0.5);
+    --lightBg: #f5f5f5;
+    --startGreen: #008000;
+    --endRed: #ff0000;
+    --topScore: #ffc107;
 }
 
 
 body{
     font-size: 16px;
     font-family: 'Finger paint', cursive;
-    background-color: #222;
+    background-color: var(--mainBg);
     color: #fff;
     text-align: center;
 }
@@ -41,7 +52,7 @@ a{
 }
 
 a:hover{
-    color: rgba(252, 252, 0, 0.87);
+    color: var(--hoverGold);
     text-decoration: none;
 }
 
@@ -80,7 +91,7 @@ a:hover{
 }
 
 #nav-list li:hover{
-    border-bottom: 2px solid rgba(252, 252, 0, 0.87);
+    border-bottom: 2px solid var(--hoverGold);
 }
 
 #gameboard{ 
@@ -94,11 +105,11 @@ a:hover{
     height: 20vmin;
     width: 20vmin;
     line-height: 20vmin;
-    background-color: #44445a;
+    background-color: var(--tileBg);
     color: white;
     text-align: center;
     font-size: 0em;
-    border: 2px solid #55555a
+    border: 2px solid var(--tileBorder)
 }
 
 .gametile-overlay::after{
@@ -109,12 +120,12 @@ a:hover{
     width: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 128, 0, 0.8)
+    background-color: var(--successGreen);
 }
 
 #game-settings-label{
     margin: 0 auto;
-    background-color: #6d136d;
+    background-color: var(--settingsLabel);
     padding: 1%;
 }
 
@@ -125,7 +136,7 @@ a:hover{
 
 .card-body{
     color: #fff;
-    background-color: rgba(109, 19, 109, 0.5);
+    background-color: var(--settingsBody);
     border: none;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -144,9 +155,9 @@ a:hover{
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-    color: #222;
-    background-color: #f5f5f5;
-    border: 3px solid #555;
+    color: var(--mainBg);
+    background-color: var(--lightBg);
+    border: 3px solid var(--secondaryBorder);
     border-radius: 10px;
     font-weight: 600;
     font-size: 1.2rem;
@@ -156,7 +167,7 @@ a:hover{
 .label{
     margin-top: 1.25rem;
     text-transform: uppercase;
-    color: white;
+    color: #fff;
     text-align: center;
 }
 
@@ -179,15 +190,15 @@ a:hover{
 
 .hideTile{
     font-size: 0rem;
-    background-color: #44445a;
+    background-color: var(--tileBg);
 }
 
 .correctAnswer{
-    background-color: #008000;
+    background-color: var(--startGreen);
 }
 
 .falseAnswer{
-    background-color: #ff0000;
+    background-color: var(--endRed);
 }
 
 li{
@@ -212,18 +223,18 @@ li{
 #scoreboard{
     
     height: 80vmin;
-    color: #222;
+    color: var(--mainBg);
     background-color: #f5f5f5e7;
-    border: 3px solid #555;
+    border: 3px solid var(--secondaryBorder);
 }
 
 .current-score{
-    color: #008000;
+    color: var(--startGreen);
     font-weight: 700;
 }
 
 .top-score{
-    color: #ffc107;
+    color: var(--topScore);
     font-weight: 700;
 }
 
@@ -240,7 +251,7 @@ li{
     color: var(--mainBg);
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-    background-color: #fff;
+    background-color: var(--lightBg);
     padding: 1rem 0;
 }
 
