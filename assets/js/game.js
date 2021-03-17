@@ -366,20 +366,20 @@ function setTheme(){
 /** 
  * generates a random background color, to make matching harder as game progresses
  */
-function singleRGBValue() {
-    let oneValue = Math.random();
-    oneValue  = oneValue  * 255;
-    oneValue  = Math.round(oneValue);
-    return oneValue;
+function generateRandomNumber(chooseNumber) {
+    let randomNumber = Math.random();
+    randomNumber  = oneValue  * chooseNumber;
+    randomNumber  = Math.round(randomNumber);
+    return randomNumber;
 }
 
 /** 
  * combines 3 single r,g,b values to make a random rgb color
  */
 function generateRandomColor(){
-    r = singleRGBValue();
-    g = singleRGBValue();
-    b = singleRGBValue();
+    r = generateRandomNumber(255);
+    g = generateRandomNumber(255);
+    b = generateRandomNumber(255);
     let randomColor = `rgb(${r},${g},${b})`;
     return randomColor
 };
