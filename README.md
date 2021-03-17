@@ -267,10 +267,17 @@ All text is unique content written by me, ([Nick Kirk](https://github.com/nickas
 
 **CSS Checkmark Icon** The correct css code used to add a checkmark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
 ---
+
 ### Code Credits
-Images:
 
 
+##### IsNumber function - A small code snippet to check if a value is a number was utilised from [this stackoverflow post](https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript)
+
+`var isNumber = function isNumber(value) 
+{
+   return typeof value === 'number' && isFinite(value);
+}
+`
 
 - Inspiration for animation used in menu.html subnav was from [this stack overflow discussion](https://stackoverflow.com/questions/42745506/how-to-make-an-icon-spin-with-i-tag-in-html5-through-css3) and general animation info was found at [this page](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp)
     ```
