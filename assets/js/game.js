@@ -212,13 +212,15 @@ function displayTile(e) {
  */
 function checkMatch(tileIcons, tileIds, n) {
     function resetIncorrectMatch(count){
-        document.getElementById(tileIds[count]).style.backgroundColor = "red";
+        setTimeout(function (){
+            document.getElementById(tileIds[count]).style.backgroundColor = "red";
+        }, 500);
         //re-enable click event listener for tiles if match attempt is unsuccessful
         document.getElementById(tileIds[count]).addEventListener("click", displayTile);
         setTimeout(function () {
             document.getElementById(tileIds[count]).classList.remove("displayTile");
             document.getElementById(tileIds[count]).removeAttribute("style");
-        }, 500);
+        }, 900);
     }
 
     function setCorrectMatch(count){
