@@ -229,15 +229,6 @@ li{
 
 /* Rules.html */
 
-#rules-container p,li{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-}
-
-#rules-container ul{
-    list-style-type: none;
-}
-
 .section-heading{
     color: #fff;
     background-color: var(--mainBg);
@@ -247,10 +238,15 @@ li{
 
 .section-body{
     color: var(--mainBg);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
     background-color: #fff;
     padding: 1rem 0;
 }
 
+.section-body ul{
+    list-style-type: none;
+}
 
 
 /* Animations */
