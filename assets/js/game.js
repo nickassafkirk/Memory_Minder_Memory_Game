@@ -285,7 +285,7 @@ function showScoreOnCompletion(){
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
         scoreAreaRef.innerHTML = `
-        <h4>Game Over</h4>
+        <h3>Game Over</h3>
         <p>You ran out of time</p>
         `;
     } else if (correctAnswersOnQuit < 8){
@@ -293,7 +293,7 @@ function showScoreOnCompletion(){
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
         scoreAreaRef.innerHTML = `
-        <h4>Game Over</h4>
+        <h3>Game Over</h3>
         <p>You quit before finishing</p>
         `;  
     } else {
@@ -304,11 +304,11 @@ function showScoreOnCompletion(){
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
         scoreAreaRef.innerHTML = `
-        <h4>Congratulations you Won!</h4>
+        <h3>Congratulations you Won!</h3>
         <br>
-        <p>You scored <strong>${calculatedScore}</strong></p>
+        <p>You scored <span class="current-score">${calculatedScore}</span></p>
         <br>
-        <p>Your top score is ${topScore}</p>
+        <p>Your top score is <span class="top-score">${topScore} <i class="fas fa-trophy"></i></span></p>
         `; 
     }
     scoreAreaRef.addEventListener("click", hideScoreboard);
