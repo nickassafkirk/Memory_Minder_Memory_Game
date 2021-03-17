@@ -387,22 +387,27 @@ function generateRandomColor(){
 /** 
  * builds an array of random colors to be used to assign background colors to each tile pair
  */
-function buildColorSelection(generateRandomColor){
+function buildColorSelection(){
     let colorSelection = [];
-    for(let colors = 0; colors < (tiles.length/2); colors++){
-        colorSelection.push(generateRandomColor());
+    for(let i = 0; i < tiles.length; i++){
+        let checkValue = generateRandomColor();
+        if(!colorSelection.includes(checkValue)){
+            colorSelection.push(checkValue);
+        } else {
+            --i;
+        }
     }
     return colorSelection
 };
 
 function buildNumbersArray(){
     let randomNumbersTheme =[];
-    for(let numbers = 0; numbers <tiles.length; numbers++){
-        let checkNumber = generateRandomNumber(tiles.length);
-        if(!randomNumbersTheme.includes(checkNumber)){
-            randomNumbersTheme.push(checkNumber);
+    for(let i = 0; i <tiles.length; i++){
+        let checkValue = generateRandomNumber(tiles.length);
+        if(!randomNumbersTheme.includes(checkValue)){
+            randomNumbersTheme.push(checkValue);
         } else {
-            --numbers;
+            --i;
         }
     }
     return randomNumbersTheme;
