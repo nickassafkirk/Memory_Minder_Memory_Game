@@ -20,10 +20,22 @@ const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
 
+const cat = `<i class="fas fa-cat"></i>`;
+const crow = `<i class="fas fa-crow"></i>`;
+const dog = `<i class="fas fa-dog"></i>`;
+const dove = `<i class="fas fa-dove"></i>`;
+const frog = `<i class="fas fa-frog"></i>`;
+const fish = `<i class="fas fa-fish"></i>`;
+const hippo = `<i class="fas fa-hippo"></i>`;
+const horse = `<i class="fas fa-horse"></i>`;
+const otter = `<i class="fas fa-otter"></i>`;
+const spider = `<i class="fas fa-spider"></i>`;
+
 /**
  * Game Themes
  */
-const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const iconsTheme = [football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const animalsTheme = [cat, crow, dog, fove, fish, frog, hippo, horse, otter, kiwi, spider];
 const numbersTheme = buildNumbersArray();
 
 let clicks = 0;
