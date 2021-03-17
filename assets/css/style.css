@@ -103,8 +103,8 @@ a:hover{
 
 .gametile{
     position: relative;
-    height: 20vmin;
-    width: 20vmin;
+    height: 15vmin;
+    width: 15vmin;
     line-height: 20vmin;
     background-color: var(--tileBg);
     color: white;
