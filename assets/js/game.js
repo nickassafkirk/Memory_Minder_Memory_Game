@@ -5,8 +5,7 @@ const tiles = document.querySelectorAll(".gametile");
 const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
 const difficultySelectionRef = document.querySelector("#difficulty");
-const gameSettingsref = document.querySelector("#game-settings-label");
-const gameSettingsBodyRef = document.querySelector("#game-settings")
+const gameSettingsRef = document.querySelector("#game-settings-label");
 
 let clicks = 0;
 let tileIcon;
@@ -348,16 +347,15 @@ function hideScoreboard(){
  * hides game settings menu when game is in play to prevent user error
  */
 function disableGameSettings(){
-    gameSettingsref.style.display = "none";
-    gameSettingsBodyRef.classList.remove("show"); 
+    gameSettingsRef.style.display = "none";
+    gameSettingsRef.nextElementSibling.classList.remove("show"); 
 }
 
 /**
  * shows game settings menu when game is ended, to allow game settings to be changed between gameplay
  */
 function enableGameSettings(){
-    gameSettingsref.style.display = "block";
-    
+    gameSettingsRef.style.display = "block";
 }
     
 
