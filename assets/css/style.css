@@ -242,9 +242,12 @@ li{
 
 .section-heading{
     color: #fff;
-    background-color: var(--mainBg);
-    border: 2px solid #fff;
+    background-color: var(--startGreen);
     margin-top: 2vh;
+}
+
+.section-heading:nth-of-type(3){
+    background-color: var(--topScore);
 }
 
 .section-body{
@@ -252,7 +255,12 @@ li{
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     background-color: var(--lightBg);
-    padding: 1rem 0;
+    padding: 1rem;
+}
+
+.section-body p,li{
+    padding: 0.2rem 0em;
+    border-bottom: 1px solid var(--secondaryBorder);
 }
 
 .section-body ul{
