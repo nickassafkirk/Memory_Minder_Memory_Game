@@ -280,6 +280,7 @@ function showScoreOnCompletion(){
         <p>Your score is <strong>${calculatedScore}</strong></p>
         `; 
     }
+    sendScoreToLocalStorage(calculatedScore);
     scoreAreaRef.addEventListener("click", hideScoreboard);
 }
 
@@ -400,6 +401,9 @@ function buildColorSelection(){
     return colorSelection
 };
 
+/**
+ * Builds random array of numbers that provides the values for the numbers theme
+ */
 function buildNumbersArray(){
     let randomNumbersTheme =[];
     for(let i = 0; i <tiles.length; i++){
@@ -413,6 +417,9 @@ function buildNumbersArray(){
     return randomNumbersTheme;
 }
 
+function sendScoreToLocalStorage(calculatedScore){
+    window.localStorage.setItem("score", calculatedScore);
+}
 
 
 //General Styling/Interactivity
