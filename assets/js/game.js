@@ -16,6 +16,7 @@ let correctMatches = 0;
 let bgColors = buildColorSelection(generateRandomColor);
 let gameplayTime = 60;
 
+
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -33,6 +34,8 @@ const anchor = `<i class="fas fa-anchor"></i>`;
  */
 const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
 const numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
+
+let gameTheme = iconsTheme;
 
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
@@ -96,7 +99,8 @@ function setRandomTileOrder(numberOfTiles) {
             randomOrderArray.push(randomNum);
         }
     }
-    setTiles(randomOrderArray, iconsTheme);
+    
+    setTiles(randomOrderArray, setTheme());
 }
 
 /**
@@ -397,8 +401,20 @@ for(navItem of navRef){
 
 let themeSelectionRef = document.querySelector("#theme");
 
-themeSelectionRef.addEventListener("change", function(){
-    console.log(this.value)
-})
+themeSelectionRef.addEventListener("change", setTheme);
+
+function setTheme(){
+    let chosenTheme = this.value;
+    console.log(chosenTheme);
+
+    if (chosenTheme === "random"){
+        gameTheme = iconsTheme
+    } else if( chosenTheme === "numbers"){
+        gameTheme = numbersTheme
+    } else {
+        console.log("incorrect match")
+    }
+     return gameTheme
+}
 
 
