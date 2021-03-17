@@ -18,7 +18,7 @@ coffee breaks, or killing some time on the way home from work.
 
 ### Ideal User
 The ideal user for this site is: 
-- Any user 5 years or older
+- Any user 7 years or older
 - An ideal user will be a regular smart device user
 - An ideal user enjoys traditional games like card games, board games, sudoku, crosswords etc...
 
@@ -39,7 +39,9 @@ The ideal user for this site is:
 - As a new user, I want to enjoy playing the game.
 - As a new user, I want to understand how to play the game without having to read the instructions.
 - As a new user, I want to be challenged by the game but not frustrated by it's level of difficulty.
-- As a return user, I want to see how my result compaers to my previous attempts.
+- As a return user, I want to see how my result compares to my previous attempts.
+- As a user, I want to select my preferred game theme.
+- As a user, I want to be able to play the game on a mobile device.
 
 ---
 ## Scope 
