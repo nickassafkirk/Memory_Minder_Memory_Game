@@ -193,6 +193,13 @@ While this is not an ideal fix and ideally unneccessary event listeners should b
 to cause any issues in testing. An alternative method would be to clone the element to which the event listener is applied and then replace the cloned element with the clone.
 This would also remove all event listeners and is documented in [this stackoverflow post](https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element)
 
+**Bug** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
+
+![game settings bug screenshot](assets/images/game-settings-bug.png)
+**Desired Behaviour** Game settings label and dropdown menu should be hidden to prevent user error during game play.
+**Source of bug** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
+**Bug Fix** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
+
 **Credit** 
 information about pointer-events was found at these links: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events), [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
 ### Frameworks
