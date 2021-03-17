@@ -418,7 +418,18 @@ function buildNumbersArray(){
 }
 
 function sendScoreToLocalStorage(calculatedScore){
-    window.localStorage.setItem("score", calculatedScore);
+
+    //credit: isNumber function sourced from https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
+
+    let isNumber = function isNumber(value){
+        return typeof(value) === "number" && isFinite(value)
+    }
+
+    if(!isNumber(calculatedScore)){
+        return;
+    } else {
+        window.localStorage.setItem("score", calculatedScore);
+    } 
 }
 
 
