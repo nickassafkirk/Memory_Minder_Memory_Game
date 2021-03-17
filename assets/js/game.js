@@ -7,6 +7,8 @@ const scoreAreaRef = document.querySelector("#scoreboard");
 const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsRef = document.querySelector("#game-settings-label");
 let themeSelectionRef = document.querySelector("#theme");
+const myStorage = window.localStorage;
+let topScore = myStorage.getItem("score");
 
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
@@ -458,13 +460,9 @@ function buildNumbersArray(){
 function sendScoreToLocalStorage(calculatedScore){
 
     //credit: isNumber function sourced from https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
-
     let isNumber = function isNumber(value){
         return typeof(value) === "number" && isFinite(value)
     }
-
-    const myStorage = window.localStorage;
-    let topScore = myStorage.getItem("score");
     console.log(topScore);
 
     if(!isNumber(calculatedScore || calculatedScore < 10)){
@@ -481,6 +479,15 @@ function sendScoreToLocalStorage(calculatedScore){
         console.log("check best score")
         return topScore;
     }
+}
+
+/**
+ * Create button to clear exisitng score from local storage for testing purposes
+ */
+function clearLeaderBoard(){
+    console.log(topScore);
+    myStorage.removeItem("score");
+    console.log(topScore);
 }
 
 
