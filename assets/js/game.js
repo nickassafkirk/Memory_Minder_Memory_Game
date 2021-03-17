@@ -378,16 +378,18 @@ function setTheme(){
 
     if (chosenTheme === "random"){
         gameTheme = iconsTheme
+        return gameTheme
     } else if( chosenTheme === "numbers"){
         gameTheme = numbersTheme
+        return gameTheme
     } else if (chosenTheme === "animals"){
         gameTheme = animalsTheme
+        return gameTheme
     } else if(chosenTheme === "outdoors"){
         gameTheme = outdoorsTheme
-    } else {
-        console.log(chosenTheme)
+        return gameTheme
     }
-     return gameTheme
+    return gameTheme;
 }
 
 /** 
