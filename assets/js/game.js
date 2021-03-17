@@ -8,22 +8,6 @@ const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsRef = document.querySelector("#game-settings-label");
 let themeSelectionRef = document.querySelector("#theme");
 
-/**
- * Game Themes
- */
-const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
-const numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
-
-let clicks = 0;
-let tileIcon;
-let tileIcons = [];
-let tileIds = [];
-let n = 0;
-let correctMatches = 0;
-let bgColors = buildColorSelection(generateRandomColor);
-let gameplayTime = 60;
-let gameTheme = iconsTheme;
-
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
@@ -35,6 +19,22 @@ const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
 const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
+
+/**
+ * Game Themes
+ */
+const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const numbersTheme = buildNumbersArray();
+
+let clicks = 0;
+let tileIcon;
+let tileIcons = [];
+let tileIds = [];
+let n = 0;
+let correctMatches = 0;
+let bgColors = buildColorSelection(generateRandomColor);
+let gameplayTime = 60;
+let gameTheme = iconsTheme;
 
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
@@ -368,7 +368,7 @@ function setTheme(){
  */
 function generateRandomNumber(chooseNumber) {
     let randomNumber = Math.random();
-    randomNumber  = oneValue  * chooseNumber;
+    randomNumber  = randomNumber  * chooseNumber;
     randomNumber  = Math.round(randomNumber);
     return randomNumber;
 }
@@ -394,6 +394,21 @@ function buildColorSelection(generateRandomColor){
     }
     return colorSelection
 };
+
+function buildNumbersArray(){
+    let randomNumbersTheme =[];
+    for(let numbers = 0; numbers <tiles.length; numbers++){
+        let checkNumber = generateRandomNumber(tiles.length);
+        if(!randomNumbersTheme.includes(checkNumber)){
+            randomNumbersTheme.push(checkNumber);
+        } else {
+            --numbers;
+        }
+    }
+    return randomNumbersTheme;
+}
+
+
 
 //General Styling/Interactivity
 
