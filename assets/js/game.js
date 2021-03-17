@@ -31,11 +31,22 @@ const horse = `<i class="fas fa-horse"></i>`;
 const otter = `<i class="fas fa-otter"></i>`;
 const spider = `<i class="fas fa-spider"></i>`;
 
+const tent = `<i class="fas fa-campground"></i>`;
+const caravan = `<i class="fas fa-caravan"></i>`;
+const compass =`<i class="far fa-compass"></i>`;
+const hiking = `<i class="fas fa-hiking"></i>`;
+const map =`<i class="fas fa-map-marked-alt"></i>`;
+const signs =`<i class="fas fa-map-signs"></i>`;
+const mountain =`<i class="fas fa-mountain"></i>`;
+const route = `<i class="fas fa-route"></i>`;
+const tree =`<i class="fas fa-tree"></i>`;
+
 /**
  * Game Themes
  */
 const iconsTheme = [football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
 const animalsTheme = [cat, crow, dog, dove, fish, frog, hippo, horse, otter, kiwi, spider];
+const outdoorsTheme = [tent, caravan, compass, hiking, mountain, tree, signs, route, map, fire, fish]
 const numbersTheme = buildNumbersArray();
 
 let clicks = 0;
@@ -371,6 +382,8 @@ function setTheme(){
         gameTheme = numbersTheme
     } else if (chosenTheme === "animals"){
         gameTheme = animalsTheme
+    } else if(chosenTheme === "outdoors"){
+        gameTheme = outdoorsTheme
     } else {
         console.log(chosenTheme)
     }
