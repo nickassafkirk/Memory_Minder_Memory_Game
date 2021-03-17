@@ -6,6 +6,13 @@ const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
 const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsRef = document.querySelector("#game-settings-label");
+let themeSelectionRef = document.querySelector("#theme");
+
+/**
+ * Game Themes
+ */
+const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
+const numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
 
 let clicks = 0;
 let tileIcon;
@@ -15,7 +22,7 @@ let n = 0;
 let correctMatches = 0;
 let bgColors = buildColorSelection(generateRandomColor);
 let gameplayTime = 60;
-
+let gameTheme = iconsTheme;
 
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
@@ -29,37 +36,11 @@ const cocktail = `<i class="fas fa-cocktail"></i>`;
 const fire = `<i class="fas fa-fire-alt"></i>`;
 const anchor = `<i class="fas fa-anchor"></i>`;
 
-/**
- * Game Themes
- */
-const iconsTheme =[football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
-const numbersTheme =  [singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue(),singleRGBValue()];
-
-let gameTheme = iconsTheme;
-
 //Event Listeners
 startButtonRef.addEventListener("click", startGame);
 endButtonRef.addEventListener("click", endGame);
 difficultySelectionRef.addEventListener("change", setDifficulty);
-
-/**
- * sets gamePlayTime
- */
-function setDifficulty(){
-    
-    console.log(this.value)
-    gameDifficulty = this.value;
-
-    if(gameDifficulty === "hard"){
-        gameplayTime = 40;
-    } else if(gameDifficulty === "easy"){
-        gameplayTime = 120;
-    } else {
-        gameplayTime = 60;
-    }
-    console.log(gameplayTime);
-    return gameplayTime;
-}
+themeSelectionRef.addEventListener("change", setTheme);
 
 function startGame() {
     endButtonRef.disabled = false;
@@ -254,41 +235,6 @@ function countMoves() {
     return clicks
 }
 
-
-//additional levels of difficulty
-
-/** 
- * generates a random background color, to make matching harder as game progresses
- */
-function singleRGBValue() {
-    let oneValue = Math.random();
-    oneValue  = oneValue  * 255;
-    oneValue  = Math.round(oneValue);
-    return oneValue;
-}
-
-/** 
- * combines 3 single r,g,b values to make a random rgb color
- */
-function generateRandomColor(){
-    r = singleRGBValue();
-    g = singleRGBValue();
-    b = singleRGBValue();
-    let randomColor = `rgb(${r},${g},${b})`;
-    return randomColor
-};
-
-/** 
- * builds an array of random colors to be used to assign background colors to each tile pair
- */
-function buildColorSelection(generateRandomColor){
-    let colorSelection = [];
-    for(let colors = 0; colors < 8; colors++){
-        colorSelection.push(generateRandomColor());
-    }
-    return colorSelection
-};
-
 /**
    * adds number of clicks and elapsed time to calculate score & displays score upon game completion
    */
@@ -357,18 +303,9 @@ function disableGameSettings(){
 function enableGameSettings(){
     gameSettingsRef.style.display = "block";
 }
-    
-
-//2. addAdditional tiles -> 12, 16, 20, 24
-//3. Reduce time -> decrease amount of time available to complete the game. 
-//4. change icons to a math problem to be matched to the correct answer;
-
-//additional iterations/Future development
-// publish leaderboard;
-//use api to generate random icon or picture
 
 /**
- * rests the tiles to allow game to be replayed without refreshing the browser
+ * resets the tiles to allow game to be replayed without refreshing the browser
  */
 function resetTiles() {
     for (tile of tiles) {
@@ -386,6 +323,80 @@ function resetTiles() {
     setRandomTileOrder(tiles.length);
 }
 
+//additional levels of difficulty
+
+/**
+ * Takes user input from game settings form
+ * Increased difficulty = less time allowed to complete game.
+ */
+function setDifficulty(){
+    
+    console.log(this.value)
+    gameDifficulty = this.value;
+
+    if(gameDifficulty === "hard"){
+        gameplayTime = 40;
+    } else if(gameDifficulty === "easy"){
+        gameplayTime = 120;
+    } else {
+        gameplayTime = 60;
+    }
+    console.log(gameplayTime);
+    return gameplayTime;
+}
+
+/**
+ * Takes user input from game settings form
+ * Sets the icon theme on each game tile
+ */
+function setTheme(){
+    let chosenTheme = this.value;
+    console.log(chosenTheme);
+
+    if (chosenTheme === "random"){
+        gameTheme = iconsTheme
+    } else if( chosenTheme === "numbers"){
+        gameTheme = numbersTheme
+    } else {
+        console.log("incorrect match")
+    }
+     return gameTheme
+}
+
+/** 
+ * generates a random background color, to make matching harder as game progresses
+ */
+function singleRGBValue() {
+    let oneValue = Math.random();
+    oneValue  = oneValue  * 255;
+    oneValue  = Math.round(oneValue);
+    return oneValue;
+}
+
+/** 
+ * combines 3 single r,g,b values to make a random rgb color
+ */
+function generateRandomColor(){
+    r = singleRGBValue();
+    g = singleRGBValue();
+    b = singleRGBValue();
+    let randomColor = `rgb(${r},${g},${b})`;
+    return randomColor
+};
+
+/** 
+ * builds an array of random colors to be used to assign background colors to each tile pair
+ */
+function buildColorSelection(generateRandomColor){
+    let colorSelection = [];
+    for(let colors = 0; colors < (tiles.length/2); colors++){
+        colorSelection.push(generateRandomColor());
+    }
+    return colorSelection
+};
+
+//General Styling/Interactivity
+
 /**
  * adds wiggle effect to main navigation items
  */
@@ -400,22 +411,6 @@ for(navItem of navRef){
     });
 }
 
-let themeSelectionRef = document.querySelector("#theme");
 
-themeSelectionRef.addEventListener("change", setTheme);
-
-function setTheme(){
-    let chosenTheme = this.value;
-    console.log(chosenTheme);
-
-    if (chosenTheme === "random"){
-        gameTheme = iconsTheme
-    } else if( chosenTheme === "numbers"){
-        gameTheme = numbersTheme
-    } else {
-        console.log("incorrect match")
-    }
-     return gameTheme
-}
 
 
