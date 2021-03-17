@@ -218,7 +218,7 @@ function checkMatch(tileIcons, tileIds, n) {
         setTimeout(function () {
             document.getElementById(tileIds[count]).classList.remove("displayTile");
             document.getElementById(tileIds[count]).removeAttribute("style");
-        }, 1000);
+        }, 500);
     }
 
     function setCorrectMatch(count){
@@ -228,7 +228,7 @@ function checkMatch(tileIcons, tileIds, n) {
         document.getElementById(tileIds[count]).style.pointerEvents = "none";
         setTimeout(function () {
             document.getElementById(tileIds[count]).classList.remove("gametile-overlay");
-        }, 1000);
+        }, 500);
     }
 
     if (tileIcons[n] !== tileIcons[n + 1]) {
