@@ -21,6 +21,8 @@ body{
     background-color: var(--mainBg);
     color: #fff;
     text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
 }
 
 #logo{
