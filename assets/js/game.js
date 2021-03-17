@@ -35,7 +35,7 @@ const spider = `<i class="fas fa-spider"></i>`;
  * Game Themes
  */
 const iconsTheme = [football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
-const animalsTheme = [cat, crow, dog, fove, fish, frog, hippo, horse, otter, kiwi, spider];
+const animalsTheme = [cat, crow, dog, dove, fish, frog, hippo, horse, otter, kiwi, spider];
 const numbersTheme = buildNumbersArray();
 
 let clicks = 0;
@@ -364,14 +364,15 @@ function setDifficulty(){
  */
 function setTheme(){
     let chosenTheme = this.value;
-    console.log(chosenTheme);
 
     if (chosenTheme === "random"){
         gameTheme = iconsTheme
     } else if( chosenTheme === "numbers"){
         gameTheme = numbersTheme
+    } else if (chosenTheme === "animals"){
+        gameTheme = animalsTheme
     } else {
-        console.log("incorrect match")
+        console.log(chosenTheme)
     }
      return gameTheme
 }
