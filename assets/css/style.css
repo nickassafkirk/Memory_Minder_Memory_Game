@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Open+Sans&display=swap');
 
+:root{
+    --mainBg: #222;
+}
+
+
 body{
     font-size: 16px;
     font-family: 'Finger paint', cursive;
@@ -222,6 +227,33 @@ li{
     font-weight: 700;
 }
 
+/* Rules.html */
+
+#rules-container p,li{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+
+#rules-container ul{
+    list-style-type: none;
+}
+
+.section-heading{
+    color: #fff;
+    background-color: var(--mainBg);
+    border: 2px solid #fff;
+    margin-top: 2vh;
+}
+
+.section-body{
+    color: var(--mainBg);
+    background-color: #fff;
+    padding: 1rem 0;
+}
+
+
+
+/* Animations */
  .wiggle {
         animation: wiggle-animation 0.5s infinite;
         display: inline-block;
