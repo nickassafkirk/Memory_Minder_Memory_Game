@@ -463,12 +463,17 @@ function sendScoreToLocalStorage(calculatedScore){
         return typeof(value) === "number" && isFinite(value)
     }
 
-    let topScore = window.localStorage.getItem("score");
+    const myStorage = window.localStorage;
+    let topScore = myStorage.getItem("score");
     console.log(topScore);
 
     if(!isNumber(calculatedScore || calculatedScore < 10)){
         return topScore;
-    } else if (calculatedScore < topScore){
+    } else if (topScore === null){
+        myStorage.setItem("score", calculatedScore);
+        topScore = calculatedScore;
+        return topScore;
+    }else if (calculatedScore < topScore){
         window.localStorage.setItem("score", calculatedScore);
         topScore = calculatedScore;
         return topScore;
