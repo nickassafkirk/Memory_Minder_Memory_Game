@@ -312,6 +312,37 @@ li{
     border-bottom: 1px solid var(--secondaryBorder);
 }
 
+/* Leaderboard.html */
+
+table{
+    background-color: #fff;
+    color: var(--mainBg);
+    padding: 2%;
+    width: 100%;
+}
+
+td, th{
+    width: 50%;
+    border: 2px solid var(--secondaryBorder);
+    padding: 0.5rem;
+}
+
+th{
+    font-size: 2rem;
+    color: #fff;
+
+}
+
+th:first-of-type{
+    background-color: var(--topScore);
+}
+
+th:last-of-type{
+    background-color: var(--startGreen);
+}
+
+
+
 /* Animations */
  .wiggle {
         animation: wiggle-animation 0.5s infinite;
