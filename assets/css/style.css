@@ -335,8 +335,11 @@ li{
 
 #leaderboard td, th{
     width: 50%;
-    border: 2px solid var(--secondaryBorder);
     padding: 0.5rem;
+}
+
+#leaderboard td{
+    border: 1px solid var(--secondaryBorder);
 }
 
 #leaderboard th{
@@ -352,7 +355,7 @@ li{
     background-color: var(--startGreen);
 }
 
-#insertMessage{
+#insertMessage, #insertTable{
     padding: 0px;
 }
 
