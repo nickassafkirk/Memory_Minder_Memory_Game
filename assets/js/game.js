@@ -464,6 +464,7 @@ function buildNumbersArray(){
     return randomNumbersTheme;
 }
 
+const topTen = [];
 /**
  * Stores the calculated score in localStorage
  * Used to populate leaderboard
@@ -474,13 +475,27 @@ function sendScoreToLocalStorage(calculatedScore){
     //credit: isNumber function sourced from https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
     let isNumber = function isNumber(value){
         return typeof(value) === "number" && isFinite(value)
+    }  
+    
+    
+    let getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
+    console.log(topTen.length);
+
+    if (getTopTen.length <=10){
+        let topScoreDate = new Date();
+        topScore = calculatedScore;
+        let newTopScore = {"date" : topScoreDate, "score" : topScore};
+        topTen.push(newTopScore);
+        console.log(topTen);
+        myStorage.setItem("topTen", JSON.stringify(topTen));
     }
 
-    if(!isNumber(calculatedScore || calculatedScore < 10)){
+    /** if(!isNumber(calculatedScore || calculatedScore < 10)){
         return topScore;
     } else if (topScore === null){
         myStorage.setItem("score", calculatedScore);
         topScore = calculatedScore;
+        return topScore;
         return topScore;
     }else if (calculatedScore < topScore){
         window.localStorage.setItem("score", calculatedScore);
@@ -489,8 +504,8 @@ function sendScoreToLocalStorage(calculatedScore){
     } else {
         console.log("Top score unchanged")
         return topScore;
-    }
-}
+    } */ 
+} 
 
 /**
  * Create button to clear exisitng score from local storage for testing purposes
