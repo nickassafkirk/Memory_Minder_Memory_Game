@@ -102,9 +102,7 @@ function endGame() {
  * creates random number which will later be assigned an icon
  * creates an array of random numbers which has a length which equals the number of tiles in the game
  */
-function setRandomTileOrder(numberOfTiles) {
-    if(isNaN(numberOfTiles)) return
-        
+function setRandomTileOrder(numberOfTiles) {    
     let randomOrderArray = [];
     while (randomOrderArray.length < numberOfTiles) {
         let randomNum = Math.random();
@@ -371,7 +369,9 @@ function resetTiles() {
     correctMatches = 0;
     document.getElementById("timer").firstChild.innerText ="";
     document.getElementById("clicks").firstChild.innerText ="";
+    if(!isNaN(tiles.length)){
     setRandomTileOrder(tiles.length);
+    }
 }
 
 //additional levels of difficulty
