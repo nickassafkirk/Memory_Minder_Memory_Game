@@ -10,7 +10,9 @@ const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsRef = document.querySelector("#game-settings-label");
 let themeSelectionRef = document.querySelector("#theme");
 const myStorage = window.localStorage;
-let topScore = myStorage.getItem("score");
+let topTen =[];
+const getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
+let topScore;
 
 const football = `<i class="fas fa-football-ball"></i>`;
 const mask = `<i class="fas fa-ufo"></i>`;
@@ -308,10 +310,15 @@ function showScoreOnCompletion(){
         <p>You quit before finishing</p>
         `;  
     } else {
-        let topScore = sendScoreToLocalStorage(calculatedScore);
+        if(isNaN(calculatedScore || calculatedScore < 10)){
+        console.error("score is not a number");
+    } else if (topScore === null){
+        topScore = calculatedScore;
+    } else {topScore = sendScoreToLocalStorage(calculatedScore);
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
-        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.classList.add("show-flex")}
+        
         if (calculatedScore < topScore){
             scoreAreaRef.innerHTML = `
         <h3>You set a new TOP SCORE!</h3>
@@ -464,7 +471,7 @@ function buildNumbersArray(){
     return randomNumbersTheme;
 }
 
-const topTen = [];
+
 /**
  * Stores the calculated score in localStorage
  * Used to populate leaderboard
@@ -472,31 +479,28 @@ const topTen = [];
  */
 function sendScoreToLocalStorage(calculatedScore){
 
-    //credit: isNumber function sourced from https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
-    let isNumber = function isNumber(value){
-        return typeof(value) === "number" && isFinite(value)
-    }  
-    
-    const getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
-    console.log(topTen.length);
+    function compare( a, b ) {
+  if ( a.score < b.score ){
+    return -1;
+  }
+  if ( a.score > b.score ){
+    return 1;
+  }
+  return 0;
+}
 
-    if (getTopTen.length <=10){
-        let topScoreDate = new Date();
-        topScore = calculatedScore;
-        let newTopScore = {"date" : topScoreDate, "score" : topScore};
-        topTen.push(newTopScore);
+    if(getTopTen.length < 10){
+        console.log(getTopTen.length);
+        let newScoreDate = new Date();
+        let newScore = {"date" : newScoreDate, "score" : calculatedScore};
+        topTen.push(newScore);
+        topTen = getTopTen.sort(compare)
+        console.log(topTen);
         myStorage.setItem("topTen", JSON.stringify(topTen));
+        topScore = topTen[0].score;
+        console.log(topScore);
     }
 
-    let justScores =[];
-    topTen.forEach(one => {
-        let singleScore = one.score;
-        justScores.push(singleScore);
-    });
-
-    //credit: sort numerical array: https://www.w3schools.com/js/js_array_sort.asp
-    let sortedScores = justScores.sort(function(a, b){return a - b})
-    topScore = sortedScores[0];
     return topScore
 
     /** if(!isNumber(calculatedScore || calculatedScore < 10)){
