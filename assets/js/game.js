@@ -292,8 +292,6 @@ function showScoreOnCompletion(){
     let resultType = isNaN(calculatedScore);
     
     if(resultType){
-        document.querySelector("#score").firstChild.innerHTML = "0";
-        document.querySelector("#score").firstChild.style.color = "red";
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
