@@ -48,7 +48,7 @@ li{
 }
 
 #logo img{
-    height: 20vmin;
+    height: 2.5rem;
     width: auto;
     margin: 0;
 }
@@ -333,6 +333,10 @@ li{
 
 
 @media screen and (min-width: 600px){
+    #logo img{
+        height: 3rem;
+        width: auto;
+    }
 
   h1{
       font-size: 3rem;
@@ -376,7 +380,7 @@ li{
 @media screen and (min-width: 800px){
 
     #logo img{
-        height: 6rem;
+        height: 4rem;
         width: auto;
     }
 
