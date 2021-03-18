@@ -336,7 +336,6 @@ function showScoreOnCompletion(){
         `; 
         }
     }
-    scoreAreaRef.addEventListener("click", hideScoreboard);
 }
 
 function hideScoreboard(){
