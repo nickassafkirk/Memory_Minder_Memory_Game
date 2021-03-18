@@ -21,12 +21,10 @@ body{
     background-color: var(--mainBg);
     color: #fff;
     text-align: center;
-    margin-top: 2vh;
-    margin-bottom: 4vh;
 }
 
 #logo{
-    margin: 2vh auto;
+    margin: 4vh auto;
 }
 
 #logo img{
@@ -209,6 +207,10 @@ a:hover{
     font-size: 1.25rem;
 }
 
+#button-row .btn{
+    margin-bottom: 4vh;
+}
+
 .displayTile{
     font-size: 2rem;
 }
@@ -228,14 +230,6 @@ a:hover{
 
 li{
     line-height: 2rem;
-}
-
-#rules-container h3{
-    margin: 1rem auto;
-}
-
-#rules-container h3:last-of-type{
-    margin-top: 2rem;
 }
 
 .show-flex{
@@ -265,13 +259,19 @@ li{
 
 /* Rules.html */
 
+#rules-container{
+    margin-bottom: 4vh;
+}
+
 .section-heading{
     color: #fff;
     background-color: var(--startGreen);
+    padding: 1rem 0;
     margin-top: 2vh;
 }
 
 .section-heading:nth-of-type(3){
+    margin-top: 4vh;
     background-color: var(--topScore);
 }
 
