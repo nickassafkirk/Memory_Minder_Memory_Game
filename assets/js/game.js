@@ -489,18 +489,29 @@ function sendScoreToLocalStorage(calculatedScore){
   return 0;
 }
 
-    if(getTopTen.length < 10){
-        console.log(getTopTen.length);
-        let newScoreDate = new Date();
-        let newScore = {"date" : newScoreDate, "score" : calculatedScore};
-        topTen.push(newScore);
-        topTen = getTopTen.sort(compare)
-        console.log(topTen);
-        myStorage.setItem("topTen", JSON.stringify(topTen));
-        topScore = topTen[0].score;
-        console.log(topScore);
-    }
+let topTen = getTopTen;
+let newScoreDate = new Date();
+let newScore = {"date" : newScoreDate, "score" : calculatedScore};
+let lastIndex = (getTopTen.length - 1);
 
+    if(getTopTen.length < 10){
+        console.log(calculatedScore);
+        console.log(topTen.length);
+        topTen.push(newScore);
+        topTen = topTen.sort(compare)
+        console.log(getTopTen);  
+    } else {
+        if(calculatedScore < topTen[lastIndex].score){
+        topTen[lastIndex] = newScore;
+        console.log(getTopTen); 
+        } else {
+            console.log(calculatedScore);
+        }
+    }
+    topTen = topTen.sort(compare)
+    myStorage.setItem("topTen", JSON.stringify(topTen));
+    topScore = topTen[0].score;
+    console.log(topScore);
     return topScore
 
     /** if(!isNumber(calculatedScore || calculatedScore < 10)){
