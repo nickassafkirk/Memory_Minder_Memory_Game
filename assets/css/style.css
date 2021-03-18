@@ -103,7 +103,7 @@ li{
 
 #gameboard{ 
     margin: 1vh auto;
-    height: 50vh;
+    height: auto;
     width: 90vw;
 }
 
@@ -279,6 +279,7 @@ li{
 /* Rules.html */
 #rules-container{
     margin-bottom: 4vh;
+    width: 90vw; 
 }
 
 .section-heading{
@@ -313,21 +314,15 @@ li{
 }
 
 /* Leaderboard.html */
-.message{
-    border: 2px solid var(--secondaryBorder);
-    background-color: #fff;
-    color: var(--mainBg);
-    padding: 10% 5%;
-    border-radius: 10px;
-}
-.message .btn{
-    margin: 5% auto;
 
+#leaderboard{
+  width: 90vw;
+  margin-bottom: 4vh;
 }
 
-#leaderboard h2{
-    font-size: 1.5rem;
-    margin-bottom: 2vh;
+#leaderboard .section-heading{
+    background-color: var(--settingsLabel);
+    margin-bottom: 2vh
 }
 
 #leaderboard table{
@@ -335,11 +330,11 @@ li{
     background-color: #fff;
     color: var(--mainBg);
     padding: 2%;
-    width: 90%;
+    width: 100%;
 }
 
 #leaderboard td, th{
-    width: 45%;
+    width: 50%;
     border: 2px solid var(--secondaryBorder);
     padding: 0.5rem;
 }
@@ -355,6 +350,29 @@ li{
 
 #leaderboard th:last-of-type{
     background-color: var(--startGreen);
+}
+
+#insertMessage{
+    padding: 0px;
+}
+
+.message{
+    color: var(--mainBg);
+    background-color: #fff;
+    margin: 0;
+    padding: 10% 5%;
+    border: 2px solid var(--secondaryBorder);
+    border-radius: 10px;
+}
+
+.message h4{
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.message .btn{
+    width: 60%;
+    margin: 5% auto;
 }
 
 
@@ -431,6 +449,11 @@ li{
   .section-body > p, .section-body li{
     font-size: 1.4rem;
   }
+
+  .message h4{
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
 } 
 
 @media screen and (min-width: 800px){
@@ -472,6 +495,11 @@ li{
     .section-body > p, .section-body li{
     font-size: 1.6rem;
     }
+
+    .message h4{
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
 }
 
 @media screen and (min-width: 1000px){

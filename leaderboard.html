@@ -30,13 +30,23 @@
             </div>
         </nav>
     </header>
-    <div class="container" id="leaderboard">
+    <div id="leaderboard" class="container">
         <div class="row">
-            <div class="col-12">
-                <h2>Leaderboard</h2>
+            <div class="col-12 section-heading">
+                <h3>Leaderboard</h3>
+            </div>
+            <div id="insertMessage" class="col-12 d-none">
+                <div class="message">
+                    <h4>No scores recorded!</h4>
+                    <a href="index.html" class="btn btn-success">Play the game</a>
+                    <h4>Complete games to log your ten best scores.</h4>
+                </div>
+            </div>
+            <div id="insertTable" class="col-12 d-none">
                 <table>
                     <thead>
-                        <th>Date</th><th>Score</th>
+                        <th>Date</th>
+                        <th>Score</th>
                     </thead>
                     <tbody id="addLeaderboard"></tbody>
                 </table>
