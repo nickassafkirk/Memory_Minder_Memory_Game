@@ -477,34 +477,27 @@ function buildNumbersArray(){
  * Used to populate leaderboard
  * @param {num} calculatedScore 
  */
-function sendScoreToLocalStorage(calculatedScore){
+function sendScoreToLocalStorage(calculatedScore) {
 
-    function compare( a, b ) {
-  if ( a.score < b.score ){
-    return -1;
-  }
-  if ( a.score > b.score ){
-    return 1;
-  }
-  return 0;
-}
-
-let topTen = getTopTen;
-let newScoreDate = new Date();
-newScoreDate = newScoreDate.toDateString();
-let newScore = {"date" : newScoreDate, "score" : calculatedScore};
-let lastIndex = (getTopTen.length - 1);
-
-    if(getTopTen.length < 10){
+    let topTen = getTopTen;
+    let newScoreDate = new Date();
+    newScoreDate = newScoreDate.toDateString();
+    let newScore = { "date": newScoreDate, "score": calculatedScore };
+    
+    if (getTopTen === null){
+        topTen = [];
+        topTen.push(newScore);
+    } else if (getTopTen.length < 10) {
         console.log(calculatedScore);
         console.log(topTen.length);
         topTen.push(newScore);
         topTen = topTen.sort(compare)
-        console.log(getTopTen);  
+        console.log(getTopTen);
     } else {
-        if(calculatedScore < topTen[lastIndex].score){
-        topTen[lastIndex] = newScore;
-        console.log(getTopTen); 
+        let lastIndex = (getTopTen.length - 1);
+        if (calculatedScore < topTen[lastIndex].score) {
+            topTen[lastIndex] = newScore;
+            console.log(getTopTen);
         } else {
             console.log(calculatedScore);
         }
@@ -515,21 +508,16 @@ let lastIndex = (getTopTen.length - 1);
     console.log(topScore);
     return topScore
 
-    /** if(!isNumber(calculatedScore || calculatedScore < 10)){
-        return topScore;
-    } else if (topScore === null){
-        myStorage.setItem("score", calculatedScore);
-        topScore = calculatedScore;
-        return topScore;
-        return topScore;
-    }else if (calculatedScore < topScore){
-        window.localStorage.setItem("score", calculatedScore);
-        topScore = calculatedScore;
-        return topScore;
-    } else {
-        console.log("Top score unchanged")
-        return topScore;
-    } */ 
+    function compare(a, b) {
+        if (a.score < b.score) {
+            return -1;
+        }
+        if (a.score > b.score) {
+            return 1;
+        }
+        return 0;
+    }
+
 } 
 
 /**
