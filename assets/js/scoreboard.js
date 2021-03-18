@@ -12,9 +12,9 @@ function createLeaderboard(){
         let newMessage = document.createElement("div");
         newMessage.classList.add("message");
         newMessage.innerHTML = `
-        No scores recorded
+        <h4>No scores recorded!</h4>
         <a href="index.html" class="btn btn-success">Play the game</a>
-        To log your ten best scores.
+        <h4>Complete games to log your ten best scores.</h4>
         `
         tableContainer.append(newMessage);
     } else {
