@@ -175,10 +175,10 @@ li{
 
 #startFirstGame button{
     position: absolute;
-    height: 10vmin;
-    width: 75%;
-    top: 25vmin;
-    left: 12.5%;
+    height: 30%;
+    width: 30%;
+    top: 35%;
+    left: 35%;
     z-index: 5;
     margin: 0;
 }
@@ -211,7 +211,7 @@ li{
 }
 
 .label h3{
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
 .btn{
@@ -220,7 +220,7 @@ li{
     padding: 2%;
     margin-top: 5%;
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 #button-row .btn{
@@ -346,12 +346,16 @@ li{
     font-size: 2.5rem;
 }
 
-  .h3{
+  h3 {
         font-size: 2rem;
   }
 
+  .label h3{
+      font-size: 1.4rem;
+  }
+
   .btn{
-      font-size: 2rem;
+      font-size: 1.4rem;
   }
 
   #timer, #score, #clicks{
