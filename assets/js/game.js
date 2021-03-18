@@ -383,19 +383,14 @@ function setDifficulty(){
 function setTheme(){
     let chosenTheme = this.value;
 
-    if (chosenTheme === "random"){
-        gameTheme = iconsTheme
-        return gameTheme
-    } else if( chosenTheme === "numbers"){
+   if( chosenTheme === "numbers"){
         gameTheme = numbersTheme
-        return gameTheme
     } else if (chosenTheme === "animals"){
         gameTheme = animalsTheme
-        return gameTheme
     } else if(chosenTheme === "outdoors"){
         gameTheme = outdoorsTheme
-        return gameTheme
     }
+    console.log(gameTheme);
     return gameTheme;
 }
 
