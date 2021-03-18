@@ -169,10 +169,6 @@ a:hover{
     margin: 0;
 }
 
-.hideOnLoad{
-    visibility: hidden;
-}
-
 #timer, #score, #clicks{
     height: 3.125rem;
     margin-bottom: 5%;

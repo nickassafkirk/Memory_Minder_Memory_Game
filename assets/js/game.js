@@ -1,4 +1,6 @@
 //global variables
+const firstStartRef = document.querySelector("#initialStartButton");
+const GameOutputsRef = document.querySelectorAll(".gameOutput");
 const endButtonRef = document.querySelector('#endGame')
 const startButtonRef = document.querySelector("#startGame")
 const tiles = document.querySelectorAll(".gametile");
@@ -62,10 +64,19 @@ let gameplayTime = 60;
 let gameTheme = iconsTheme;
 
 //Event Listeners
+firstStartRef.addEventListener("click", startFirstGame);
 startButtonRef.addEventListener("click", startGame);
 endButtonRef.addEventListener("click", endGame);
 difficultySelectionRef.addEventListener("change", setDifficulty);
 themeSelectionRef.addEventListener("change", setTheme);
+
+function startFirstGame(){
+    const startOverlay = document.querySelector("#startFirstGame");
+    startOverlay.style.display = "none";
+    startGame();
+    GameOutputsRef[0].removeAttribute("style");
+    GameOutputsRef[1].removeAttribute("style");
+}
 
 function startGame() {
     endButtonRef.disabled = false;
@@ -470,7 +481,6 @@ function sendScoreToLocalStorage(calculatedScore){
     let isNumber = function isNumber(value){
         return typeof(value) === "number" && isFinite(value)
     }
-    console.log(topScore);
 
     if(!isNumber(calculatedScore || calculatedScore < 10)){
         return topScore;
