@@ -227,16 +227,18 @@ function displayTile(e) {
  * @param {Number} n 
  */
 function checkMatch(tileIcons, tileIds, n) {
+    
     function resetIncorrectMatch(count){
-        //re-enable click event listener for tiles if match attempt is unsuccessful
-        document.getElementById(tileIds[count]).addEventListener("click", displayTile);
         setTimeout(function (){
-            document.getElementById(tileIds[count]).style.backgroundColor = "red";
-        }, 500);
-        setTimeout(function () {
-            document.getElementById(tileIds[count]).classList.remove("displayTile");
+            document.getElementById(tileIds[count]).classList.add("gametile-overlay-wrong");
+            setTimeout(function (){
             document.getElementById(tileIds[count]).removeAttribute("style");
-        }, 900);
+            document.getElementById(tileIds[count]).classList.remove("displayTile");
+            document.getElementById(tileIds[count]).classList.remove("gametile-overlay-wrong");
+            //re-enable click event listener for tiles if match attempt is unsuccessful
+            document.getElementById(tileIds[count]).addEventListener("click", displayTile);
+            }, 500);
+        }, 500);
     }
 
     function setCorrectMatch(count){
