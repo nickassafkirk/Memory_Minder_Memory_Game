@@ -180,7 +180,9 @@ function endTimer() {
     }
 
 /** 
- * This function checks the tiles 
+ * This function reveals each tile when clicked
+ * If two tiles are clicked, the checkMatch function is called to test for correct/incorrect match
+ * CountMoves is also called to calculate number of user moves
 */
 function displayTile(e) {
 
@@ -190,15 +192,20 @@ function displayTile(e) {
     
     // logs the value of the tile's icon and Id
     tileIcon = e.target.getAttribute("icon");
-    tileIcons.push(tileIcon);
     let tileId = e.target.getAttribute("id");
+    
+    if (tileIcon != null && tileIcon != undefined && tileId != null && tileId != undefined){
+        tileIcons.push(tileIcon);
+        document.getElementById(tileId).removeEventListener("click", displayTile);
+        tileIds.push(tileId);
+    }
+    
+    
     //disable each guess from being reclicked
-    document.getElementById(tileId).removeEventListener("click", displayTile);
-    tileIds.push(tileId);
+    
 
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
-        
         n = n + 2; 
         // this counts number of clicks
         countMoves()
@@ -214,11 +221,11 @@ function displayTile(e) {
  */
 function checkMatch(tileIcons, tileIds, n) {
     function resetIncorrectMatch(count){
+        //re-enable click event listener for tiles if match attempt is unsuccessful
+        document.getElementById(tileIds[count]).addEventListener("click", displayTile);
         setTimeout(function (){
             document.getElementById(tileIds[count]).style.backgroundColor = "red";
         }, 500);
-        //re-enable click event listener for tiles if match attempt is unsuccessful
-        document.getElementById(tileIds[count]).addEventListener("click", displayTile);
         setTimeout(function () {
             document.getElementById(tileIds[count]).classList.remove("displayTile");
             document.getElementById(tileIds[count]).removeAttribute("style");
