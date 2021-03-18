@@ -314,30 +314,35 @@ li{
 
 /* Leaderboard.html */
 
-table{
+#leaderboard h2{
+    font-size: 1.5rem;
+    margin-bottom: 2vh;
+}
+
+#leaderboard table{
+    margin: 0 auto;
     background-color: #fff;
     color: var(--mainBg);
     padding: 2%;
-    width: 100%;
+    width: 90%;
 }
 
-td, th{
-    width: 50%;
+#leaderboard td, th{
+    width: 45%;
     border: 2px solid var(--secondaryBorder);
     padding: 0.5rem;
 }
 
-th{
-    font-size: 2rem;
+#leaderboard th{
+    font-size: 1.4rem;
     color: #fff;
-
 }
 
-th:first-of-type{
+#leaderboard th:first-of-type{
     background-color: var(--topScore);
 }
 
-th:last-of-type{
+#leaderboard th:last-of-type{
     background-color: var(--startGreen);
 }
 
