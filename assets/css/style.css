@@ -101,6 +101,10 @@ a:hover{
     width: 90vw;
 }
 
+#gameplay-area{
+    position: relative;
+}
+
 .gametile{
     position: relative;
     height: 15vmin;
@@ -143,6 +147,30 @@ a:hover{
     border-top-right-radius: 0px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+#startFirstGame{
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+}
+
+#startFirstGame button{
+    position: absolute;
+    height: 10vmin;
+    width: 75%;
+    top: 25vmin;
+    left: 12.5%;
+    z-index: 5;
+    margin: 0;
+}
+
+.hideOnLoad{
+    visibility: hidden;
 }
 
 #timer, #score, #clicks{
