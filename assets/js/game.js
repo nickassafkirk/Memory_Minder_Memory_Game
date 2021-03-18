@@ -196,13 +196,10 @@ function displayTile(e) {
     
     if (tileIcon != null && tileIcon != undefined && tileId != null && tileId != undefined){
         tileIcons.push(tileIcon);
+        //prevent 1st guess from being reclicked
         document.getElementById(tileId).removeEventListener("click", displayTile);
         tileIds.push(tileId);
     }
-    
-    
-    //disable each guess from being reclicked
-    
 
     if (tileIcons.length % 2 == 0) {
         checkMatch(tileIcons, tileIds, n)
@@ -310,6 +307,13 @@ function showScoreOnCompletion(){
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
+        if (calculatedScore < topScore){
+            scoreAreaRef.innerHTML = `
+        <h3>You set a new TOP SCORE!</h3>
+        <br>
+        <p>Your new top score is <span class="top-score">${topScore} <i class="fas fa-trophy"></i></span></p>
+        `; 
+        } else {
         scoreAreaRef.innerHTML = `
         <h3>Congratulations you Won!</h3>
         <br>
@@ -317,6 +321,7 @@ function showScoreOnCompletion(){
         <br>
         <p>Your top score is <span class="top-score">${topScore} <i class="fas fa-trophy"></i></span></p>
         `; 
+        }
     }
     scoreAreaRef.addEventListener("click", hideScoreboard);
 }
