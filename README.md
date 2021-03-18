@@ -233,6 +233,20 @@ information about pointer-events was found at these links: [Mozilla](https://dev
 **Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
 Custom CSS was used to apply unique styling to bootstrap components.
 
+// credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value 
+
+`function compare( a, b ) {
+  if ( a.last_nom < b.last_nom ){
+    return -1;
+  }
+  if ( a.last_nom > b.last_nom ){
+    return 1;
+  }
+  return 0;
+}
+
+objs.sort( compare );`
+
 ### Vendor Prefixes
 Vendor prefixes were added to the main stylesheet using [autoprefixer](https://autoprefixer.github.io/) to ensure styles are applied as consistently 
 as possible across different browsers.
@@ -305,86 +319,6 @@ All text is unique content written by me, ([Nick Kirk](https://github.com/nickas
    return typeof value === 'number' && isFinite(value);
 }
 `
-
-- Inspiration for animation used in menu.html subnav was from [this stack overflow discussion](https://stackoverflow.com/questions/42745506/how-to-make-an-icon-spin-with-i-tag-in-html5-through-css3) and general animation info was found at [this page](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp)
-    ```
-        $(document).ready(function() {
-            $('.js-spin').click(function() {
-            $(this).addClass('icn-spinner') //remove class to stop animation
-            });
-        });
-
-    i {
-    font-size: 40px;
-    }
-
-    .icn-spinner {
-        animation: spin-animation 0.5s infinite;
-        display: inline-block;
-    }
-
-    @keyframes spin-animation {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(359deg);
-        }
-    }
-    ```
-
- 
-- To apply favourable modal positioning I used a technique described in [this article](https://css-tricks.com/considerations-styling-modal/)
-    from which I utilised this snippet of code 
-    ```
-        .modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-    ```
-
-
-- To add a wiggle functionality to the menu pages call Icons/Images, I customised code found at [this codepen demo](https://codepen.io/theDeanH/pen/zBZXLN)
-  This animation was customised for use in this project to include properties that do not include vendor prefixes. The original code segment is as seen below: 
-
-    ```
-    p:hover {
-    -webkit-animation-name: wiggle;
-    -ms-animation-name: wiggle;
-    -ms-animation-duration: 1000ms;
-    -webkit-animation-duration: 1000ms;
-    -webkit-animation-iteration-count: 1;
-    -ms-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in-out;
-    -ms-animation-timing-function: ease-in-out;
-    }
-
-    @-webkit-keyframes wiggle {
-    0% {-webkit-transform: rotate(10deg);}
-    25% {-webkit-transform: rotate(-10deg);}
-    50% {-webkit-transform: rotate(20deg);}
-    75% {-webkit-transform: rotate(-5deg);}
-    100% {-webkit-transform: rotate(0deg);}
-    }
-
-    @-ms-keyframes wiggle {
-    0% {-ms-transform: rotate(1deg);}
-    25% {-ms-transform: rotate(-1deg);}
-    50% {-ms-transform: rotate(1.5deg);}
-    75% {-ms-transform: rotate(-5deg);}
-    100% {-ms-transform: rotate(0deg);}
-    }
-
-    @keyframes wiggle {
-    0% {transform: rotate(10deg);}
-    25% {transform: rotate(-10deg);}
-    50% {transform: rotate(20deg);}
-    75% {transform: rotate(-5deg);}
-    100% {transform: rotate(0deg);}
-    }
-    ```
 
 ---
 

@@ -220,7 +220,6 @@ function displayTile(e) {
     } return
 };
 
-
 /**
  * checkMatch tests to see if first selection, matches second selection
  * @param {Array} tileIcons 
@@ -471,7 +470,6 @@ function buildNumbersArray(){
     return randomNumbersTheme;
 }
 
-
 /**
  * Stores the calculated score in localStorage
  * Used to populate leaderboard
@@ -508,6 +506,8 @@ function sendScoreToLocalStorage(calculatedScore) {
     console.log(topScore);
     return topScore
 
+
+    // credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
     function compare(a, b) {
         if (a.score < b.score) {
             return -1;
@@ -517,7 +517,6 @@ function sendScoreToLocalStorage(calculatedScore) {
         }
         return 0;
     }
-
 } 
 
 /**
