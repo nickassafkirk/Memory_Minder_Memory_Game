@@ -254,7 +254,7 @@ li{
 
 /* Scoreboard section */
 #scoreboard{
-    
+    margin-top: 4vh;
     height: 60vmin;
     color: var(--mainBg);
     background-color: #f5f5f5e7;
