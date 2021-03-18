@@ -89,6 +89,7 @@ function startGame() {
 }
 
 function endGame() {
+    tiles.forEach(tile => tile.removeEventListener("click", displayTile));
     endButtonRef.disabled = true;
     startButtonRef.innerHTML = `New<br class="d-inline d-sm-none"> Game`;
     startButtonRef.disabled = false;
