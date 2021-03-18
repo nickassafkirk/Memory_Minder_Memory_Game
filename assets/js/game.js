@@ -313,8 +313,6 @@ function showScoreOnCompletion(){
         `;  
     } else {
         let topScore = sendScoreToLocalStorage(calculatedScore);
-        document.querySelector("#score").firstChild.innerHTML = calculatedScore;
-        document.querySelector("#score").firstChild.style.color = "green";
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
         scoreAreaRef.classList.add("show-flex")
@@ -373,7 +371,6 @@ function resetTiles() {
     correctMatches = 0;
     document.getElementById("timer").firstChild.innerText ="";
     document.getElementById("clicks").firstChild.innerText ="";
-    document.getElementById("score").firstChild.innerText ="";
     setRandomTileOrder(tiles.length);
 }
 
