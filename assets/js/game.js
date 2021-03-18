@@ -477,8 +477,7 @@ function sendScoreToLocalStorage(calculatedScore){
         return typeof(value) === "number" && isFinite(value)
     }  
     
-    
-    let getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
+    const getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
     console.log(topTen.length);
 
     if (getTopTen.length <=10){
@@ -486,9 +485,19 @@ function sendScoreToLocalStorage(calculatedScore){
         topScore = calculatedScore;
         let newTopScore = {"date" : topScoreDate, "score" : topScore};
         topTen.push(newTopScore);
-        console.log(topTen);
         myStorage.setItem("topTen", JSON.stringify(topTen));
     }
+
+    let justScores =[];
+    topTen.forEach(one => {
+        let singleScore = one.score;
+        justScores.push(singleScore);
+    });
+
+    //credit: sort numerical array: https://www.w3schools.com/js/js_array_sort.asp
+    let sortedScores = justScores.sort(function(a, b){return a - b})
+    topScore = sortedScores[0];
+    return topScore
 
     /** if(!isNumber(calculatedScore || calculatedScore < 10)){
         return topScore;
