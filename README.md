@@ -197,10 +197,35 @@ This would also remove all event listeners and is documented in [this stackoverf
 
 **Bug** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
 
-![game settings bug screenshot](assets/images/game-settings-bug.png)
+![game settings bug screenshot](assets/images/game-settings-bug.png)    
+
 **Desired Behaviour** Game settings label and dropdown menu should be hidden to prevent user error during game play.
 **Source of bug** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
 **Bug Fix** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
+
+
+**Bug** When clicking tiles at random and extemely fast, it was possible to cause incorrectly matched tiles to remain displayed and unclickable. 
+This prevented game completion because all tile pairs could not be matched. 
+**Source of bug** Timeouts are included within the checkMatch function to highlight incorrect or correct matches in order to provide user feedback. 
+Resetting each tile's value takes place within the 500 millisecond timeout, so users can quickly see the value of the second tile they have clicked before it's icon is hidden again, in the case of
+an incorrect match. However if a user clicked tiles extremely fast, it was possible to reclick a tile before it's value had been reset. This then registrered the value of the click as `null` 
+which consequently meant that the checkMatch function would then be checking for match against a `null` value which effectively broke the game.
+**Fix** An if statement was added to prevent `null` or `undefined` values being tested by the checkMatch function.
+
+`if (tileIcon != null && tileIcon != undefined && tileId != null && tileId != undefined){
+        tileIcons.push(tileIcon);
+        document.getElementById(tileId).removeEventListener("click", displayTile);
+        tileIds.push(tileId);
+    }
+`
+This prevented the described bug and also ensured that these dead clicks were not counted towards the game moves calculation.
+After implementing this fix, the game functioned as anticipated.
+
+
+
+
+
+
 
 **Credit** 
 information about pointer-events was found at these links: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events), [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
