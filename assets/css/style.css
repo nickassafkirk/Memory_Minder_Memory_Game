@@ -15,6 +15,7 @@
     --topScore: #ffc107;
 }
 
+/* General styles */
 body{
     font-size: 16px;
     font-family: 'Finger paint', cursive;
@@ -23,6 +24,25 @@ body{
     text-align: center;
 }
 
+h3{
+    font-size: 1.25rem;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--hoverGold);
+    text-decoration: none;
+}
+
+li{
+    line-height: 2rem;
+}
+
+/* Header styles */
 #logo{
     margin: 4vh auto;
 }
@@ -39,20 +59,6 @@ body{
     margin-top: 0.2rem;
     margin-bottom: 0.8rem;
     font-size: 1.7rem;
-}
-
-h3{
-    font-size: 1.25rem;
-}
-
-a{
-    color: #fff;
-    text-decoration: none;
-}
-
-a:hover{
-    color: var(--hoverGold);
-    text-decoration: none;
 }
 
 #nav-break-bar{
@@ -93,6 +99,8 @@ a:hover{
     border-bottom: 2px solid var(--hoverGold);
 }
 
+/* Game area section */
+
 #gameboard{ 
     margin: 1vh auto;
     height: 50vh;
@@ -126,6 +134,7 @@ a:hover{
     background-color: var(--successGreen);
 }
 
+/*Game settings section */
 #game-settings-label{
     margin: 0 auto;
     background-color: var(--settingsLabel);
@@ -147,6 +156,7 @@ a:hover{
     border-bottom-right-radius: 10px;
 }
 
+/* Game play controls: buttons, outputs etc.. */
 #startFirstGame{
     background-color: rgba(0,0,0,0.6);
     position: absolute;
@@ -211,6 +221,7 @@ a:hover{
     margin-bottom: 4vh;
 }
 
+/* JS Classes */
 .displayTile{
     font-size: 2rem;
 }
@@ -228,10 +239,6 @@ a:hover{
     background-color: var(--endRed);
 }
 
-li{
-    line-height: 2rem;
-}
-
 .show-flex{
     display: flex;
     flex-direction: column;
@@ -239,6 +246,7 @@ li{
     
 }
 
+/* Scoreboard section */
 #scoreboard{
     
     height: 60vmin;
@@ -258,7 +266,6 @@ li{
 }
 
 /* Rules.html */
-
 #rules-container{
     margin-bottom: 4vh;
 }
