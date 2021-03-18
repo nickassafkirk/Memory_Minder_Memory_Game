@@ -491,6 +491,7 @@ function sendScoreToLocalStorage(calculatedScore){
 
 let topTen = getTopTen;
 let newScoreDate = new Date();
+newScoreDate = newScoreDate.toDateString();
 let newScore = {"date" : newScoreDate, "score" : calculatedScore};
 let lastIndex = (getTopTen.length - 1);
 
