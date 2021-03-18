@@ -162,6 +162,11 @@ li{
     border-bottom-right-radius: 10px;
 }
 
+#game-settings select {
+    width: 100%;
+    text-indent: 2%
+}
+
 /* Game play controls: buttons, outputs etc.. */
 #startFirstGame{
     background-color: rgba(0,0,0,0.6);
