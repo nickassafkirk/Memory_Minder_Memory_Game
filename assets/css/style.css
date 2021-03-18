@@ -108,6 +108,7 @@ li{
 }
 
 #gameplay-area{
+    margin-top: 4vh;
     position: relative;
 }
 
@@ -134,6 +135,11 @@ li{
     background-color: var(--successGreen);
 }
 
+#bottom-margin{
+    position: relative;
+    margin-bottom: 4vh;
+}
+
 /*Game settings section */
 #game-settings-label{
     margin: 0 auto;
@@ -143,7 +149,7 @@ li{
 
 #game-settings,.show{
     padding-left: 0px;
-    padding-right: 0px;
+    padding-right: 0px;     
 }
 
 .card-body{
