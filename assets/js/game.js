@@ -170,7 +170,6 @@ function setTiles(randomOrderArray, tileThemeArray) {
  * starts timer when game is started end when game is complete or game is cancelled.
 */
 function startTimer() {
-    console.log(gameplayTime)
     clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
     count = 1, timer = setInterval(function () {
         document.getElementById("timer").firstChild.innerText = count++;
@@ -410,7 +409,6 @@ function setTheme(){
     } else if(chosenTheme === "outdoors"){
         gameTheme = outdoorsTheme
     }
-    console.log(gameTheme);
     return gameTheme;
 }
 
@@ -490,7 +488,7 @@ function sendScoreToLocalStorage(calculatedScore){
         topScore = calculatedScore;
         return topScore;
     } else {
-        console.log("check best score")
+        console.log("Top score unchanged")
         return topScore;
     }
 }
