@@ -247,7 +247,7 @@ li{
 
 #scoreboard{
     
-    height: 80vmin;
+    height: 60vmin;
     color: var(--mainBg);
     background-color: #f5f5f5e7;
     border: 3px solid var(--secondaryBorder);
