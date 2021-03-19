@@ -254,7 +254,14 @@ The responsive functionality of the site has been tested to work on most common 
 
 ### Validation
 
-#### css    
+#### html5
+
+All HTML pages in this deployed project successfully passed validation without returning any error or warnings. 
+HTML files were validated using W3C's [Nu HTML Checker](https://validator.w3.org/nu/#textarea)
+when files were initally passed through the validator an error was returned due to a # sign being accidentally included in the `aria-controls="#navbarCollapse"` property in the navbar. 
+The # was subsequently removed and all HTML code passed validation without any errors or warnings.
+
+#### css3    
 The style.css file used to add custom styling to this project was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator)
 The CSS passed validation with 0 errors. 
 14 warnings were returned:
