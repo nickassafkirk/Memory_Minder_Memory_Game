@@ -298,40 +298,40 @@ the scoreboard.js file and allpages.js files passed validation with no errors or
 ### Bugs
 
 #### Multiple timer starts possible in single game bug
-**Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
-**Desired Behaviour:** Timer will start once when game is started and will stop when game is completed or when time is elapsed.
-**Fix:** clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
-**credit:** solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
+- **Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
+- **Desired Behaviour:** Timer will start once when game is started and will stop when game is completed or when time is elapsed.
+- **Fix:** clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
+- **credit:** solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
 `function startTimer() {
     clearInterval(Timer);
     Timer = setInterval(myTimer, 100); 
 }`
 
 #### Game tiles active before game has started bug
-**Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
-**Desired Behaviour:** Game tiles are only clickable once game has started to prevent cheating. 
-**Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
+- **Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
+- **Desired Behaviour:** Game tiles are only clickable once game has started to prevent cheating. 
+- **Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
 
 #### Game control buttons not formatting correctly bug
-**Bug:** When ***"End Game"*** button was clicked, the ***"New Game"*** button was not not displaying as equal height top the end button.   
-**Fix:** Template literal was used to insert a <br> element to be displayed on small screensizes. This <br> element was accidentally removed when the innerText
+- **Bug:** When ***"End Game"*** button was clicked, the ***"New Game"*** button was not not displaying as equal height top the end button.   
+- **Fix:** Template literal was used to insert a <br> element to be displayed on small screensizes. This <br> element was accidentally removed when the innerText
 of the button was changed on button click.
 
 ![button sizing bug screenshot](assets/images/button-alignment-bug.png)
 
 #### Improper score calculation bug
-**Bug:** An extra value was being added to the moves score output box upon game completion. 
-**Desired Behaviour:** The number of moves should equal the number of guesses. Each move is considered as two clicks of different tiles. 
-**Fix:** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
+- **Bug:** An extra value was being added to the moves score output box upon game completion. 
+- **Desired Behaviour:** The number of moves should equal the number of guesses. Each move is considered as two clicks of different tiles. 
+- **Fix:** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
 extra increment was being added to the moves counter when the game was completed. To fix this the calculation was changed to use the clicks value which is returned by the 
 countClicks() function so that the moves box does not display the incorrect answer on game completion.
 
 #### Retain ability to change background color of correct matches bug
-**Bug:** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
+- **Bug:** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
 it was deemed confusing, as user may interpret a change of color as a sign that this tile is still available for use. 
-**Desired behaviour:** Correctly matched tile pairs should have matching background colors and should have all event listeners removed to prevent any further involvement in the game or
+- **Desired behaviour:** Correctly matched tile pairs should have matching background colors and should have all event listeners removed to prevent any further involvement in the game or
 additional style changes.
-**Source of Bug*:* The issue was found to be due to a click event listener that is was applied within the setTiles function (shown below), This click event listener calls an anonymous function which assigns a matching background color to each pair of tiles, to be revealed  when each tile is clicked and revealed. 
+- **Source of Bug*:* The issue was found to be due to a click event listener that is was applied within the setTiles function (shown below), This click event listener calls an anonymous function which assigns a matching background color to each pair of tiles, to be revealed  when each tile is clicked and revealed. 
 As the event listener calls an anonymous function, it was not possible to then remove this event listener when the tile was matched correctly. Extracting this functionality out to a function declared at global scope was not possible because the function requires a parameter to be passed that would then be uinnacessible at global scope.
 Using the e.target method was also not suitable because again the necessary parameter could not be passed to the function.         
     
@@ -352,22 +352,22 @@ to cause any issues in testing. An alternative method would be to clone the elem
 This would also remove all event listeners and is documented in [this stackoverflow post](https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element)
 
 #### Game settings card-body visible during gameplay bug
-**Bug:** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
+- **Bug:** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
 
 ![game settings bug screenshot](assets/images/game-settings-bug.png)    
 
-**Desired Behaviour:** Game settings label and dropdown menu should be hidden to prevent user error during game play.
-**Source of bug:** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
-**Bug Fix:** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
+- **Desired Behaviour:** Game settings label and dropdown menu should be hidden to prevent user error during game play.
+- **Source of bug:** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
+- **Bug Fix:** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
 
 #### Super fast tile clicking breaks game bug
-**Bug:** When clicking tiles at random and extemely fast, it was possible to cause incorrectly matched tiles to remain displayed and unclickable. 
+- **Bug:** When clicking tiles at random and extemely fast, it was possible to cause incorrectly matched tiles to remain displayed and unclickable. 
 This prevented game completion because all tile pairs could not be matched. 
-**Source of bug:** Timeouts are included within the checkMatch function to highlight incorrect or correct matches in order to provide user feedback. 
+- **Source of bug:** Timeouts are included within the checkMatch function to highlight incorrect or correct matches in order to provide user feedback. 
 Resetting each tile's value takes place within the 500 millisecond timeout, so users can quickly see the value of the second tile they have clicked before it's icon is hidden again, in the case of
 an incorrect match. However if a user clicked tiles extremely fast, it was possible to reclick a tile before it's value had been reset. This then registrered the value of the click as `null` 
 which consequently meant that the checkMatch function would then be checking for match against a `null` value which effectively broke the game.
-**Fix:** An if statement was added to prevent `null` or `undefined` values being tested by the checkMatch function.
+- **Fix:** An if statement was added to prevent `null` or `undefined` values being tested by the checkMatch function.
 
 `if (tileIcon != null && tileIcon != undefined && tileId != null && tileId != undefined){
         tileIcons.push(tileIcon);
@@ -390,21 +390,21 @@ as possible across different browsers.
 
 ## Technologies Used
 
-![HTML5 Logo](assets/images/technologies/html5.png)
+![HTML5 Logo](assets/images/html5.png)
 ### HTML5 
 [https://www.w3.org/html/](https://www.w3.org/html/) 
 
 Is used to add content, structure and the ability to navigate to the website.
 
 
-![CSS Logo](assets/images/technologies/css3.png)
+![CSS Logo](assets/images/css3.png)
 ### CSS3
 [https://www.w3.org/TR/CSS/](https://www.w3.org/TR/CSS/) 
 
 Is used to add styles, layout, design and interactivity to the page and to increase usability to users across various devices. 
 
 
-![Bootstrap logo](assets/images/technologies/bootstrap.png)
+![Bootstrap logo](assets/images/bootstrap.png)
 ### Bootstrap V4.5.3 
 [https://getbootstrap.com/](https://getbootstrap.com/) 
 
@@ -412,24 +412,26 @@ Is used to add structure, layout and a mobile-first responsive design to the web
 
 jQuery and Popper.js are also referenced by bootstrap for responsive components like the navbar and collapse functionality.
 
+![Javascript Logo](assets/images/600px-JavaScript-logo.png)
 [Javascript](https://www.javascript.com/)
 Javascript was used to add user interactivty to the project, to control the gameplay and logic of the game and to set and retrieve data to local storage. 
 
-![Gitpod Logo](assets/images/technologies/gitpod.png)
+
+![Gitpod Logo](assets/images/gitpod.png)
 ### Gitpod
 [https://www.gitpod.io/](https://www.gitpod.io/) 
 
 Is used to write, edit and preview code.
 
 
-![Github](assets/images/technologies/github.png)
+![Github](assets/images/github.png)
 ### GitHub 
 [https://github.com/](https://github.com/)
 
 Is used to host, share and deploy the project.
 
 
-![Balsamiq Logo](assets/images/technologies/balsamiq.png)
+![Balsamiq Logo](assets/images/balsamiq.png)
 ### Balsamiq
 [https://balsamiq.com/](https://balsamiq.com/)
 
@@ -443,13 +445,53 @@ Is used to create wireframes as visual mockups of the final site design
 All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
 
 ### Icons/Imagery
-#### CSS Icons
+
+#### Images 
+![](https://img.icons8.com/ios/50/000000/brainstorm.png)
+- Logo brain image: Brainstorm icon by Icons8
+sourced from [icons8](https://icons8.com/icon/74713/brainstorm)
+
+- HTML5 Logo: 
+Sourced from [W3.org](https://www.w3.org/html/logo/#downloads)
+
+- CSS3 Logo:
+Sourced from [wikipedia commons](https://commons.wikimedia.org/wiki/File:CSS3_logo_and_wordmark.svg)
+
+- Bootstrap Logo:
+Sourced from [Wikipedia](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework))
+
+- Gitpod Logo:
+Sourced from [Gitpod](https://www.gitpod.io/media-kit/)
+
+- Github Logo:
+Sourced from [Github](https://github.com/logos)
+
+- Balsamiq Logo:
+Sourced from [Balsamiq](https://balsamiq.com/company/brandassets/)
+
+- Javascript Logosourced from [wikipedia commons](https://commons.wikimedia.org/wiki/File:JavaScript-logo.png)
+
+#### Icons
+- Primary icons utilised for this project were sourced from [fontawesome.com](https://fontawesome.com/)
+- CSS icons were sourced from toptal.com
 - The correct css code used to add a check mark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
 - The correct css code used to add a X mark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/ballot-x/)
 
 ---
 
 ### Code Credits
+
+#### Set Interval to create countdown timer
+- To enable score calculation and to add additional levels of difficulty a timer was added to the game. 
+- To create this timer I researched the `setInterval()` function and found information in [this stackoverflow post](https://stackoverflow.com/questions/30427882/make-a-timer-using-setinterval)
+which was used as a guideline to build my start timer function.
+- original code `var count = 90;
+var interval = setInterval(function(){
+  setTime();
+  if (count === 0){
+    clearInterval(interval); // Stopping the counter when reaching 0.
+  }
+}, 1000);`
 
 #### Prevent Timer being started more than Once
 - If the timer was started more than once, it's speed would double causing inaccurate score calculation and a poor user experience.
@@ -467,15 +509,14 @@ timer started to reset it and prevent this bug.
   1. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
   1. [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
 
-
 #### CSS vmin/vmax
 - To create a responsive gameboard, which has square game tiles across all screen sizes I used vmin values. I found information on vmin and vmax values in [this article](https://www.sitepoint.com/css-viewport-units-quick-)
-
 
 #### Local Storage Credit
 - When establishing a method by which game scores could be stored to local memory, I found information on passing values as JSON data at the following pages:
   1. [outline of JSON methods](https://m204wiki.rocketsoftware.com/index.php/List_of_Json_methods)
   1. [use of .stringify method](https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage)
+  I was also made awar of the stringify method by my mentor Nishant
 
 #### Comparison Function
 - A comparison function discovered in this [stack oveflow post](https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value)
@@ -493,38 +534,6 @@ objs.sort( compare );`
 
 ---
 
-### README Credits
-
-#### Images
-
-Logo brain image:
-from: https://icons8.com/icons/set/brain
-img: <img src="https://img.icons8.com/ios/50/000000/brainstorm.png"/>
-credit: <a href="https://icons8.com/icon/74713/brainstorm">Brainstorm icon by Icons8</a>
-
-HTML5 Logo: 
-Sourced from [W3.org](https://www.w3.org/html/logo/#downloads)
-
-CSS3 Logo:
-Sourced from [wikipedia commons](https://commons.wikimedia.org/wiki/File:CSS3_logo_and_wordmark.svg)
-
-Bootstrap Logo:
-Sourced from [Wikipedia](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework))
-
-Gitpod Logo:
-Sourced from [Gitpod](https://www.gitpod.io/media-kit/)
-
-Github Logo:
-Sourced from [Github](https://github.com/logos)
-
-Balsamiq Logo:
-Sourced from [Balsamiq](https://balsamiq.com/company/brandassets/)
-
-#### Icons:
-All icons used on this project were sourced from [Fontawesome](https://fontawesome.com/).
-
----
-
 ## Deployment
 
 This project was developed using the Gitpod IDE, committed to Git and pushed to GitHub using the terminal within Gitpod and the Gitpod extension for Chrome. 
@@ -535,7 +544,7 @@ This project was developed using the Gitpod IDE, committed to Git and pushed to 
 To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
 
 1. First log into [GitHub account](https://github.com/nickassafkirk).
-1. From the list of pinned repositories on the home screen, select "Cartel-Coffee".
+1. From the list of pinned repositories on the home screen, select "Memory_Minder_Memory_Game".
 1. From the menu items which includes *Code, Issues, Pull request, Actions, Projects, Wiki, Security, Insights and settings* 
 select the **settings** tab.
 1. Within the settings section, scroll down to the **GitHub Pages** section.
@@ -595,5 +604,6 @@ To Fork this repository:
 ## Acknowledgements
 
 I'd like to thank my mentor Nishant Kumar for his help and advice throughout this project. His encouragement and feedback we're invaluable in the completion of this project.
+I would also like to thank my friends Scott, Paul and many others who helped me test this project on multiple devices and provided feedback
 
 
