@@ -1,5 +1,5 @@
 # Memory Minder Memory Game
-![Homepage screenshot](assets/images/)
+![Homepage screenshot](assets/images/mm-responsive-site-preview.png)
 [Visit the Deployed Site on github pages](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/)
 
 ---
@@ -8,7 +8,7 @@ Memory minder is a fun, interactive brain-training game designed for adults and 
 To complete the game, the user must match all the tile pairs, in as few moves as possible and as quickly as they can. This game is a great excercise to challenge a user's short-term memory and reaction speeds and is the perfect activity for 
 coffee breaks, keeping children entertained or killing some time while travelling on public transport. 
 
-*while this game is perfectly suitable for children over 6. We recommend parents supervision while playing.
+*while this game is perfectly suitable for children over 6. We recommend parental supervision while playing.
 
 ---
 ## UX
@@ -201,16 +201,46 @@ Root variables are used to allow quick stylisitic changes to be made and to faci
 
 ### Icons
 
-All icons utilised for this project were sourced from [fontawesome.com](https://fontawesome.com/).
+#### Primary icons
+Primary icons utilised for this project were sourced from [fontawesome.com](https://fontawesome.com/).
+The selection of gathered for this project were designed to appeal to a broad range of users and to be appropriate for a wide-range of users. 
+Icons which adhered to a specific theme/subject matter were used to create the different gameplay themes.
+- Random: The random theme utilises an array of icons with no specific subject matter. Thes were chosen as the default theme to communciate the
+random nature of each game. 
+- Animals: The animals theme comprises of an array of animal icons. It was curated to appeal to a broad-audience because most people love animals.
+- Explore: The explore theme is a collection of icons which have are related to the great outdoors and adventure. This them was chosen to appeal to the many people who are
+craving some outdoor adventure having been deprived of the ability to travel in the current global climate.
 
+Icons are also utilised as metaphors to reinforce meaning and encourage first-time-learning of key site components. 
+for example: 
+- The burger stack icon is used to denote the menus expandeable nature on smaller screen sizes. 
+- The down caret arrow is used to indicate that the game settings bar is also expandable.
+- The Trophy Icon is used as a metaphor to reinforce that the topscore is the best score in the game completion scoreboard.
+
+
+#### Other Icons    
+- The tick and cross Icons used to highlight correct and incorrect matches during gameplay. 
+These two icons were sourced from [toptal.com](https://www.toptal.com/designers/htmlarrows/) and were chosen so they could be used
+as values for `content` css property in the style.css stylesheet.
 ---
 
 ### Images 
+- The lightbulb head image used in the Header Logo is the only image utilised in this project. It was chosen because It's a metaphor for bright-ideas
+which I thought was particularly relevant to a brain-training game. It also has a quirky, random nature which is compliments and adds to the 
+general quirky style of the project.
 
 ---
 
 ### Animations
 
+Animations are used to highlight the interative/clickable nature of key site navigation elements and to provide dynamic user feedback during gameplay.
+
+1. A css wiggle animation is utilised to create an interactive animation when a user hovers their cursor over the main navigation items.
+This animation is achieved using pure css but is called using the javascript mouseover/mouseoff event listeners
+
+1. Javascript timeouts are used to create animation-like event which highlights correct and incorrect match attempts by quickly adding a green mask and tick icon to correct
+matches and and transparent red mask to incorrect matches. These animations are used to promote first time learning by teaching new users the behaviour when correct and 
+incorrect matches are made.
 
 ---
 
