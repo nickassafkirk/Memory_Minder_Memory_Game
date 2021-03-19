@@ -165,10 +165,16 @@ Navigation elements include:
  1. On the index.html a `div` element is styled in a button-like fashion to provide access to the game settings dropdown menu. While this does not navigate to a 
  new page, it provides access to a specific page section and as such has been considered a navgation feature.
 
-### Wireframes
-[Homepage wireframes](wireframes/memory-game-homepage.png)
-[How to play wireframes](wireframes/memory-game-rules.html.png)
-[Leaderboard wireframes](wireframes/memory-game-leaderboard.png)
+### Wireframes  
+
+#### Homepage (index.html)
+![Homepage wireframes](wireframes/memory-game-homepage.png)  
+ 
+#### How to play (rules.html)
+![How to play wireframes](wireframes/memory-game-rules.html.png) 
+
+#### Leaderboard (leaderboard.html)
+![Leaderboard wireframes](wireframes/memory-game-leaderboard.png)    
 
 #### Homepage: 
 
