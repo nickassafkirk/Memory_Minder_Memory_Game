@@ -489,9 +489,9 @@ function sendScoreToLocalStorage(calculatedScore) {
         topTen.push(newScore);
         topTen = topTen.sort(compare);
     } else {
-        let lastIndex = (getTopTen.length - 1);
-        if (calculatedScore < topTen[lastIndex].score) {
-            topTen[lastIndex] = newScore;
+        topTen = getTopTen;
+        if (calculatedScore < topTen[9].score) {
+            topTen[9] = newScore;
         } 
     }
 
