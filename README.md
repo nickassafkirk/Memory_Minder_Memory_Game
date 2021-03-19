@@ -8,7 +8,10 @@ Memory minder is a fun, interactive brain-training game designed for adults and 
 To complete the game, the user must match all the tile pairs, in as few moves as possible and as quickly as they can. This game is a great excercise to challenge a user's short-term memory and reaction speeds and is the perfect activity for 
 coffee breaks, keeping children entertained or killing some time while travelling on public transport. 
 
-*while this game is perfectly suitable for children over 6. We recommend parental supervision while playing.
+*while this game is perfectly suitable for children over 6. Parental supervision is recommended with user children, to ensure icons are appropriate for
+younger users.
+
+**NB** This project is for educational purposes only. All media utilised for this project is for educational use only.
 
 ---
 ## UX
@@ -147,12 +150,14 @@ There are limited navigation elements provided on this site. This is intentional
 where they can continue game play.
 
 Navigation elements include:
-1. #### Main Navigation Bar:
+1. #### Logo 
+ - A consistent logo present on each site page, links to site homepage to allow convenient access to index.html page and to encourage familiar first-time learning.
+2. #### Main Navigation Bar:
  - A consistent top nav bar menu is present at the top of each page to allow navigation to the 3 key site pages from each individual webpage. 
  - The navbar utilizes Bootstrap's navbar collapse component to create a navbar which is compressed on smaller screen sizes to maximise available space for the gameplay area.
  - A **"Menu"** heading and berger stack icon is used to facilitate first-time learning of the collapsed navbar's purpose.
 
-2.#### Pseudo-Buttons/Links:
+3. #### Pseudo-Buttons/Links:
 - while `<button>` elements are exclusively used as gameplay controls as opposed to navigation elements, there are two applications where button-like objects are used for the purpose of navigation. 
  1. A link styled as a button is present on the leaderboard.html page if no scores have been retrieved from localStorage. While this is
  actually an anchor element styled with bootstrap's `.btn` class, it's purpose is the quickly transport new users to the index.html page, where they 
@@ -169,9 +174,10 @@ Navigation elements include:
 ![Homepage Wireframe Desktop](wireframes/Memory-Game-How-to-play.png)
 
 ### Mockups
-![Homepage screenshot]()
+![Homepage screenshot](assets/images/mm-responsive-site-preview.png)
 
-A responsive view of the site can be found at [this link](http://ami.responsivedesign.is/)
+
+A responsive view of the site can be found at [this link](http://ami.responsivedesign.is/?url=https%3A%2F%2Fnickassafkirk.github.io%2FMemory_Minder_Memo)
 
 ---
 ## Surface
@@ -291,7 +297,9 @@ the scoreboard.js file and allpages.js files passed validation with no errors or
 
 ### Bugs
 
+#### Multiple timer starts possible in single game bug
 **Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
+**Desired Behaviour:** Timer will start once when game is started and will stop when game is completed or when time is elapsed.
 **Fix:** clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
 **credit:** solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
 `function startTimer() {
@@ -299,25 +307,31 @@ the scoreboard.js file and allpages.js files passed validation with no errors or
     Timer = setInterval(myTimer, 100); 
 }`
 
+#### Game tiles active before game has started bug
 **Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
+**Desired Behaviour:** Game tiles are only clickable once game has started to prevent cheating. 
 **Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
 
+#### Game control buttons not formatting correctly bug
 **Bug:** When ***"End Game"*** button was clicked, the ***"New Game"*** button was not not displaying as equal height top the end button.   
 **Fix:** Template literal was used to insert a <br> element to be displayed on small screensizes. This <br> element was accidentally removed when the innerText
 of the button was changed on button click.
 
 ![button sizing bug screenshot](assets/images/button-alignment-bug.png)
 
-**Bug** An extra value was being added to the moves score output box upon game completion. 
-**Fix** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
+#### Improper score calculation bug
+**Bug:** An extra value was being added to the moves score output box upon game completion. 
+**Desired Behaviour:** The number of moves should equal the number of guesses. Each move is considered as two clicks of different tiles. 
+**Fix:** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
 extra increment was being added to the moves counter when the game was completed. To fix this the calculation was changed to use the clicks value which is returned by the 
 countClicks() function so that the moves box does not display the incorrect answer on game completion.
 
-**Bug** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
+#### Retain ability to change background color of correct matches bug
+**Bug:** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
 it was deemed confusing, as user may interpret a change of color as a sign that this tile is still available for use. 
-**Desired behaviour** Correctly matched tile pairs should have matching background colors and should have all event listeners removed to prevent any further involvement in the game or
+**Desired behaviour:** Correctly matched tile pairs should have matching background colors and should have all event listeners removed to prevent any further involvement in the game or
 additional style changes.
-**Source of Bug** The issue was found to be due to a click event listener that is was applied within the setTiles function (shown below), This click event listener calls an anonymous function which assigns a matching background color to each pair of tiles, to be revealed  when each tile is clicked and revealed. 
+**Source of Bug*:* The issue was found to be due to a click event listener that is was applied within the setTiles function (shown below), This click event listener calls an anonymous function which assigns a matching background color to each pair of tiles, to be revealed  when each tile is clicked and revealed. 
 As the event listener calls an anonymous function, it was not possible to then remove this event listener when the tile was matched correctly. Extracting this functionality out to a function declared at global scope was not possible because the function requires a parameter to be passed that would then be uinnacessible at global scope.
 Using the e.target method was also not suitable because again the necessary parameter could not be passed to the function.         
     
@@ -337,22 +351,23 @@ While this is not an ideal fix and ideally unneccessary event listeners should b
 to cause any issues in testing. An alternative method would be to clone the element to which the event listener is applied and then replace the cloned element with the clone.
 This would also remove all event listeners and is documented in [this stackoverflow post](https://stackoverflow.com/questions/9251837/how-to-remove-all-listeners-in-an-element)
 
-**Bug** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
+#### Game settings card-body visible during gameplay bug
+**Bug:** If game settings have been changed, the game settings dropdown menu would remain displayed, despite the game settings label being hidden. 
 
 ![game settings bug screenshot](assets/images/game-settings-bug.png)    
 
-**Desired Behaviour** Game settings label and dropdown menu should be hidden to prevent user error during game play.
-**Source of bug** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
-**Bug Fix** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
+**Desired Behaviour:** Game settings label and dropdown menu should be hidden to prevent user error during game play.
+**Source of bug:** The bootstrap `.show` class was applied to the `<div id="game-settings">...</div>` element which caused this div element to remain visible when the game was in play.
+**Bug Fix:** The `.show` class is removed when a new game commences by using the following code `gameSettingsBodyRef.classList.remove("show");` .
 
-
-**Bug** When clicking tiles at random and extemely fast, it was possible to cause incorrectly matched tiles to remain displayed and unclickable. 
+#### Super fast tile clicking breaks game bug
+**Bug:** When clicking tiles at random and extemely fast, it was possible to cause incorrectly matched tiles to remain displayed and unclickable. 
 This prevented game completion because all tile pairs could not be matched. 
-**Source of bug** Timeouts are included within the checkMatch function to highlight incorrect or correct matches in order to provide user feedback. 
+**Source of bug:** Timeouts are included within the checkMatch function to highlight incorrect or correct matches in order to provide user feedback. 
 Resetting each tile's value takes place within the 500 millisecond timeout, so users can quickly see the value of the second tile they have clicked before it's icon is hidden again, in the case of
 an incorrect match. However if a user clicked tiles extremely fast, it was possible to reclick a tile before it's value had been reset. This then registrered the value of the click as `null` 
 which consequently meant that the checkMatch function would then be checking for match against a `null` value which effectively broke the game.
-**Fix** An if statement was added to prevent `null` or `undefined` values being tested by the checkMatch function.
+**Fix:** An if statement was added to prevent `null` or `undefined` values being tested by the checkMatch function.
 
 `if (tileIcon != null && tileIcon != undefined && tileId != null && tileId != undefined){
         tileIcons.push(tileIcon);
@@ -362,8 +377,6 @@ which consequently meant that the checkMatch function would then be checking for
 `
 This prevented the described bug and also ensured that these dead clicks were not counted towards the game moves calculation.
 After implementing this fix, the game functioned as anticipated.
-
-
 
 **Credits** 
 The code in this project was written by me ([Nick Kirk](https://github.com/nickassafkirk)) the project owner. Any code snippets written by other developers or found from online resources have been credited
