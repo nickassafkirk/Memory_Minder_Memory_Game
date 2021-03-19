@@ -72,41 +72,88 @@ those of other users.
 - A child friendly mode designed for children between 5 -10. Child mode would include icons relevant and suitable for younger children. sucha s basic shapes, popular cartoon characters etc..
 child mode would also include fewer tiles which are larger in size. 
 - Add a feedback form to gather feedback or enquires from game users.
+- A video or gif that demos gameplay to encourage first time learning.
+- A click sound when a game tile is clicked.
+- Add subtle animation to give imopression that tile is flipped over.
+- Add style to highlight timer output in red when ten seconds left and/or play audio tone to notify that time is almost up.
 
 ---
 ## Structure
 
 ### Pages
 #### 1. [Homepage](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/index.html) 
-The Primary landing page for the site where the gameboard is located. 
-This page includes: 
-- a main navigation bar to allow user to navigate between site pages.
-- Game control buttons allowing users to start/Stop gameplay
+The Primary landing page for the site where the gameboard is located.   
+
+On initial page load this page includes:
+- A prominent logo 
+- A main navigation bar to allow user to navigate between site pages.
+- A game settings bar which allows users to edit the gameboard to their preffered settings.
+- A large **Start Game** button which encourages users to play the game without distraction.
+- A frosted out preview of the game area, so first-time users can predict the game environment prior to starting a game.    
+
+During gameplay this page includes:
+- A prominent logo 
+- A main navigation bar to allow user to navigate between site pages.
+- A game settings bar which allows users to edit the gameboard to their preffered settings.
+- A prominent game play area with 16 square tiles.
+- An eye catching start button to start a new game which is disabled during gameplay.
+- A prominent end game button which is disabled when a game has ended.
+- A moves output which calculates and displays a user's moves count.
+- A timer output which calculates and displays a user's time elapsed.   
+
+On game completion this page includes:
+- A scoreboard which hides the game play area and displays the user's final score or game ended message
+- An eye catching **New Game** button allowing users to start a new game without refrshing the page.
+- A disabled **End Game** button to reinforce that game has ended.
+- A moves output which displays the moves count of a user's last game.
+- A timer output which displays the time elapsed from a user's last game.  
+
 
 #### 2. [How To Play](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/rules.html)
-This page provides users with: 
-- An introductiuon to the game's goals and intention
-- A step by step guide on how to play the game.
+This page includes: 
+- A prominent logo 
+- A main navigation bar to allow user to navigate between site pages.
+- An About section which provides an introduction to the game's goals and intention.
 - An explanation of how the game is scored.
+- A step by step guide on how to play the game.
+
 
 #### 3. [Leaderboard](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/leaderboard.html)
+This page includes: 
+- A prominent logo 
+- A main navigation bar to allow user to navigate between site pages.
+- An prominent page heading which describes the page's meaning.
+
+If new user visits the leaderboard.html page:
+- A placeholder message is displayed which explains that leaderboard will only be displayed once a game has been 
+successfully completed
+- This message box includes a bold button which provides convenient navigation to the game page and encourages new users to play if they have landed on this page.
+
+If a user has already completed >1 game:
+- A prominent table will display up to a users top ten scores and the dates these scores were set on.
+
 ---
-### Detailed Features
 
-#### [Homepage]() 
-#### [How To Play]() 
-#### [Leaderboard]() 
-#### [404]() 
-
-
----
 ## Skeleton
 
 ### Navigation
 
-1. **Main Navigation:** A consistent top nav bar menu is present at the top of each page to allow navigation to the key site pages from each individual webpage. 
-2. **Buttons:** 
+There are limited navigation elements provided on this site. This is intentional and has been designed to encourage users to remain on the game play page
+where they can continue game play.
 
+Navigation elements include:
+1. #### Main Navigation Bar:
+ - A consistent top nav bar menu is present at the top of each page to allow navigation to the 3 key site pages from each individual webpage. 
+ - The navbar utilizes Bootstrap's navbar collapse component to create a navbar which is compressed on smaller screen sizes to maximise available space for the gameplay area.
+ - A **"Menu"** heading and berger stack icon is used to facilitate first-time learning of the collapsed navbar's purpose.
+
+2.#### Pseudo-Buttons/Links:
+- while `<button>` elements are exclusively used as gameplay controls as opposed to navigation elements, there are two applications where button-like objects are used for the purpose of navigation. 
+ 1. A link styled as a button is present on the leaderboard.html page if no scores have been retrieved from localStorage. While this is
+ actually an anchor element styled with bootstrap's `.btn` class, it's purpose is the quickly transport new users to the index.html page, where they 
+ can play the game and register scores.
+ 1. On the index.html a `div` element is styled in a button-like fashion to provide access to the game settings dropdown menu. While this does not navigate to a 
+ new page, it provides access to a specific page section and as such has been considered a navgation feature.
 
 ### Wireframes
 
