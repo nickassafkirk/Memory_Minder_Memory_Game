@@ -82,8 +82,9 @@ li{
     width: 100vw;  
 }
 
-#main-nav button{
+#main-nav a{
     color: #fff;
+    text-align: center;
     margin: 0 auto;
 }
 
