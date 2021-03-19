@@ -166,12 +166,16 @@ Navigation elements include:
  new page, it provides access to a specific page section and as such has been considered a navgation feature.
 
 ### Wireframes
+[Homepage wireframes](wireframes/memory-game-homepage.png)
+[How to play wireframes](wireframes/memory-game-rules.html.png)
+[Leaderboard wireframes](wireframes/memory-game-leaderboard.png)
 
-#### Homepage: Desktop View
-![Homepage Wireframe Desktop](wireframes/Memory-Game-Homepage.png)
+#### Homepage: 
 
-#### How To Play Page: Desktop View
-![Homepage Wireframe Desktop](wireframes/Memory-Game-How-to-play.png)
+
+
+#### How To Play Page: 
+
 
 ### Mockups
 ![Homepage screenshot](assets/images/mm-responsive-site-preview.png)
