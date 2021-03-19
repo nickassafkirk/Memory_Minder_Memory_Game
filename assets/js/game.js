@@ -149,7 +149,7 @@ function setTiles(randomOrderArray, tileThemeArray) {
         } else if (tile.innerHTML < 17) {
             assignTileInner(tileThemeArray, bgColors, 7)
         } else {
-            console.log("Error: too many tiles");
+            console.error("Error: too many tiles");
         }
     }
     /**
@@ -387,7 +387,6 @@ function resetTiles() {
  */
 function setDifficulty(){
     
-    console.log(this.value)
     gameDifficulty = this.value;
 
     if(gameDifficulty === "hard"){
@@ -397,7 +396,6 @@ function setDifficulty(){
     } else {
         gameplayTime = 60;
     }
-    console.log(gameplayTime);
     return gameplayTime;
 }
 
@@ -484,27 +482,20 @@ function sendScoreToLocalStorage(calculatedScore) {
     if (getTopTen === null){
         topTen = [];
         topTen.push(newScore);
-        console.log(topTen);
     } else if (getTopTen.length < 10) {
-        console.log(calculatedScore);
-        console.log(topTen.length);
         topTen = getTopTen;
         topTen.push(newScore);
         topTen = topTen.sort(compare)
-        console.log(getTopTen);
     } else {
         let lastIndex = (getTopTen.length - 1);
         if (calculatedScore < topTen[lastIndex].score) {
             topTen[lastIndex] = newScore;
-            console.log(getTopTen);
-        } else {
-            console.log(calculatedScore);
-        }
+        } 
     }
+
     topTen = topTen.sort(compare)
     myStorage.setItem("topTen", JSON.stringify(topTen));
     topScore = topTen[0].score;
-    console.log(topScore);
     return topScore
 
     // credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
@@ -524,7 +515,7 @@ function sendScoreToLocalStorage(calculatedScore) {
  */
 function clearLeaderBoard(){
     console.log(topScore);
-    myStorage.removeItem("score");
+    myStorage.removeItem("topTen");
     console.log(topScore);
 }
 
