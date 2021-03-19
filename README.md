@@ -13,7 +13,12 @@ coffee breaks, keeping children entertained or killing some time while travellin
 ---
 ## UX
 
-
+With regards to the layout and structure of this project, a minimal design was intentionally chosen to encourage users to navigate to the sites main point of interest: the Game area.  
+The addition of vibrant colors and a large range of interesting icons, themes and strong visual queues were chosen to offset the minimal design and provide a fun, casual
+asthetic. Fonts with a "doodly", handwritten nature, bright primary colors and page layouts that are not dissimilar to copy books from 
+school were chosen to fit a motif that reminds users of childhood and the enjoyment of distraction and simple childhood games.
+Javascript was used extensively to generate a suite of strong user feedback methods, to engage game users, prevent user error
+and encourage first time learning. 
 
 ---
 ## Strategy
@@ -254,14 +259,14 @@ The responsive functionality of the site has been tested to work on most common 
 
 ### Validation
 
-#### html5
+#### HTML5
 
 All HTML pages in this deployed project successfully passed validation without returning any error or warnings. 
 HTML files were validated using W3C's [Nu HTML Checker](https://validator.w3.org/nu/#textarea)
 when files were initally passed through the validator an error was returned due to a # sign being accidentally included in the `aria-controls="#navbarCollapse"` property in the navbar. 
 The # was subsequently removed and all HTML code passed validation without any errors or warnings.
 
-#### css3    
+#### CSS3    
 The style.css file used to add custom styling to this project was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator)
 The CSS passed validation with 0 errors. 
 14 warnings were returned:
@@ -288,7 +293,11 @@ the scoreboard.js file and allpages.js files passed validation with no errors or
 
 **Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
 **Fix:** clearInterval(timer) when the startTimer function is called before doing anything else. This resets the timer each time the timer is run
-credit: solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
+**credit:** solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796)
+`function startTimer() {
+    clearInterval(Timer);
+    Timer = setInterval(myTimer, 100); 
+}`
 
 **Bug:** User could click on tiles before pressing the startGame button. This enabled to get a head start by matching tiles before the timer had started. 
 **Fix:** The click event listeners on each game tile are only initiated when the game has been started by clicking the startGame button.
@@ -301,8 +310,8 @@ of the button was changed on button click.
 
 **Bug** An extra value was being added to the moves score output box upon game completion. 
 **Fix** the countClicks() function was being called by the calculateScore() function upon game completion as a result an
-extra increment was being added to the moves counter when the game was completed. TYo fix this the calculation was changed to use the clicks value which is returned by the 
-countClicks() function so that the moves box does not display the incorrect answer on game completion
+extra increment was being added to the moves counter when the game was completed. To fix this the calculation was changed to use the clicks value which is returned by the 
+countClicks() function so that the moves box does not display the incorrect answer on game completion.
 
 **Bug** Re-clicking a correctly matched tile changed it's background-color. While this did not affect the functionality of the game( ie it did not register as a click, move or affect the scoring etc...)
 it was deemed confusing, as user may interpret a change of color as a sign that this tile is still available for use. 
@@ -390,7 +399,8 @@ Is used to add structure, layout and a mobile-first responsive design to the web
 
 jQuery and Popper.js are also referenced by bootstrap for responsive components like the navbar and collapse functionality.
 
-Javascript
+[Javascript](https://www.javascript.com/)
+Javascript was used to add user interactivty to the project, to control the gameplay and logic of the game and to set and retrieve data to local storage. 
 
 ![Gitpod Logo](assets/images/technologies/gitpod.png)
 ### Gitpod
@@ -427,6 +437,16 @@ All text is unique content written by me, ([Nick Kirk](https://github.com/nickas
 ---
 
 ### Code Credits
+
+#### Prevent Timer being started more than Once
+- If the timer was started more than once, it's speed would double causing inaccurate score calculation and a poor user experience.
+- A solution was found at this [stack overflow post](https://stackoverflow.com/questions/31036619/timer-goes-twice-as-fast-when-triggered-again/31036796) which simply cleared the timer interval each time the
+timer started to reset it and prevent this bug. 
+- code: 
+`function startTimer() {
+    clearInterval(Timer);
+    Timer = setInterval(myTimer, 100); 
+}`
 
 #### Pointer Events
 - The `pointer-events: "none"` css property was used to prevent additional click events on correectly matched game tiles.
