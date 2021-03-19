@@ -1,4 +1,4 @@
-# Memory Minder Memory Game
+# Memory Minder - An Interactive Memory Game
 ![Homepage screenshot](assets/images/mm-responsive-site-preview.png)
 [Visit the Deployed Site on github pages](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/)
 
@@ -251,6 +251,16 @@ Testing has also confirmed compatibility with all common browsers to accommodate
 for as many users as possible. 
 
 The responsive functionality of the site has been tested to work on most common devices with a 320px screen-width and larger. 
+
+### Validation
+
+#### css    
+The style.css file used to add custom styling to this project was validated using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator)
+The CSS passed validation with 0 errors. 
+14 warnings were returned:
+One warning was returned because of imported fonts which are not checked when validating by direct input.
+The other 13 warnings were due to the use of root variables, which can be ignored as root variables are currnetly not supported by this validator.  
+![valid css](http://jigsaw.w3.org/css-validator/images/vcss-blue)
 
 ---
 
