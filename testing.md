@@ -200,12 +200,23 @@ Once the start button has been pressed all tiles will be clickable until they ha
 the new game button will be reenabled.
 - observed behaviour: Many test games were played and the new game button was observed to be working as intended in all instances.
 
-Test
-- predicted behaviour:
+### rules.html
+[go to rules.html](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/rules.html)
+
+Test Rules sections format correctly
+- predicted behaviour: there should be two distinct sections on the rules.html page. Both should have colored headings and light-colored section bodies. 
+all sections should scale correctly to fit on the page. No overflow should occur on screensizes >320px wide. Fonts should adjust to ensure a correct fit for the screen size in use.
+- observed behaviour: The rules.html page was viewed on all listed browsers, on multiple devices and in responsive mode in dev tools. It was confirmed that readbility and font-size have been optimised for
+most common screensizes. No overflow was onserved and the sections are styled as anticipated. The rules.html page is rendering as intended.
+
+### leaderboard.html
+[go to leaderboard.html](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/leaderboard.html)
+
+Test Rules Leaderboard for first user
+- predicted behaviour: When a new user who has recorded no scores visits the leaderboard.html page, A message bbox
+should display a message that the user needs to complete the game to register a score. The message should also provide a link styled like a button which directs the user to 
+the index.html page where they can commence game play. 
 - observed behaviour:
-
-
-
  
 
 ## Bugs
