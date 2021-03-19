@@ -212,18 +212,25 @@ most common screensizes. No overflow was onserved and the sections are styled as
 ### leaderboard.html
 [go to leaderboard.html](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/leaderboard.html)
 
-Test Rules Leaderboard for first user
+Test Leaderboard Message for first-time user
 - predicted behaviour: When a new user who has recorded no scores visits the leaderboard.html page, A message bbox
 should display a message that the user needs to complete the game to register a score. The message should also provide a link styled like a button which directs the user to 
 the index.html page where they can commence game play. 
 - observed behaviour: By clearing local storage I was able to emulate first time user experience. I observed that the message was displaying as anticipated and confirmed that the link brings the user to the index.html page.
 as such the leaderboard page is rendering as intended for first time users.
  
+Test leaderboard table for return user
+- predicted behaviour: if a user has completed a game and recorded a score when they land on the leaderboard.html page their 
+scores will be formatted into a table. Scores will be sorted in ascending order and should display the score and the date it was recorded.
+if more than ten scores are already listed in the table a new score will only be registered if it is lower than the highest existing score.
+- Observed behaviour: I observed the leaderboard after completing 12 games. For each completed game, the score was added to the table as intended.
+Scores were sorted in ascending order as intended. Once more than 10 scores were recorded, the new entry was only added to the table if it was lowerr than the worst score.
+As such the leaderboard table can be seen to be working correctly
 
+---
 ## Bugs
-
-### Bugs
-
+---
+### Bugs Fixed
 #### Multiple timer starts possible in single game bug
 - **Bug:** If start Game button is clicked when timer is already running, The timer speeds up and the end game button no longer stops the game.
 - **Desired Behaviour:** Timer will start once when game is started and will stop when game is completed or when time is elapsed.
@@ -305,6 +312,14 @@ which consequently meant that the checkMatch function would then be checking for
 This prevented the described bug and also ensured that these dead clicks were not counted towards the game moves calculation.
 After implementing this fix, the game functioned as anticipated.
 
-### Bugs Fixed
+### Existing Bugs/Other
 
-## Eixsting Bugs
+#### Tile Peeking
+This is not so much a bug as a ux decision but it is a known behaviour that when clicking tiles quickly, it is possible for 
+a user to reveal a third tile before the 1st and 2nd tiles icons have been hidden again. This essentially allows users to "peek" ahead and see and extra
+tile. While it does make it easier to match tiles, after receiving feedback from multiple users, the consensus was that the game was difficult enough
+and this peeking tactic actually results in more incorrect clicks and therefore a higher "moves" score.
+It would be easy to fix this behaviour by removing the click event listener for all tiles until the timeout was finished on an incorrect match. 
+However this slows down the play and was found to be a more irritating user experience.
+
+[return to README.md](README.md)
