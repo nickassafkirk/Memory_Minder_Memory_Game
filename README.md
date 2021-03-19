@@ -184,7 +184,12 @@ Two fonts have been chosen for this project.
 - This font is for the Logo, main navigation, headings, button text, labels and in the leaderboard table. During testing it was
 found to be adequately legible by multiple users. 
 - In areas with larger passages of text, a different font has been chosen to improved readability.
-2. 
+2. [Patrick Hand](https://fonts.google.com/specimen/Patrick+Hand?preview.text_type=custom#standard-styles)
+- This font was chosen to fit with the playful, light-hearted and juvenile that is aimed for this project. However this font was chosen to compliment
+the Finger Paint font while improving readability of larger passages of text. 
+- For this reason the Patrick hand font has been chosen for the section body sections of the rules.html page.
+- Initially the [Patrick Hand SC](https://fonts.google.com/specimen/Patrick+Hand+SC?preview.text_type=custom) font was selected and though this font was preferred stylistically, during testing it was found to be difficult to 
+read multi-line blocks of text because of it's uppercase style.
 ---
 
 ### Colors      
