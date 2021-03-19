@@ -467,14 +467,6 @@ timer started to reset it and prevent this bug.
   1. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
   1. [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
 
-#### IsNumber function 
-- A small code snippet to check if a value is a number was utilised from [this stackoverflow post](https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript)
-
-- `var isNumber = function isNumber(value) 
-{
-   return typeof value === 'number' && isFinite(value);
-}
-`
 
 #### CSS vmin/vmax
 - To create a responsive gameboard, which has square game tiles across all screen sizes I used vmin values. I found information on vmin and vmax values in [this article](https://www.sitepoint.com/css-viewport-units-quick-)
