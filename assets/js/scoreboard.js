@@ -22,7 +22,5 @@ function createLeaderboard(){
 }
 
 function clearLeaderBoard(){
-    console.log(topScore);
-    myStorage.removeItem("score");
-    console.log(topScore);
+    myStorage.removeItem("topTen");
 }
