@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Patrick+Hand&family=Patrick+Hand+SC&display=swap');
 
 :root{
     --mainBg: #222;
@@ -308,7 +308,7 @@ li{
 
 .section-body{
     color: var(--mainBg);
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: 'Patrick Hand', sans-serif;
     background-color: var(--lightBg);
     padding: 1rem;
 }

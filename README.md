@@ -171,13 +171,25 @@ A responsive view of the site can be found at [this link](http://ami.responsived
 ---
 ## Surface
 
-### Fonts
-**General**     
+The surface of this game is intended to present a fun and friendly experience for a broad-range of users. The design has been 
+kept simple to keep attention on gameplay area; the sites primary focus. 
+The fonts, colors and other styles have been chosen to produce an emotive child-like experience with the use of playful arts & crafts themed fonts and broad color palette dominated by vibrant primary colors.
 
+### Fonts
+Two fonts have been chosen for this project. 
+
+1. [Finger Paint](https://fonts.google.com/specimen/Finger+Paint?preview.text_type=custom)
+- This playful font has a playful hand drawn style, that fits the intended "childhood" motif I was trying to achieve. 
+- The finger paint font is the primary font utilised sitewide.
+- This font is for the Logo, main navigation, headings, button text, labels and in the leaderboard table. During testing it was
+found to be adequately legible by multiple users. 
+- In areas with larger passages of text, a different font has been chosen to improved readability.
+2. 
 ---
 
 ### Colors      
-Colors are used to increase contrast, visual impact and to improve readability across the site.Colors are used during game play to aciliatate matching of tile pairs.
+Colors are used to increase contrast, visual impact and to improve readability across the site. Colors are used during game play to faciliatate matching of tile pairs and reinforce the concept that tiles exist in matching pairs. 
+The sites chosen color palette is dominated by primary colors
 Root variables are used to allow quick stylisitic changes to be made and to facilitate future color changes if necessary. The main colors used on this project are as follows:
 
 ---
