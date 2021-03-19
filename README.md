@@ -272,15 +272,17 @@ are currently not supportede by the W3C css validation service.
 
 ![valid css](http://jigsaw.w3.org/css-validator/images/vcss-blue)
 
-### Vendor Prefixes
-Vendor prefixes were added to the style.css file using the [autoprefixer plugin](https://autoprefixer.github.io/)
+#### Javascript
+
+All javascript code was validated using [jshint](https://jshint.com/)
+During the first validation attempt of the game.js file a number of missing semi colons and undeclared variables were identified and fixed. 
+After which only one warning remined One warning: 
+- "Expected an assignment or function call and instead saw an expression." Despite various efforts it was not possible to achieve the required game functionality without this warning. 
+the scoreboard.js file and allpages.js files passed validation with no errors or warnings.
 
 ---
 
 ## Code 
-
-The code in this project was written by me ([Nick Kirk](https://github.com/nickassafkirk)) the project owner. Any code snippets written by other developers or found from online resources have been credited
-in the credits section below.
 
 ### Bugs
 
@@ -310,7 +312,7 @@ additional style changes.
 As the event listener calls an anonymous function, it was not possible to then remove this event listener when the tile was matched correctly. Extracting this functionality out to a function declared at global scope was not possible because the function requires a parameter to be passed that would then be uinnacessible at global scope.
 Using the e.target method was also not suitable because again the necessary parameter could not be passed to the function.         
     
-    `function assignTileInner(tileThemeArray, bgColors, num) {
+`function assignTileInner(tileThemeArray, bgColors, num) {
         tile.innerHTML = tileThemeArray[num];
         tile.setAttribute("icon", tileThemeArray[num])
         tile.addEventListener("click", function(){
@@ -354,12 +356,9 @@ After implementing this fix, the game functioned as anticipated.
 
 
 
-
-
-
-
-**Credit** 
-
+**Credits** 
+The code in this project was written by me ([Nick Kirk](https://github.com/nickassafkirk)) the project owner. Any code snippets written by other developers or found from online resources have been credited
+in the credits section below.
 
 ### Vendor Prefixes
 Vendor prefixes were added to the main stylesheet using [autoprefixer](https://autoprefixer.github.io/) to ensure styles are applied as consistently 
@@ -389,7 +388,9 @@ Is used to add styles, layout, design and interactivity to the page and to incre
 
 Is used to add structure, layout and a mobile-first responsive design to the website. 
 
-Javascript, jQuery and Popper.js are also referenced by bootstrap for responsive components like the navbar, modals, collapse and accordian.
+jQuery and Popper.js are also referenced by bootstrap for responsive components like the navbar and collapse functionality.
+
+Javascript
 
 ![Gitpod Logo](assets/images/technologies/gitpod.png)
 ### Gitpod
