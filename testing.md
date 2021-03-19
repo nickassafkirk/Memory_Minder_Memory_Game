@@ -216,7 +216,8 @@ Test Rules Leaderboard for first user
 - predicted behaviour: When a new user who has recorded no scores visits the leaderboard.html page, A message bbox
 should display a message that the user needs to complete the game to register a score. The message should also provide a link styled like a button which directs the user to 
 the index.html page where they can commence game play. 
-- observed behaviour:
+- observed behaviour: By clearing local storage I was able to emulate first time user experience. I observed that the message was displaying as anticipated and confirmed that the link brings the user to the index.html page.
+as such the leaderboard page is rendering as intended for first time users.
  
 
 ## Bugs
