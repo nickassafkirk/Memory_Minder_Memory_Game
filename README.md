@@ -4,9 +4,11 @@
 
 ---
 ## Overview
-Memory minder is a fun, interactive brain training game designed for adults and children. Test your memory reaction speed and recall
-to complete the game in as few moves as possible and as quickly as you can. This game is a great excercise to challenge your short-term memory and reaction speeds and is the perfect activity for 
-coffee breaks, or killing some time on the way home from work. 
+Memory minder is a fun, interactive brain-training game designed for adults and children*. The game's purpose is to test the users memory, reaction-speed and recall while providing an enjoyable experience during gameplay.
+To complete the game, the user must match all the tile pairs, in as few moves as possible and as quickly as they can. This game is a great excercise to challenge a user's short-term memory and reaction speeds and is the perfect activity for 
+coffee breaks, keeping children entertained or killing some time while travelling on public transport. 
+
+*while this game is perfectly suitable for children over 6. We recommend parents supervision while playing.
 
 ---
 ## UX
@@ -18,8 +20,9 @@ coffee breaks, or killing some time on the way home from work.
 
 ### Ideal User
 The ideal user for this site is: 
-- Any user 7 years or older
-- An ideal user will be a regular smart device user
+- An ideal user is 12 years or older.
+- An ideal user will be technmology savvy.
+- An ideal user will be a regular smart phopne/device user.
 - An ideal user enjoys traditional games like card games, board games, sudoku, crosswords etc...
 
 ### User Goals
@@ -29,10 +32,14 @@ The ideal user for this site is:
 - A user wants to end the game when they wish.
 - A user wants to be able to start a new game when they choose.
 - A user expects a different board layout with each new game.
-- A user wants to be notified if they have made a correct or incorrect move.
-- A user wants to receive notification when they have completed a game.
+- A user needs to be notified if they have made a correct or incorrect move.
+- A user needs to receive notification when they have completed a game.
+- a user needs to set the difficulty level to match their ability
 - A user wants to see their score when they have finished the game.
 - A user wants to see their best score in a session.
+- A user wants to remain interested after playing several games
+
+
 
 ### User Stories
 
@@ -228,24 +235,7 @@ After implementing this fix, the game functioned as anticipated.
 
 
 **Credit** 
-information about pointer-events was found at these links: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events), [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
-### Frameworks
-**Bootstrap** CDN was used to create a responsive site design. Several bootstrap components were utilised including navbar, jumbotrons, alerts, modals, forms and the collapse functionality. 
-Custom CSS was used to apply unique styling to bootstrap components.
 
-// credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value 
-
-`function compare( a, b ) {
-  if ( a.last_nom < b.last_nom ){
-    return -1;
-  }
-  if ( a.last_nom > b.last_nom ){
-    return 1;
-  }
-  return 0;
-}
-
-objs.sort( compare );`
 
 ### Vendor Prefixes
 Vendor prefixes were added to the main stylesheet using [autoprefixer](https://autoprefixer.github.io/) to ensure styles are applied as consistently 
@@ -304,21 +294,52 @@ Is used to create wireframes as visual mockups of the final site design
 ### Content Credits
 All text is unique content written by me, ([Nick Kirk](https://github.com/nickassafkirk)) the project owner, for the purpose of this project. 
 
-**CSS vmin** To create a responsive gameboard, which has square game tiles across all screen sizes I used vmin values. I found information on vmin and vmax values in [this article](https://www.sitepoint.com/css-viewport-units-quick-)
+### Icons/Imagery
+#### CSS Icons
+- The correct css code used to add a check mark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
+- The correct css code used to add a X mark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/ballot-x/)
 
-**CSS Checkmark Icon** The correct css code used to add a checkmark to css content property was found [here](https://www.toptal.com/designers/htmlarrows/symbols/check-mark/)
 ---
 
 ### Code Credits
 
+#### Pointer Events
+- The `pointer-events: "none"` css property was used to prevent additional click events on correectly matched game tiles.
+- Information regarding pointer-events was found at these links: 
+  1. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events)
+  1. [CSS Tricks](https://css-tricks.com/almanac/properties/p/pointer-events/)
 
-##### IsNumber function - A small code snippet to check if a value is a number was utilised from [this stackoverflow post](https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript)
+#### IsNumber function 
+- A small code snippet to check if a value is a number was utilised from [this stackoverflow post](https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript)
 
-`var isNumber = function isNumber(value) 
+- `var isNumber = function isNumber(value) 
 {
    return typeof value === 'number' && isFinite(value);
 }
 `
+
+#### CSS vmin/vmax
+- To create a responsive gameboard, which has square game tiles across all screen sizes I used vmin values. I found information on vmin and vmax values in [this article](https://www.sitepoint.com/css-viewport-units-quick-)
+
+
+#### Local Storage Credit
+- When establishing a method by which game scores could be stored to local memory, I found information on passing values as JSON data at the following pages:
+  1. [outline of JSON methods](https://m204wiki.rocketsoftware.com/index.php/List_of_Json_methods)
+  1. [use of .stringify method](https://stackoverflow.com/questions/3357553/how-do-i-store-an-array-in-localstorage)
+
+#### Comparison Function
+- A comparison function discovered in this [stack oveflow post](https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value)
+is used to sort user game scores, so they can be listed in ascending order at the [leaderboard.html page](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/leaderboard.html)
+- **Original code** `function compare( a, b ) {
+  if ( a.last_nom < b.last_nom ){
+    return -1;
+  }
+  if ( a.last_nom > b.last_nom ){
+    return 1;
+  }
+  return 0;
+}
+objs.sort( compare );`
 
 ---
 
