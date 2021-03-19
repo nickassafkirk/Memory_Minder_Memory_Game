@@ -20,7 +20,3 @@ function createLeaderboard(){
       });
     }
 }
-
-function clearLeaderBoard(){
-    myStorage.removeItem("topTen");
-}

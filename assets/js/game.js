@@ -512,14 +512,6 @@ function sendScoreToLocalStorage(calculatedScore) {
     }
 } 
 
-/**
- * Create button to clear exisitng score from local storage for testing purposes
- */
-function clearLeaderBoard(){
-    console.log(topScore);
-    myStorage.removeItem("topTen");
-    console.log(topScore);
-}
 
 
 
