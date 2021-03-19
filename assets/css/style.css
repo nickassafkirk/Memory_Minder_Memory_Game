@@ -79,12 +79,12 @@ li{
 #main-nav{
     margin: 1% auto;
     text-align: center;
-    width: 100vw;  
+    width: 100vw; 
 }
 
-#main-nav a{
-    color: #fff;
+#main-nav button{
     text-align: center;
+    color: #fff;
     margin: 0 auto;
 }
 
