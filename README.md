@@ -39,16 +39,19 @@ The ideal user for this site is:
 - A user wants to see their best score in a session.
 - A user wants to remain interested after playing several games
 
-
-
 ### User Stories
 
 - As a new user, I want to enjoy playing the game.
 - As a new user, I want to understand how to play the game without having to read the instructions.
 - As a new user, I want to be challenged by the game but not frustrated by it's level of difficulty.
+- As a user, I need to set the difficulty level to match my ability or desired effort.
 - As a return user, I want to see how my result compares to my previous attempts.
-- As a user, I want to select my preferred game theme.
+- As a return user, I expect a predictable and consistent gaming experience.
+- As a user, I want to edit the game appearance to remain interested in the game.
 - As a user, I want to be able to play the game on a mobile device.
+- As a user, I need to receive feedback when a correct/incorrect move has been made.
+- As a user, I expect the game to stop when I have completed the game.
+- as a user, I need to be able to access game instructions if I need help understanding how to play the game.
 
 ---
 ## Scope 
@@ -57,20 +60,24 @@ The ideal user for this site is:
 - A consistent page header and logo.
 - A means to navigate between pages.
 - A Game Board with up to 16 tiles.
-- A How to play page to detail game rules and instructions.
-- A leaderboard to display a users score and to encourage aspiration for victory and repeat play.
-- A child mode with easier game play and suitable tile icons.
-- A feedback form to provide feedback to the game owner.
+- A Means to start and stop the game
+- A Means to record, calculate and communicate a user's score.
+- A "How to play" page to detail game rules and instructions.
+- A leaderboard to display a user's top scores, to encourage aspiration for victory and repeat play.
 
 ### Features/Functionality to be added
-- Publish users scores to an online leaderboard.
-- Add a story mode where additional levels of difficulty are added based on win streaks.
+- Add functionality to publish multiple user's scores to an online leaderboard. So multiple user's can compare their scores to 
+those of other users.
+- Add a story mode where additional levels of difficulty and new themes are automatically as a user accrues consecutive game wins.
+- A child friendly mode designed for children between 5 -10. Child mode would include icons relevant and suitable for younger children. sucha s basic shapes, popular cartoon characters etc..
+child mode would also include fewer tiles which are larger in size. 
+- Add a feedback form to gather feedback or enquires from game users.
 
 ---
 ## Structure
 
 ### Pages
-#### 1. [Homepage](https://nickassafkirk.github.io/Memory_Minder_Memory_G) 
+#### 1. [Homepage](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/index.html) 
 The Primary landing page for the site where the gameboard is located. 
 This page includes: 
 - a main navigation bar to allow user to navigate between site pages.
@@ -82,7 +89,7 @@ This page provides users with:
 - A step by step guide on how to play the game.
 - An explanation of how the game is scored.
 
-#### 3. [Leaderboard]()
+#### 3. [Leaderboard](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/leaderboard.html)
 ---
 ### Detailed Features
 
