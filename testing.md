@@ -1,4 +1,9 @@
 
+[Link to README.md](README.md)
+
+Link to deployed site](https://nickassafkirk.github.io/Memory_Minder_Memory_Game/)
+
+
 ## Compatibility
 
 Compatibility testing involved going through the site thoroughly to ensure that the format, layout, styles and functionality of the site perform as intended. 
@@ -36,6 +41,35 @@ Testing involved:
 1. Additional testing was carried out by asking friends and family to test the site and to provide feedback on a range of devices. 
 
 ## User Story Testing
+
+1. ### As a new user, I want to enjoy playing the game.
+- To test: I played the game several times and then shared the game with multiple friends and family. Having received responses from multiple people, the unanimous decision was that users enjoyed the game and found it easy to use. the feedback was generally positive and 
+multiple users send screenshots to show that they had beaten their top scores.
+- Result: The tests carried out satisfy the user story that the game must be enjoyable for new users.
+
+1. ### As a new user, I want to understand how to play the game without having to read the instructions.
+- To test: A new user lands on the homepage. A new user sees a large green start game button. There are no other buttons that are available to the user except the game settings dropdown. The user is forced to press the start game button. 
+Once the button is pressed the timer starts, this indicates to the user that the game has started. The only clickable elements available to the user are the end button and the tiles. Therefore the user must click a tile. On clicking a tile 
+a tile's image is revealed. The selected tile remains revealed. Clicking th selected tile again has no affect. The user has no option but to click another tile. If the second guess is wrong, a red mask is flashed over the tile and both tiles are hidden again. This indicates that an incorrect move has been made. 
+If a correct match is made a green mask flashes over the tiles and they remain displayed. If user clicks on the correctly matched tile, it has no effect, therefore user must select another unmatched tile. A user will continue matching tiles until all tiles are matched, time runs out or they end the game by pressing the end button.
+If the time runs out a message is displayed on the scoreboard that time ran out, this teaches the user that they must complete the game within th allotted time or they will fail. If the user ends the game a mesasge is displayed which teaches the user that a score is only registered if the game is completed. 
+If the user correctly matches all the tiles and finishes the game, then their score will be displayed on the scoreboard. This teaches the user that when they finish a game their score will be retunred.
+for all 3 scenarios, upon game completion the only active button is now the new game button. This means after completing the game, a user can only start a new game or visit another site page by accessing it from the main navigation.
+If the user still needs help, there's a large how to play option in the main navigation. This indicates that instructiional material is available if necessary which improves user confidence.
+-Result: By following the steps above
+
+1. ### As a new user, I want to be challenged by the game but not frustrated by it's level of difficulty.
+-To test: a user lands on the index.html page. Having played the game once and ran out of time, the user  establishes that the game level is too hard. After ending a game a bright game settings banner is displayed above the game area.
+clicking this banner opens a dropdown whcih includes a difficulty dropdopwn. The user selects the easy option. The user starts a new game and plays the game again. This time the user completes the game within the allotted time. The user is satisfied with the level of difficulty.
+Having played the game several times, the user wants to allow themselves a harder challenge. The follow the steps as outlined before and select a harder difficulty. They play the game and experiment with the different levels until their preferred level is set. 
+-Result: The game fulfils the user story outlined above.
+1. ### As a return user, I want to see how my result compares to my previous attempts.
+1. ### As a return user, I expect a predictable and consistent gaming experience.
+1. ### As a user, I want to edit the game appearance to remain interested in the game.
+1. ### As a user, I want to be able to play the game on a mobile device.
+1. ### As a user, I need to receive feedback when a correct/incorrect move has been made.
+1. ### As a user, I expect the game to stop when I have completed the game.
+1. ### as a user, I need to be able to access game instructions if I need help understanding how to play the game.
 
 ## Manual Testing
 
