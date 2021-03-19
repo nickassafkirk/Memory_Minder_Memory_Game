@@ -1,8 +1,10 @@
+
+
 //global variables
 const firstStartRef = document.querySelector("#initialStartButton");
 const GameOutputsRef = document.querySelectorAll(".gameOutput");
-const endButtonRef = document.querySelector('#endGame')
-const startButtonRef = document.querySelector("#startGame")
+const endButtonRef = document.querySelector('#endGame');
+const startButtonRef = document.querySelector("#startGame");
 const tiles = document.querySelectorAll(".gametile");
 const gameplayAreaRef = document.querySelector("#gameplay-area");
 const scoreAreaRef = document.querySelector("#scoreboard");
@@ -13,12 +15,12 @@ const myStorage = window.localStorage;
 let topTen = [];
 const getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
 let topScore;
+let timer;
+let count;
+let calculatedScore;
 
 const football = `<i class="fas fa-football-ball"></i>`;
-const mask = `<i class="fas fa-ufo"></i>`;
 const pizza = `<i class="fas fa-pizza-slice"></i>`;
-const lightning = `<i class="far fa-bolt"></i>`;
-const bulb = `<i class="fal fa-lightbulb"></i>`;
 const rocket = `<i class="fas fa-rocket"></i>`;
 const bacteria = `<i class="fas fa-bacterium"></i>`;
 const kiwi = `<i class="fas fa-kiwi-bird"></i>`;
@@ -52,7 +54,7 @@ const tree =`<i class="fas fa-tree"></i>`;
  */
 const iconsTheme = [football, pizza, rocket, bacteria, kiwi, cocktail, fire, anchor];
 const animalsTheme = [cat, crow, dog, dove, fish, frog, hippo, horse, otter, kiwi, spider];
-const outdoorsTheme = [tent, caravan, compass, hiking, mountain, tree, signs, route, map, fire, fish]
+const outdoorsTheme = [tent, caravan, compass, hiking, mountain, tree, signs, route, map, fire, fish];
 const numbersTheme = buildNumbersArray();
 
 let clicks = 0;
@@ -96,7 +98,7 @@ function endGame() {
     startButtonRef.innerHTML = `New<br class="d-inline d-sm-none"> Game`;
     startButtonRef.disabled = false;
     enableGameSettings();
-    showScoreOnCompletion()  
+    showScoreOnCompletion(); 
 }
 
 /**
@@ -128,26 +130,26 @@ function setRandomTileOrder(numberOfTiles) {
  */
 function setTiles(randomOrderArray, tileThemeArray) {
     let i = 0;
-    for (tile of tiles) {
+    for (var tile of tiles) {
         tile.innerHTML = randomOrderArray[i];
         i++;
         //replace numerical values with icon pairs
         if (tile.innerText < 3) {
-            assignTileInner(tileThemeArray, bgColors, 0)
+            assignTileInner(tileThemeArray, bgColors, 0);
         } else if (tile.innerHTML < 5) {
-            assignTileInner(tileThemeArray, bgColors, 1)
+            assignTileInner(tileThemeArray, bgColors, 1);
         } else if (tile.innerHTML < 7) {
-            assignTileInner(tileThemeArray, bgColors, 2)
+            assignTileInner(tileThemeArray, bgColors, 2);
         } else if (tile.innerHTML < 9) {
-            assignTileInner(tileThemeArray, bgColors, 3)
+            assignTileInner(tileThemeArray, bgColors, 3);
         } else if (tile.innerHTML < 11) {
-            assignTileInner(tileThemeArray, bgColors, 4)
+            assignTileInner(tileThemeArray, bgColors, 4);
         } else if (tile.innerHTML < 13) {
-            assignTileInner(tileThemeArray, bgColors, 5)
+            assignTileInner(tileThemeArray, bgColors, 5);
         } else if (tile.innerHTML < 15) {
-            assignTileInner(tileThemeArray, bgColors, 6)
+            assignTileInner(tileThemeArray, bgColors, 6);
         } else if (tile.innerHTML < 17) {
-            assignTileInner(tileThemeArray, bgColors, 7)
+            assignTileInner(tileThemeArray, bgColors, 7);
         } else {
             console.error("Error: too many tiles");
         }
@@ -160,10 +162,10 @@ function setTiles(randomOrderArray, tileThemeArray) {
  */
     function assignTileInner(tileThemeArray, bgColors, num) {
         tile.innerHTML = tileThemeArray[num];
-        tile.setAttribute("icon", tileThemeArray[num])
+        tile.setAttribute("icon", tileThemeArray[num]);
         tile.addEventListener("click", function(){
             this.style.backgroundColor = bgColors[num];
-        })
+        });
     }
 }
 
@@ -174,20 +176,19 @@ function startTimer() {
     clearInterval(timer); //clears timer before timer starts. This fixes issue if timer is triggered again, when already running. 
     count = 1, timer = setInterval(function () {
         document.getElementById("timer").firstChild.innerText = count++;
-
         //If time runs out, game is ended
         if (count === (gameplayTime + 2)) {
             clearInterval(timer);
             document.getElementById("timer").firstChild.innerText = "Time Up";
             endGame();
         }
-    }, 1000);
+    }, 1000);  
 }
 
 function endTimer() {
-        let timeScore = document.getElementById("timer").innerText;
+        let printTimeScore = document.getElementById("timer").innerText;
         clearInterval(timer);
-        return timeScore
+        return printTimeScore;
     }
 
 /** 
@@ -213,12 +214,12 @@ function displayTile(e) {
     }
 
     if (tileIcons.length % 2 == 0) {
-        checkMatch(tileIcons, tileIds, n)
+        checkMatch(tileIcons, tileIds, n);
         n = n + 2; 
         // this counts number of clicks
-        countMoves()
-    } return
-};
+        countMoves();
+    } return;
+}
 
 /**
  * checkMatch tests to see if first selection, matches second selection
@@ -243,7 +244,7 @@ function checkMatch(tileIcons, tileIds, n) {
 
     function setCorrectMatch(count){
         document.getElementById(tileIds[count]).classList.add("gametile-overlay");
-        document.getElementById(tileIds[count]).setAttribute("guess", "correct")
+        document.getElementById(tileIds[count]).setAttribute("guess", "correct");
         document.getElementById(tileIds[count]).removeEventListener("click", displayTile);
         document.getElementById(tileIds[count]).style.pointerEvents = "none";
         setTimeout(function () {
@@ -252,12 +253,12 @@ function checkMatch(tileIcons, tileIds, n) {
     }
 
     if (tileIcons[n] !== tileIcons[n + 1]) {
-        resetIncorrectMatch(n+1)
-        resetIncorrectMatch(n)
+        resetIncorrectMatch(n+1);
+        resetIncorrectMatch(n);
     } else {
-        setCorrectMatch(n+1)
-        setCorrectMatch(n)
-        countCorrectAnswers()
+        setCorrectMatch(n+1);
+        setCorrectMatch(n);
+        countCorrectAnswers();
     }
 }
 
@@ -266,7 +267,7 @@ function countCorrectAnswers() {
     if (correctMatches === 8) {
         endGame(); 
     } 
-    return correctMatches
+    return correctMatches;
 }
 
 /**
@@ -275,7 +276,7 @@ function countCorrectAnswers() {
 function countMoves() {
     clicks++;
     document.getElementById("clicks").firstChild.innerHTML = clicks;
-    return clicks
+    return clicks;
 }
 
 /**
@@ -283,7 +284,7 @@ function countMoves() {
    */
 function calculateScore() {
     let timeAtEnd = endTimer();
-    timeScore = parseInt(timeAtEnd);
+    let timeScore = parseInt(timeAtEnd);
     let calculatedScore = (timeScore + (clicks + 1));
     return calculatedScore;
 }
@@ -297,7 +298,7 @@ function showScoreOnCompletion(){
     if(resultType){
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
-        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.classList.add("show-flex");
         scoreAreaRef.innerHTML = `
         <h3>Game Over</h3>
         <p>You ran out of time</p>
@@ -305,7 +306,7 @@ function showScoreOnCompletion(){
     } else if (correctAnswersOnQuit < 8){
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
-        scoreAreaRef.classList.add("show-flex")
+        scoreAreaRef.classList.add("show-flex");
         scoreAreaRef.innerHTML = `
         <h3>Game Over</h3>
         <p>You quit before finishing</p>
@@ -318,7 +319,8 @@ function showScoreOnCompletion(){
     } else {topScore = sendScoreToLocalStorage(calculatedScore);
         gameplayAreaRef.classList.add("d-none");
         scoreAreaRef.classList.remove("d-none");
-        scoreAreaRef.classList.add("show-flex")}
+        scoreAreaRef.classList.add("show-flex");
+    }
         
         if (calculatedScore < topScore){
             scoreAreaRef.innerHTML = `
@@ -363,7 +365,7 @@ function enableGameSettings(){
  * resets the tiles to allow game to be replayed without refreshing the browser
  */
 function resetTiles() {
-    for (tile of tiles) {
+    for (var tile of tiles) {
         tile.removeAttribute("style");
         tile.removeAttribute("guess");
         tile.classList.remove("hideTile");
@@ -387,7 +389,7 @@ function resetTiles() {
  */
 function setDifficulty(){
     
-    gameDifficulty = this.value;
+    let gameDifficulty = this.value;
 
     if(gameDifficulty === "hard"){
         gameplayTime = 40;
@@ -407,11 +409,11 @@ function setTheme(){
     let chosenTheme = this.value;
 
    if( chosenTheme === "numbers"){
-        gameTheme = numbersTheme
+        gameTheme = numbersTheme;
     } else if (chosenTheme === "animals"){
-        gameTheme = animalsTheme
+        gameTheme = animalsTheme;
     } else if(chosenTheme === "outdoors"){
-        gameTheme = outdoorsTheme
+        gameTheme = outdoorsTheme;
     }
     return gameTheme;
 }
@@ -430,12 +432,12 @@ function generateRandomNumber(chooseNumber) {
  * combines 3 single r,g,b values to make a random rgb color
  */
 function generateRandomColor(){
-    r = generateRandomNumber(255);
-    g = generateRandomNumber(255);
-    b = generateRandomNumber(255);
+    let r = generateRandomNumber(255);
+    let g = generateRandomNumber(255);
+    let b = generateRandomNumber(255);
     let randomColor = `rgb(${r},${g},${b})`;
-    return randomColor
-};
+    return randomColor;
+}
 
 /** 
  * builds an array of random colors to be used to assign background colors to each tile pair
@@ -450,8 +452,8 @@ function buildColorSelection(){
             --i;
         }
     }
-    return colorSelection
-};
+    return colorSelection;
+}
 
 /**
  * Builds random array of numbers that provides the values for the numbers theme
@@ -485,7 +487,7 @@ function sendScoreToLocalStorage(calculatedScore) {
     } else if (getTopTen.length < 10) {
         topTen = getTopTen;
         topTen.push(newScore);
-        topTen = topTen.sort(compare)
+        topTen = topTen.sort(compare);
     } else {
         let lastIndex = (getTopTen.length - 1);
         if (calculatedScore < topTen[lastIndex].score) {
@@ -493,10 +495,10 @@ function sendScoreToLocalStorage(calculatedScore) {
         } 
     }
 
-    topTen = topTen.sort(compare)
+    topTen = topTen.sort(compare);
     myStorage.setItem("topTen", JSON.stringify(topTen));
     topScore = topTen[0].score;
-    return topScore
+    return topScore;
 
     // credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
     function compare(a, b) {
