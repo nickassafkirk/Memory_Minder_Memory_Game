@@ -259,8 +259,14 @@ The style.css file used to add custom styling to this project was validated usin
 The CSS passed validation with 0 errors. 
 14 warnings were returned:
 One warning was returned because of imported fonts which are not checked when validating by direct input.
-The other 13 warnings were due to the use of root variables, which can be ignored as root variables are currnetly not supported by this validator.  
+The other 13 warnings were due to the use of root variables, which can be ignored as root variables are currently not supported by this validator.  
+When the style.css file was validated no errors were recorder but 35 warnings were returned. The additional 20 warnings were in relation to vendor prefixes which
+are currently not supportede by the W3C css validation service.
+
 ![valid css](http://jigsaw.w3.org/css-validator/images/vcss-blue)
+
+### Vendor Prefixes
+Vendor prefixes were added to the style.css file using the [autoprefixer plugin](https://autoprefixer.github.io/)
 
 ---
 
