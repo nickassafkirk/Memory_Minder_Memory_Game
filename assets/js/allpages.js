@@ -5,11 +5,11 @@
  */
 let navRef = document.querySelector("#nav-list").children;
 
-for(navItem of navRef){
+for( var navItem of navRef){
     navItem.addEventListener("mouseover",function(e){
-        e.target.classList.add("wiggle")
+        e.target.classList.add("wiggle");
     });
     navItem.addEventListener("mouseout",function(e){
-        e.target.classList.remove("wiggle")
+        e.target.classList.remove("wiggle");
     });
 }
