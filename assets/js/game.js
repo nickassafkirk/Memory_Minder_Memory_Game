@@ -10,7 +10,7 @@ const difficultySelectionRef = document.querySelector("#difficulty");
 const gameSettingsRef = document.querySelector("#game-settings-label");
 let themeSelectionRef = document.querySelector("#theme");
 const myStorage = window.localStorage;
-let topTen =[];
+let topTen = [];
 const getTopTen = JSON.parse(window.localStorage.getItem("topTen"));
 let topScore;
 
@@ -477,8 +477,6 @@ function buildNumbersArray(){
  * @param {num} calculatedScore 
  */
 function sendScoreToLocalStorage(calculatedScore) {
-
-    let topTen = getTopTen;
     let newScoreDate = new Date();
     newScoreDate = newScoreDate.toDateString();
     let newScore = { "date": newScoreDate, "score": calculatedScore };
@@ -486,9 +484,11 @@ function sendScoreToLocalStorage(calculatedScore) {
     if (getTopTen === null){
         topTen = [];
         topTen.push(newScore);
+        console.log(topTen);
     } else if (getTopTen.length < 10) {
         console.log(calculatedScore);
         console.log(topTen.length);
+        topTen = getTopTen;
         topTen.push(newScore);
         topTen = topTen.sort(compare)
         console.log(getTopTen);
@@ -506,7 +506,6 @@ function sendScoreToLocalStorage(calculatedScore) {
     topScore = topTen[0].score;
     console.log(topScore);
     return topScore
-
 
     // credit: https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
     function compare(a, b) {
